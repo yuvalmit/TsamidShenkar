@@ -1,6 +1,6 @@
 function eyal(){
 
-	alert("eyal is gay");
+	alert("eyal is not gay");
 }
 
 $(document).ready(function(){
