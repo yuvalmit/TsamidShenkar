@@ -3,7 +3,7 @@
 	<head>
 		<title>Tzamid Video Player</title>
 		<script src="javascript/jquery-1.10.2.min.js"></script>
-		<script src="javascript/video.js"></script>
+		<script src="javascript/function.js"></script>
 		<link href="css/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
@@ -12,14 +12,20 @@
 			<section id="embed-link-section">
 				<div class="embed-input">
 					<div class="icon"></div>
-					<input type="text"/>
+					<input id="you-tube-input" type="text"/>
 				</div>
-				<div class="button">
+				<div id="upload-btn" class="button">
 					<div class="button-text">Upload</div>
 				</div>
 			</section>
 			<section id="embed-player-section">
-				
+				<iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/EDVrTYW2l84" allowfullscreen frameborder="0">
+				</iframe>
+			</section>
+			<section id="video-bottom-section">
+				<section class="avatar" id="a1"><img src="images/video-page/boy-watch.png"></section>
+				<section class="avatar" id="a1"><img src="images/video-page/girls-watch.png"></section>
+				<!--<section class="avatar" id="a1"><img src="images/video-page/boy-watch.png"></section>-->
 			</section>
 		</section>
 		<footer></footer>
