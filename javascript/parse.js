@@ -1,5 +1,8 @@
 Parse.initialize("hCiKNPSGy9q5iT40j0d9DAiLHpavkJMWxmsC15tS", "TmiPKzW632NWSIkuBB0Yj4HzYR4sJTba04k3iA8F");
 
+/**
+ * The signup function is currently for regular users only and needs username, email
+ */
 function signUp (username, password, email) {
 	var user = new Parse.User();
 	
