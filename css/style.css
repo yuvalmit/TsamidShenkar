@@ -6,6 +6,32 @@ header,section,nav,aside,footer {
     display:block;
 }
 
+header {
+	height: 77px;
+	width: 800px;
+	background-image: url(../assets/images/main/tool-bar.png);
+}
+
+iframe {
+	width: 800px;
+	height: 523px;
+	border: 0px;
+}
+
+header nav ul {
+	direction: rtl;
+}
+
+header nav ul li {
+	margin-right: 50px;
+	display: inline-block;
+}
+
+.toolbar-button{
+	width: 70px;
+	height: 70px;
+}
+
 #embed-player-section
 {
 	text-align: center;
