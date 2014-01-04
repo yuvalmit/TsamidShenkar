@@ -12,7 +12,7 @@ header {
 	background-image: url(../assets/images/main/tool-bar.png);
 }
 
-iframe {
+.content {
 	width: 800px;
 	height: 523px;
 	border: 0px;
