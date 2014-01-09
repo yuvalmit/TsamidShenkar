@@ -1,0 +1,64 @@
+*{
+	margin:0;
+	padding:0;
+}
+#form-wrapper
+{
+	width: 800px;
+	height: 523px;
+	text-align: center;
+}
+
+#form-wrapper form
+{
+	position: relative;
+	width:50%;
+	background-color: #a3a3a4;
+	border-radius: 3px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin: auto
+
+}
+
+form input, form textarea, form select
+{
+	display: block;
+	position: relative;
+	width:85%;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+form label
+{
+	text-align: left;
+}
+
+.input
+{
+	margin-top: 6px;
+	width: 85%;
+	margin-left: 7%;
+	margin-right: 7%;
+	background-color: #ececed;
+	border-radius: 3px;
+	padding-bottom: 6px;
+	padding-top: 6px;
+	
+}
+
+
+.help-button-wrapper
+{
+	display: inline-block;
+}
+.help-button-wrapper .help-button
+{
+	cursor: pointer;
+	color: blue;
+}
+.help-button-wrapper .help-button:hover
+{
+	color: navy;
+}
