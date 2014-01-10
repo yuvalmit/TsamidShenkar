@@ -23,19 +23,12 @@ function signUp (username, password, email) {
 function logIn (username, password) {
 	Parse.User.logIn(username, password, {
   		success: function(user) {
-    		// Do stuff after successful login.
+    	 console.log(user.get("username") + " logged in.");
   		},
   		error: function(user, error) {
-    		// The login failed. Check error to see why.
+    		alert("LogIn error: " + error.code + " " + error.message);
   		}
 	});
-}
-
-function printUser (results) {
-  for (var i = 0; i < results.length; i++) {
-    var newUser = results[i];
-    console.log(newUser.get("username"));
-  }
 }
 
 function getCurrentUser () {
@@ -48,49 +41,40 @@ function getCurrentUser () {
   return user;
 }
 
-function getUserAvatar () {
-  var avatarTable = Parse.Object.extend("Avatars");
-  var query = new Parse.Query(avatarTable);
-  query.equalTo("objectId", Parse.User.current().get("avatar").id);
-  query.include("head"); // Including the head pointer
-  query.include("hair"); // Including the hair pointer
-  query.include("eyes"); // Including the eyes pointer
-  query.include("body"); // Including the body pointer
-  query.include("mouth"); // Including the mouth pointer
-  query.find({
-    success: function(results) {
-      for (var i = 0; i < results.length; i++) {
-        var parseAvatar = results[i];
+function getUserAvatar (callback) {
+    var avatarTable = Parse.Object.extend("Avatars");
+    var query = new Parse.Query(avatarTable);
+    var avatarID = Parse.User.current().get("avatar").id;
 
-        // Building the avatar object
-        var userAvatar = new Avatar(parseAvatar.get("head").get("path"), parseAvatar.get("eyes").get("path"),
-                                    parseAvatar.get("hair").get("path"), parseAvatar.get("mouth").get("path"),
-                                    parseAvatar.get("body").get("path"));
-
-        console.log(userAvatar.getEyes());
-        return userAvatar;
-      }
-    },
-    error: function(error) {
-      alert("Error: " + error.code + " " + error.message);
-    }
-  });
+    query.include("head"); // Including the head pointer
+    query.include("hair"); // Including the hair pointer
+    query.include("eyes"); // Including the eyes pointer
+    query.include("body"); // Including the body pointer
+    query.include("mouth"); // Including the mouth pointer
+    query.get(avatarID).then(
+              function(parseAvatar) {
+                // Building the avatar object
+                userAvatar = new Avatar(parseAvatar.get("head").get("path"), parseAvatar.get("eyes").get("path"),
+                                            parseAvatar.get("hair").get("path"), parseAvatar.get("mouth").get("path"),
+                                            parseAvatar.get("body").get("path"));
+                callback(userAvatar);
+              },
+              function(error) {
+                userAvatar.resolve;
+                alert("Error: " + error.code + " " + error.message);
+              }
+  );
 }
 
 function getUserFromParse (ID) {
   var parseUser = Parse.Object.extend("User");
   var query = new Parse.Query(parseUser);
-  query.equalTo("objectId", ID);
-  query.find({
-    success: function(results) {
-      for (var i = 0; i < results.length; i++) {
-        var parseUser = results[i];
+  query.get(ID, {
+    success: function(parseUser) {
         var user = new User(parseUser.get("username"), parseUser.get("email"),
                             parseUser.get("privileges"), parseUser.get("gender"),
                             parseUser.get("avatar"), parseUser.get("prizes"));
-        console.log(user);
         return user;
-      }
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);

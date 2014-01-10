@@ -3,18 +3,23 @@
 	<head>
 		<title>Title</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="javascript/jquery-1.10.2.min.js"></script>
         <script src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
         <script type="text/javascript" src="javascript/objects/user.js"></script>
         <script type="text/javascript" src="javascript/objects/avatar.js"></script>
         <script type="text/javascript" src="javascript/parse.js"></script>
-        <script type="text/javascript" src="javascript/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="javascript/function.js"></script>
 	</head>
+	<script type="text/javascript">
+	function test (userAvatar) {
+		console.log(userAvatar.getHead());
+	}
+	</script>
 	<body align="center">
 		Hello Tsamid!
 		<br>
 		<button onclick="logIn('Etay','1234')">Log In</button>
 		<br>
-		<button onclick="getCurrentUser()">Get User</button>
+		<button onclick="getUserAvatar(test)">Get User</button>
 	</body>
 </html>
