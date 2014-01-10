@@ -1,0 +1,55 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+header,section,nav,aside,footer {
+    display:block;
+}
+
+header {
+	height: 77px;
+	width: 800px;
+	background-image: url(../assets/images/main/tool-bar.png);
+}
+
+.content {
+	width: 800px;
+	height: 523px;
+	border: 0px;
+}
+
+header nav ul {
+	direction: rtl;
+}
+
+header nav ul li {
+	margin-right: 50px;
+	display: inline-block;
+}
+
+.toolbar-button{
+	width: 70px;
+	height: 70px;
+}
+
+#embed-player-section
+{
+	text-align: center;
+	background: url("../assets/images/video-page/bg-watch.png");
+}
+
+#video-bottom-section
+{
+	height: 295px;
+}
+
+#video-bottom-section .avatar
+{
+	display: inline-block;
+	height:100%;
+}
+
+#video-bottom-section .avatar img
+{
+	height:100%;
+}
