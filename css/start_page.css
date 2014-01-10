@@ -1,0 +1,46 @@
+.main_screen{
+	
+	width: 100%;
+	height: 53%;
+	
+}
+
+.main_screen .main_display{
+	text-align: center;
+	
+	height: 100%;
+	background-color: #40404a;
+}
+
+.main_screen img{
+	height: 100%;
+
+	
+}
+
+.bottom_activity{
+	width: 100%;
+	height : 35%;
+}
+
+
+
+.avatar_img {
+	height: 50%;
+	width: 16.3%;
+	display: inline-block;
+	text-align: center;
+
+}
+
+.avatar_img img{
+	height: 100%;
+}
+
+.video_placeholder{
+	height: 50%;
+	display: inline-block;
+	width: 16.3%;
+	background: black;
+
+}
