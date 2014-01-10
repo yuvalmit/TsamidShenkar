@@ -30,3 +30,43 @@ function logIn (username, password) {
   		}
 	});
 }
+
+function printUser (results) {
+  for (var i = 0; i < results.length; i++) {
+    var newUser = results[i];
+    console.log(newUser.get("username"));
+  }
+}
+
+function getUser (ID) {
+  var parseUser = getUserFromParse(ID);
+}
+
+function buildUser (parseUser) {
+  console.log(user);
+  return user;
+}
+
+function getUserFromParse (ID) {
+  var parseUser = Parse.Object.extend("User");
+  var query = new Parse.Query(parseUser);
+  query.equalTo("objectId", ID);
+  query.find({
+    success: function(results) {
+      for (var i = 0; i < results.length; i++) {
+        var parseUser = results[i];
+         var user = new User(parseUser.get("username"), parseUser.get("email"), parseUser.get("privileges"), parseUser.get("gender")
+                      , parseUser.get("avatar"), parseUser.get("prizes"));
+        console.log(user);
+        return user;
+      }
+    },
+    error: function(error) {
+      alert("Error: " + error.code + " " + error.message);
+    }
+  });
+}
+
+function userTest(ID) {
+  console.log(getUser(ID));
+}
