@@ -42,8 +42,13 @@ function getCurrentUser () {
   var parseUser = Parse.User.current();
   var user = new User(parseUser.get("username"), parseUser.get("email"), parseUser.get("privileges"), parseUser.get("gender")
                       , parseUser.get("avatar"), parseUser.get("prizes"));
+  getUserAvatar(user.avatar);
   console.log(user);
   return user;
+}
+
+function getUserAvatar (avatar) {
+  console.log(avatar);
 }
 
 function getUserFromParse (ID) {
