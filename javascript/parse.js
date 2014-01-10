@@ -44,7 +44,7 @@ function getCurrentUser () {
   var user = new User(parseUser.get("username"), parseUser.get("email"),
                       parseUser.get("privileges"), parseUser.get("gender"),
                       parseUser.get("avatar"), parseUser.get("prizes"));
-  //getUserAvatar(user.avatar);
+  
   return user;
 }
 
@@ -68,6 +68,7 @@ function getUserAvatar () {
                                     parseAvatar.get("body").get("path"));
 
         console.log(userAvatar.getEyes());
+        return userAvatar;
       }
     },
     error: function(error) {
