@@ -1,7 +1,11 @@
 
 
 $( document ).ready(function() {
-
+  alert("document ready");
+   var user = new User;
+    var userName = user.getCurrentUser();
+    alert(userName);
+    alert(getCurrentUser().getName());
 
    $( "#my_zone_image" ).click(function() {
  
@@ -18,6 +22,8 @@ $( document ).ready(function() {
     $( "#home" ).click(function() {
           $("#main_iframe").attr('src' , 'start_page.html');
 });
+
+
 
         
   });
