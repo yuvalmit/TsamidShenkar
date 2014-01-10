@@ -41,28 +41,48 @@ function getCurrentUser () {
   return user;
 }
 
-function getUserAvatar (callback) {
+/**
+* Getting the current user avatar, if the function recieve 1 in option then returns the head avatar only
+* if option is 2 then returns the path for the full avatar.
+* Default is the head avatar
+*/
+function getUserAvatar (callback, option) {
     var avatarTable = Parse.Object.extend("Avatars");
     var query = new Parse.Query(avatarTable);
     var avatarID = Parse.User.current().get("avatar").id;
 
-    query.include("head"); // Including the head pointer
+    switch (option) {
+      case 1:
+        var avatarPath = "/assets/images/avatarImages/";
+        break;
+
+      case 2:
+        var avatarPath = "/assets/images/fullAvatarImages/";
+        break;
+
+      default:
+        var avatarPath = "/assets/images/avatarImages/";
+        break;
+    }
+
+    query.include("head_body"); // Including the head pointer
     query.include("hair"); // Including the hair pointer
     query.include("eyes"); // Including the eyes pointer
-    query.include("body"); // Including the body pointer
+    query.include("extra"); // Including the body pointer
     query.include("mouth"); // Including the mouth pointer
+    
     query.get(avatarID).then(
-              function(parseAvatar) {
-                // Building the avatar object
-                userAvatar = new Avatar(parseAvatar.get("head").get("path"), parseAvatar.get("eyes").get("path"),
-                                            parseAvatar.get("hair").get("path"), parseAvatar.get("mouth").get("path"),
-                                            parseAvatar.get("body").get("path"));
-                callback(userAvatar);
-              },
-              function(error) {
-                userAvatar.resolve;
-                alert("Error: " + error.code + " " + error.message);
-              }
+            function(parseAvatar) {
+              // Building the avatar object
+              userAvatar = new Avatar(avatarPath + parseAvatar.get("head_body").get("path"), avatarPath + parseAvatar.get("eyes").get("path"),
+                                      avatarPath + parseAvatar.get("hair").get("path"), avatarPath + parseAvatar.get("mouth").get("path"),
+                                      avatarPath + parseAvatar.get("extra").get("path"));
+              callback(userAvatar);
+            },
+            function(error) {
+              userAvatar.resolve;
+              alert("Error: " + error.code + " " + error.message);
+            }
   );
 }
 

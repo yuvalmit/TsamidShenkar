@@ -1,9 +1,9 @@
-var Avatar = function(head, eyes, hair, mouth, body) {
+var Avatar = function(head, eyes, hair, mouth, extra) {
     this.head = head;
     this.eyes = eyes;
     this.hair = hair;
     this.mouth = mouth;
-    this.body = body;
+    this.extra = extra;
 };
 
 Avatar.prototype.getHead = function() {
@@ -22,6 +22,6 @@ Avatar.prototype.getMouth = function() {
     return this.mouth;
 };
 
-Avatar.prototype.getBody = function() {
-    return this.body;
+Avatar.prototype.getExtra = function() {
+    return this.extra;
 };
