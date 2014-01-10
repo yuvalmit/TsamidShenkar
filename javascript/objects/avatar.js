@@ -6,22 +6,22 @@ var Avatar = function(head, eyes, hair, mouth, body) {
     this.body = body;
 };
 
-User.prototype.getHead = function() {
+Avatar.prototype.getHead = function() {
     return this.head;
 };
 
-User.prototype.getEyes = function() {
+Avatar.prototype.getEyes = function() {
     return this.eyes;
 };
 
-User.prototype.getHair = function() {
+Avatar.prototype.getHair = function() {
     return this.hair;
 };
 
-User.prototype.getMouth = function() {
+Avatar.prototype.getMouth = function() {
     return this.mouth;
 };
 
-User.prototype.getBody = function() {
+Avatar.prototype.getBody = function() {
     return this.body;
 };

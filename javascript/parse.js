@@ -40,15 +40,40 @@ function printUser (results) {
 
 function getCurrentUser () {
   var parseUser = Parse.User.current();
-  var user = new User(parseUser.get("username"), parseUser.get("email"), parseUser.get("privileges"), parseUser.get("gender")
-                      , parseUser.get("avatar"), parseUser.get("prizes"));
+  // Building the user object
+  var user = new User(parseUser.get("username"), parseUser.get("email"),
+                      parseUser.get("privileges"), parseUser.get("gender"),
+                      parseUser.get("avatar"), parseUser.get("prizes"));
   getUserAvatar(user.avatar);
-  console.log(user);
   return user;
 }
 
-function getUserAvatar (avatar) {
-  console.log(avatar);
+function getUserAvatar () {
+  var avatarTable = Parse.Object.extend("Avatars");
+  var query = new Parse.Query(avatarTable);
+  query.equalTo("objectId", Parse.User.current().get("avatar").id);
+  query.include("head"); // Including the head pointer
+  query.include("hair"); // Including the hair pointer
+  query.include("eyes"); // Including the eyes pointer
+  query.include("body"); // Including the body pointer
+  query.include("mouth"); // Including the mouth pointer
+  query.find({
+    success: function(results) {
+      for (var i = 0; i < results.length; i++) {
+        var parseAvatar = results[i];
+
+        // Building the avatar object
+        var userAvatar = new Avatar(parseAvatar.get("head").get("path"), parseAvatar.get("eyes").get("path"),
+                                    parseAvatar.get("hair").get("path"), parseAvatar.get("mouth").get("path"),
+                                    parseAvatar.get("body").get("path"));
+
+        console.log(userAvatar.getEyes());
+      }
+    },
+    error: function(error) {
+      alert("Error: " + error.code + " " + error.message);
+    }
+  });
 }
 
 function getUserFromParse (ID) {
@@ -59,8 +84,9 @@ function getUserFromParse (ID) {
     success: function(results) {
       for (var i = 0; i < results.length; i++) {
         var parseUser = results[i];
-        var user = new User(parseUser.get("username"), parseUser.get("email"), parseUser.get("privileges"), parseUser.get("gender")
-                      , parseUser.get("avatar"), parseUser.get("prizes"));
+        var user = new User(parseUser.get("username"), parseUser.get("email"),
+                            parseUser.get("privileges"), parseUser.get("gender"),
+                            parseUser.get("avatar"), parseUser.get("prizes"));
         console.log(user);
         return user;
       }
