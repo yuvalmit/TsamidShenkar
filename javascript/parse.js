@@ -38,11 +38,10 @@ function printUser (results) {
   }
 }
 
-function getUser (ID) {
-  var parseUser = getUserFromParse(ID);
-}
-
-function buildUser (parseUser) {
+function getCurrentUser () {
+  var parseUser = Parse.User.current();
+  var user = new User(parseUser.get("username"), parseUser.get("email"), parseUser.get("privileges"), parseUser.get("gender")
+                      , parseUser.get("avatar"), parseUser.get("prizes"));
   console.log(user);
   return user;
 }
@@ -55,7 +54,7 @@ function getUserFromParse (ID) {
     success: function(results) {
       for (var i = 0; i < results.length; i++) {
         var parseUser = results[i];
-         var user = new User(parseUser.get("username"), parseUser.get("email"), parseUser.get("privileges"), parseUser.get("gender")
+        var user = new User(parseUser.get("username"), parseUser.get("email"), parseUser.get("privileges"), parseUser.get("gender")
                       , parseUser.get("avatar"), parseUser.get("prizes"));
         console.log(user);
         return user;
