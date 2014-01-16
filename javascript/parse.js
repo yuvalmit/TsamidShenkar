@@ -38,6 +38,7 @@ function logIn (username, password) {
 * Returning the current log in user
 */
 function getCurrentUser () {
+  console.log('getCurrentUser called');
   var parseUser = Parse.User.current();
   // Building the user object
   var user = new User(parseUser.get("username"), parseUser.get("email"),
