@@ -82,6 +82,9 @@ function logIn (username, password) {
 	});
 }
 
+/**
+* Returning toadys lesson (Activity)
+*/
 function getTodayLesson () {
   var startDate = new Date();
   startDate.setSeconds(0);
@@ -112,10 +115,6 @@ function getTodayLesson () {
 * Returning the current log in user
 */
 function getCurrentUser () {
-
-  console.log('getCurrentUser called');
-  var parseUser = Parse.User.current();
-
   // Building the user object
   var user = new User();
   
