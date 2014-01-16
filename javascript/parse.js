@@ -20,11 +20,17 @@ function signUp (username, password, email) {
 	});
 }
 
+/**
+* Logs out the current user
+*/
 function logout () {
   Parse.User.logOut();
 }
 
-function clearAchievements () {
+/**
+* Clearing the current user achievements array
+*/
+function clearAchievements() {
   var user = getCurrentUser();
 
   var achievementArray = new Array();
@@ -32,14 +38,17 @@ function clearAchievements () {
   Parse.User.current().set("achievements", achievementArray, null);
   Parse.User.current().save(null, {
             success: function(achievement) {
-              alert('achievement was cleared');
+              console.log('Achievement was cleared');
             },
             error: function(achievement, error) {
-              alert('Failed to create new object, with error code: ' + error.description);
+              console.log('Achievement was not added, with error code: ' + error.description);
             }
   });
 }
 
+/**
+* Adding the new given achievement to the current user
+*/
 function addAchievements(achievement) {
   var user = getCurrentUser();
 
@@ -48,19 +57,15 @@ function addAchievements(achievement) {
   achievementArray[achievementArray.length] = achievement;
 
   user.setAchievements(achievementArray);
-  console.log(user);
   Parse.User.current().set("achievements", achievementArray, null);
   Parse.User.current().save(null, {
             success: function(achievement) {
-              alert('achievement was added');
+              console.log('Achievement was added');
             },
             error: function(achievement, error) {
-              alert('Failed to create new object, with error code: ' + error.description);
+              console.log('Achievement was not added, with error code: ' + error.description);
             }
   });
-
-  //var parseUser = Parse.User.current();
-  //parseUser.achievements.add('test', achievement);
 }
 
 /**
@@ -75,6 +80,32 @@ function logIn (username, password) {
     		alert("LogIn error: " + error.code + " " + error.message);
   		}
 	});
+}
+
+function getTodayLesson () {
+  var startDate = new Date();
+  startDate.setSeconds(0);
+  startDate.setMinutes(0);
+  startDate.setHours(0);
+
+  var endDate = new Date();
+  endDate.setSeconds(59);
+  endDate.setMinutes(59);
+  endDate.setHours(23);
+
+  var lessonTable = Parse.Object.extend("Lesson");
+  var query = new Parse.Query(lessonTable);
+  query.greaterThanOrEqualTo("due_date", startDate);
+  query.lessThanOrEqualTo("due_date", endDate);
+
+  query.first().then(
+        function(lesson) {
+          console.log(lesson);
+        },
+        function(error) {
+          console.log("Error: " + error.code + " " + error.message);
+        }
+  );
 }
 
 /**
