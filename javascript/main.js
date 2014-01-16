@@ -2,10 +2,9 @@ function initMain(){
     logIn('Etay' , '1234');
     var userAvatar;
     var user = getCurrentUser();
-
     getUserInfo(user);
     getUserAvatar(getAvatarLayout , 1);
-});
+};
 
 function getAvatarLayout(avatar) {
         userAvatar = avatar;
@@ -57,7 +56,7 @@ $( document ).ready(function() {
 });
 
 
-    initMain()
+    initMain();
 
 
         
