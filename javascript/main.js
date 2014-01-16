@@ -1,11 +1,13 @@
 
 
 $( document ).ready(function() {
-  alert("document ready");
-   var user = new User;
-    var userName = user.getCurrentUser();
-    alert(userName);
-    alert(getCurrentUser().getName());
+  logIn('Etay' , '1234');
+  
+
+   var user = getCurrentUser();
+   getUserInfo(user);
+  
+  
 
    $( "#my_zone_image" ).click(function() {
  
@@ -23,6 +25,21 @@ $( document ).ready(function() {
           $("#main_iframe").attr('src' , 'start_page.html');
 });
 
+    function getUserInfo(currentUser){
+
+       var name = currentUser.getName();
+       var email = currentUser.getEmail();
+       var gender = currentUser.getGender();
+       var privileges = currentUser.getPrivileges();
+       if (privileges == "1"){
+          $(".user_level").text("Scout");
+       }
+       else{
+          $(".user_level").text("Admin");
+       }
+         $(".user_name").text(name);
+       
+    }
 
 
         
