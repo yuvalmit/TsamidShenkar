@@ -1,3 +1,3 @@
 var Achievements = function() {
 	
-}
+};
