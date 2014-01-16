@@ -36,9 +36,11 @@ getCurrentUser ()
 
 -------------------------------------------------------------------------------------------------------------------
 
-# Getting the current user avatar, if the function recieve 1 in option then returns the head avatar only
-# if option is 2 then returns the path for the full avatar.
-# Default is the head avatar (returns avatar object as defined under /javascript/object/avatar.js)
+# Getting the current user avatar, if the option == 1 then it will return the head avatar only
+# if option == 2 then returns the path for the full avatar.
+# Default is the head avatar
+# (returns avatar object as defined under /javascript/object/avatar.js)
+# The callback function signature should look like this -> function avatar (userAvatar)
 getUserAvatar (callback, option)
 
 -------------------------------------------------------------------------------------------------------------------
