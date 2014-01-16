@@ -1,5 +1,8 @@
 Parse.initialize("hCiKNPSGy9q5iT40j0d9DAiLHpavkJMWxmsC15tS", "TmiPKzW632NWSIkuBB0Yj4HzYR4sJTba04k3iA8F");
 
+/**
+* Signup function for new users
+*/
 function signUp (username, password, email) {
 	var user = new Parse.User();
 	
@@ -182,6 +185,9 @@ function lessonTest () {
     );
 }
 
+/**
+* Create new class with the given arguments
+*/
 function createNewLesson (name, date, youtube, google) {
   var Lesson = Parse.Object.extend("Lesson");
   var lesson = new Lesson();
@@ -219,8 +225,4 @@ function getUserFromParse (ID) {
       alert("Error: " + error.code + " " + error.message);
     }
   });
-}
-
-function userTest(ID) {
-  console.log(getUser(ID));
 }
