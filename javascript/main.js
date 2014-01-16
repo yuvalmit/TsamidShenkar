@@ -1,13 +1,13 @@
+function initMain(){
+    logIn('Etay' , '1234');
+    var userAvatar;
+    var user = getCurrentUser();
 
+    getUserInfo(user);
+    getUserAvatar(getAvatarLayout , 1);
+};
 
-$( document ).ready(function() {
-  logIn('Etay' , '1234');
-  var userAvatar;
-  var user = getCurrentUser();
-  getUserInfo(user);
-  getUserAvatar(getAvatarLayout , 1);
-
-   function getAvatarLayout(avatar) {
+function getAvatarLayout(avatar) {
         userAvatar = avatar;
         var head   = userAvatar.getHead();
         var eyes   = userAvatar.getEyes();
@@ -22,10 +22,24 @@ $( document ).ready(function() {
        $("#avatar_extra").attr( "src" , extra);
        
    };
-  
 
-    
+  function getUserInfo(currentUser){
 
+       var name = currentUser.getName();
+       var email = currentUser.getEmail();
+       var gender = currentUser.getGender();
+       var privileges = currentUser.getPrivileges();
+       if (privileges == "1"){
+          $(".user_level").text("Scout");
+       }
+       else{
+          $(".user_level").text("Admin");
+       }
+         $(".user_name").text(name);
+       
+    }
+
+$( document ).ready(function() {
    $( "#my_zone_image" ).click(function() {
  
 });
@@ -42,23 +56,12 @@ $( document ).ready(function() {
           $("#main_iframe").attr('src' , 'start_page.html');
 });
 
-    function getUserInfo(currentUser){
 
-       var name = currentUser.getName();
-       var email = currentUser.getEmail();
-       var gender = currentUser.getGender();
-       var privileges = currentUser.getPrivileges();
-       if (privileges == "1"){
-          $(".user_level").text("Scout");
-       }
-       else{
-          $(".user_level").text("Admin");
-       }
-         $(".user_name").text(name);
-       
-    }
+    initMain();
 
 
         
   });
+
+
  
