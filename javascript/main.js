@@ -2,12 +2,19 @@
 
 $( document ).ready(function() {
   logIn('Etay' , '1234');
+  var userAvatar;
+  var user = getCurrentUser();
+  getUserInfo(user);
+   
+
+   function getAvatarLayout(avatar) {
+        userAvatar = avatar;
+        console.log(userAvatar.getHead());
+
+   };
   
 
-   var user = getCurrentUser();
-   getUserInfo(user);
-  
-  
+    getUserAvatar(getAvatarLayout , 1);
 
    $( "#my_zone_image" ).click(function() {
  

@@ -10,7 +10,7 @@ img{
 }
 .top_menu{
 	
-	background-image: url("http://localhost/~etayschur/GIT_SPACE/TsamidShenkar/assets/images/toolBarItems/tool-bar.png");
+	background-image: url("../assets/images/toolBarItems/tool-bar.png");
 	width : 800px;
 	height: 77px;
 	margin-left: auto;
