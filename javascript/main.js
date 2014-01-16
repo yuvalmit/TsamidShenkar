@@ -1,19 +1,44 @@
 
 
 $( document ).ready(function() {
+<<<<<<< HEAD
     initMain();
 
         
   });
+=======
+  logIn('Etay' , '1234');
+  var userAvatar;
+  var user = getCurrentUser();
+  getUserInfo(user);
+  getUserAvatar(getAvatarLayout , 1);
+>>>>>>> dbe28b1fc14aa4dd68817dc4bdb64739070e2ebc
 
 function getAvatarLayout(avatar) {
         userAvatar = avatar;
-        console.log(userAvatar.getHead());
+        var head   = userAvatar.getHead();
+        var eyes   = userAvatar.getEyes();
+        var mouth  = userAvatar.getMouth();
+        var hair   = userAvatar.getHair();
+        var extra  = userAvatar.getExtra();
 
+<<<<<<< HEAD
 };
 
 
 function getUserInfo(currentUser){
+=======
+       $("#avatar_head").attr( "src" , head);
+       $("#avatar_eyes").attr( "src" , eyes);
+       $("#avatar_mouth").attr( "src" , mouth);
+       $("#avatar_hair").attr( "src" , hair);
+       $("#avatar_extra").attr( "src" , extra);
+       
+   };
+  
+
+    
+>>>>>>> dbe28b1fc14aa4dd68817dc4bdb64739070e2ebc
 
    var name = currentUser.getName();
    var email = currentUser.getEmail();

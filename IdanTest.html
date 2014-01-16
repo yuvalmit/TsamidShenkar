@@ -12,16 +12,23 @@
 	</head>
 	<script type="text/javascript">
 	function test (userAvatar) {
+		console.log("test function was called.");
 		console.log(userAvatar.getHead());
 	}
 	</script>
 	<body align="center">
 		Hello Tsamid!
 		<br>
+		<br>
 		<button onclick="logIn('Etay','1234')">Log In</button>
+		<br>
 		<br>
 		<button onclick="createNewLesson ('new lesson', 'Sat, 11 Jan 2014 21:31:36 GMT', 'link/youtuve', 'link/google')">Create new lesson</button>
 		<br>
-		<button onclick="getUserAvatar(test, 2)">Get Avatar Test</button>
+		<br>
+		<button onclick="getUserAvatar (test, 2)">Get Avatar Test</button>
+		<br>
+		<br>
+		<button onclick="addAchievements ('addAchievements')">Add Achievements</button>
 	</body>
 </html>

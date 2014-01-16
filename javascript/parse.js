@@ -20,8 +20,51 @@ function signUp (username, password, email) {
 	});
 }
 
+function logout () {
+  Parse.User.logOut();
+}
+
+function clearAchievements () {
+  var user = getCurrentUser();
+
+  var achievementArray = new Array();
+  user.setAchievements(achievementArray);
+  Parse.User.current().set("achievements", achievementArray, null);
+  Parse.User.current().save(null, {
+            success: function(achievement) {
+              alert('achievement was cleared');
+            },
+            error: function(achievement, error) {
+              alert('Failed to create new object, with error code: ' + error.description);
+            }
+  });
+}
+
+function addAchievements(achievement) {
+  var user = getCurrentUser();
+
+  var achievementArray = new Array();
+  achievementArray = user.getAchievements();
+  achievementArray[achievementArray.length] = achievement;
+
+  user.setAchievements(achievementArray);
+  console.log(user);
+  Parse.User.current().set("achievements", achievementArray, null);
+  Parse.User.current().save(null, {
+            success: function(achievement) {
+              alert('achievement was added');
+            },
+            error: function(achievement, error) {
+              alert('Failed to create new object, with error code: ' + error.description);
+            }
+  });
+
+  //var parseUser = Parse.User.current();
+  //parseUser.achievements.add('test', achievement);
+}
+
 /**
-* Log in function to parse
+* Log in function to parse, this will create a parse user over the current session
 */
 function logIn (username, password) {
 	Parse.User.logIn(username, password, {
@@ -38,12 +81,13 @@ function logIn (username, password) {
 * Returning the current log in user
 */
 function getCurrentUser () {
+<<<<<<< HEAD
   console.log('getCurrentUser called');
   var parseUser = Parse.User.current();
+=======
+>>>>>>> dbe28b1fc14aa4dd68817dc4bdb64739070e2ebc
   // Building the user object
-  var user = new User(parseUser.get("username"), parseUser.get("email"),
-                      parseUser.get("privileges"), parseUser.get("gender"),
-                      parseUser.get("avatar"), parseUser.get("prizes"));
+  var user = new User();
   
   return user;
 }
@@ -60,15 +104,15 @@ function getUserAvatar (callback, option) {
 
     switch (option) {
       case 1:
-        var avatarPath = "/assets/images/avatarImages/";
+        var avatarPath = "assets/images/avatarImages/";
         break;
 
       case 2:
-        var avatarPath = "/assets/images/fullAvatarImages/";
+        var avatarPath = "assets/images/fullAvatarImages/";
         break;
 
       default:
-        var avatarPath = "/assets/images/avatarImages/";
+        var avatarPath = "assets/images/avatarImages/";
         break;
     }
 
@@ -80,10 +124,13 @@ function getUserAvatar (callback, option) {
     
     query.get(avatarID).then(
             function(parseAvatar) {
-              // Building the avatar object
-              userAvatar = new Avatar(avatarPath + parseAvatar.get("head_body").get("path"), avatarPath + parseAvatar.get("eyes").get("path"),
-                                      avatarPath + parseAvatar.get("hair").get("path"), avatarPath + parseAvatar.get("mouth").get("path"),
-                                      avatarPath + parseAvatar.get("extra").get("path"));
+              userAvatar = new Avatar();
+              userAvatar.setHead(avatarPath + parseAvatar.get("head_body").get("path"));
+              userAvatar.setEyes(avatarPath + parseAvatar.get("eyes").get("path"));
+              userAvatar.setHair(avatarPath + parseAvatar.get("hair").get("path"));
+              userAvatar.setMouth(avatarPath + parseAvatar.get("mouth").get("path"));
+              userAvatar.setExtra(avatarPath + parseAvatar.get("extra").get("path"));
+
               callback(userAvatar);
             },
             function(error) {
@@ -130,9 +177,13 @@ function getUserFromParse (ID) {
   var query = new Parse.Query(parseUser);
   query.get(ID, {
     success: function(parseUser) {
-        var user = new User(parseUser.get("username"), parseUser.get("email"),
-                            parseUser.get("privileges"), parseUser.get("gender"),
-                            parseUser.get("avatar"), parseUser.get("prizes"));
+          var user = new User();
+          user.setName(parseUser.get("username"));
+          user.setEmail(parseUser.get("email"));
+          user.setPrivileges(parseUser.get("privileges"));
+          user.setGender(parseUser.get("gender"));
+          user.setAvatar(parseUser.get("avatar"));
+          user.setAchievements(parseUser.get("achievements"));
         return user;
     },
     error: function(error) {
