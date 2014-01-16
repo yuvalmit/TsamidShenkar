@@ -20,6 +20,9 @@ function signUp (username, password, email) {
 	});
 }
 
+/**
+* Log in function to parse
+*/
 function logIn (username, password) {
 	Parse.User.logIn(username, password, {
   		success: function(user) {
@@ -31,6 +34,9 @@ function logIn (username, password) {
 	});
 }
 
+/**
+* Returning the current log in user
+*/
 function getCurrentUser () {
   var parseUser = Parse.User.current();
   // Building the user object
@@ -80,9 +86,41 @@ function getUserAvatar (callback, option) {
               callback(userAvatar);
             },
             function(error) {
-              userAvatar.resolve;
               alert("Error: " + error.code + " " + error.message);
             }
+    );
+}
+
+function lessonTest () {
+    var Lesson = Parse.Object.extend("Lesson");
+    var query = new Parse.Query(Lesson);
+
+      query.get("8HzXg1qTBP").then(
+            function(lesson) {
+              console.log(lesson.get("due_date"));
+            },
+            function(error) {
+              alert("Error: " + error.code + " " + error.message);
+            }
+    );
+}
+
+function createNewLesson (name, date, youtube, google) {
+  var Lesson = Parse.Object.extend("Lesson");
+  var lesson = new Lesson();
+
+  lesson.set("name", name);
+  lesson.set("due_date", date);
+  lesson.set("youtube_link", youtube);
+  lesson.set("google_link", google);
+
+  lesson.save().then(
+        function(lesson) {
+          alert('New lesson created with objectId: ' + lesson.id);
+        },
+        function(error) {
+          alert('Failed to create new lesson, with error code: ' + error.code);
+        }
   );
 }
 
