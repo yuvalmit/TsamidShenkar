@@ -5,13 +5,14 @@ signUp (username, password, email)
 
 -------------------------------------------------------------------------------------------------------------------
 
-# Logs out the current user
-logout ()
+
+# Log in function to parse, this will create a parse user over the current session
+logIn (username, password)
 
 -------------------------------------------------------------------------------------------------------------------
 
-# Clearing the current user achievements array
-clearAchievements ()
+# Logs out the current user
+logout ()
 
 -------------------------------------------------------------------------------------------------------------------
 
@@ -20,8 +21,8 @@ addAchievements (achievement)
 
 -------------------------------------------------------------------------------------------------------------------
 
-# Log in function to parse, this will create a parse user over the current session
-logIn (username, password)
+# Clearing the current user achievements array
+clearAchievements ()
 
 -------------------------------------------------------------------------------------------------------------------
 
