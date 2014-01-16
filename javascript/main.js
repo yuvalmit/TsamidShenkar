@@ -5,16 +5,26 @@ $( document ).ready(function() {
   var userAvatar;
   var user = getCurrentUser();
   getUserInfo(user);
-   
+  getUserAvatar(getAvatarLayout , 1);
 
    function getAvatarLayout(avatar) {
         userAvatar = avatar;
-        console.log(userAvatar.getHead());
+        var head   = userAvatar.getHead();
+        var eyes   = userAvatar.getEyes();
+        var mouth  = userAvatar.getMouth();
+        var hair   = userAvatar.getHair();
+        var extra  = userAvatar.getExtra();
 
+       $("#avatar_head").attr( "src" , head);
+       $("#avatar_eyes").attr( "src" , eyes);
+       $("#avatar_mouth").attr( "src" , mouth);
+       $("#avatar_hair").attr( "src" , hair);
+       $("#avatar_extra").attr( "src" , extra);
+       
    };
   
 
-    getUserAvatar(getAvatarLayout , 1);
+    
 
    $( "#my_zone_image" ).click(function() {
  
