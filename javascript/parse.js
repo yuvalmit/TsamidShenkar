@@ -81,11 +81,10 @@ function logIn (username, password) {
 * Returning the current log in user
 */
 function getCurrentUser () {
-<<<<<<< HEAD
+
   console.log('getCurrentUser called');
   var parseUser = Parse.User.current();
-=======
->>>>>>> dbe28b1fc14aa4dd68817dc4bdb64739070e2ebc
+
   // Building the user object
   var user = new User();
   
