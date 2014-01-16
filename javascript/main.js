@@ -7,6 +7,23 @@ function initMain(){
     getUserAvatar(getAvatarLayout , 1);
 };
 
+<<<<<<< HEAD
+=======
+$( document ).ready(function() {
+
+    initMain();
+
+        
+  });
+
+  logIn('Etay' , '1234');
+  var userAvatar;
+  var user = getCurrentUser();
+  getUserInfo(user);
+  getUserAvatar(getAvatarLayout , 1);
+
+
+>>>>>>> 6b4ca52a3d94eb60f14a7000e8be4a96512507e4
 function getAvatarLayout(avatar) {
         userAvatar = avatar;
         var head   = userAvatar.getHead();
@@ -14,6 +31,11 @@ function getAvatarLayout(avatar) {
         var mouth  = userAvatar.getMouth();
         var hair   = userAvatar.getHair();
         var extra  = userAvatar.getExtra();
+
+};
+
+
+function getUserInfo(currentUser){
 
        $("#avatar_head").attr( "src" , head);
        $("#avatar_eyes").attr( "src" , eyes);
@@ -23,6 +45,7 @@ function getAvatarLayout(avatar) {
        
    };
 
+<<<<<<< HEAD
   function getUserInfo(currentUser){
 
        var name = currentUser.getName();
@@ -41,16 +64,43 @@ function getAvatarLayout(avatar) {
 
 $( document ).ready(function() {
    $( "#my_zone_image" ).click(function() {
+=======
+
+
+   var name = currentUser.getName();
+   var email = currentUser.getEmail();
+   var gender = currentUser.getGender();
+   var privileges = currentUser.getPrivileges();
+   if (privileges == "1"){
+      $(".user_level").text("Scout");
+   }
+   else{
+      $(".user_level").text("Admin");
+   }
+     $(".user_name").text(name);
+   
+}
+
+function initMain() {
+  logIn('Etay' , '1234');
+  var userAvatar;
+  var user = getCurrentUser();
+  getUserInfo(user);
+  getUserAvatar(getAvatarLayout , 1);
+
+  $( "#my_zone_image" ).click(function() {
+>>>>>>> 6b4ca52a3d94eb60f14a7000e8be4a96512507e4
  
-});
+  });
 
-    $( "#video_image" ).click(function() {
-          $("#main_iframe").attr('src' , 'video-player.html');
+  $( "#video_image" ).click(function() {
+    $("#main_iframe").attr('src' , 'video-player.html');
          
-});
+  });
 
-    $( "#game_image" ).click(function() {
+  $( "#game_image" ).click(function() {
                 
+<<<<<<< HEAD
 });
     $( "#home" ).click(function() {
           $("#main_iframe").attr('src' , 'start_page.html');
@@ -65,3 +115,11 @@ $( document ).ready(function() {
 
 
  
+=======
+  });
+  $( "#home" ).click(function() {
+    $("#main_iframe").attr('src' , 'start_page.html');
+  });
+
+} 
+>>>>>>> 6b4ca52a3d94eb60f14a7000e8be4a96512507e4

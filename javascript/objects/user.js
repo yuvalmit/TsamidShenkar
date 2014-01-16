@@ -1,5 +1,13 @@
+// In each creationg of user getting the most updated details
 var User = function() {
+    var parseUser = Parse.User.current();
 
+    this.name = parseUser.get("username");
+    this.email = parseUser.get("email");
+    this.privileges = parseUser.get("privileges");
+    this.gender = parseUser.get("gender");
+    this.avatar = parseUser.get("avatar");
+    this.achievements = parseUser.get("achievements");
 };
 
 /* Setters*/

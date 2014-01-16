@@ -20,17 +20,36 @@ function signUp (username, password, email) {
 	});
 }
 
+function logout () {
+  Parse.User.logOut();
+}
+
+function clearAchievements () {
+  var user = getCurrentUser();
+
+  var achievementArray = new Array();
+  user.setAchievements(achievementArray);
+  Parse.User.current().set("achievements", achievementArray, null);
+  Parse.User.current().save(null, {
+            success: function(achievement) {
+              alert('achievement was cleared');
+            },
+            error: function(achievement, error) {
+              alert('Failed to create new object, with error code: ' + error.description);
+            }
+  });
+}
+
 function addAchievements(achievement) {
   var user = getCurrentUser();
 
-  var mycars = new Array();
-  mycars[0] = "Saab";
-  mycars[1] = "Volvo";
-  //mycars[2] = "BMW";
+  var achievementArray = new Array();
+  achievementArray = user.getAchievements();
+  achievementArray[achievementArray.length] = achievement;
 
-  user.setAchievements(mycars);
+  user.setAchievements(achievementArray);
   console.log(user);
-  Parse.User.current().set("achievements", mycars, null);
+  Parse.User.current().set("achievements", achievementArray, null);
   Parse.User.current().save(null, {
             success: function(achievement) {
               alert('achievement was added');
@@ -62,15 +81,12 @@ function logIn (username, password) {
 * Returning the current log in user
 */
 function getCurrentUser () {
+
+  console.log('getCurrentUser called');
   var parseUser = Parse.User.current();
+
   // Building the user object
   var user = new User();
-  user.setName(parseUser.get("username"));
-  user.setEmail(parseUser.get("email"));
-  user.setPrivileges(parseUser.get("privileges"));
-  user.setGender(parseUser.get("gender"));
-  user.setAvatar(parseUser.get("avatar"));
-  user.setAchievements(parseUser.get("achievements"));
   
   return user;
 }
