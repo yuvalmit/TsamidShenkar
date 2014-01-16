@@ -1,12 +1,14 @@
 -------------------------------------------------------------------------------------------------------------------
 
 # Signup function for new users
+
 signUp (username, password, email)
 
 -------------------------------------------------------------------------------------------------------------------
 
 
 # Log in function to parse, this will create a parse user over the current session
+
 logIn (username, password)
 
 -------------------------------------------------------------------------------------------------------------------
@@ -17,21 +19,25 @@ logout ()
 -------------------------------------------------------------------------------------------------------------------
 
 # Adding the new given achievement to the current user
+
 addAchievements (achievement)
 
 -------------------------------------------------------------------------------------------------------------------
 
 # Clearing the current user achievements array
+
 clearAchievements ()
 
 -------------------------------------------------------------------------------------------------------------------
 
 # Returning toadys lesson (Activity)
+
 getTodayLesson ()
 
 -------------------------------------------------------------------------------------------------------------------
 
 # Returning the current log in user (returns user object as defined under /javascript/object/user.js)
+
 getCurrentUser ()
 
 -------------------------------------------------------------------------------------------------------------------
@@ -41,11 +47,13 @@ getCurrentUser ()
 # Default is the head avatar
 # (returns avatar object as defined under /javascript/object/avatar.js)
 # The callback function signature should look like this -> function avatar (userAvatar)
+
 getUserAvatar (callback, option)
 
 -------------------------------------------------------------------------------------------------------------------
 
 # Create new class with the given arguments
+
 createNewLesson (name, date, youtube, google)
 
 -------------------------------------------------------------------------------------------------------------------
