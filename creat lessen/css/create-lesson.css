@@ -1,0 +1,16 @@
+form{
+    text-align: right;
+}
+
+#formStyle{
+    left: 250px;
+    background-color: #ECE9E9;
+    border: 5px solid rgb(199, 194, 194);
+}
+
+.create-lesson-title{
+    font-size: 50px;
+    text-align: center;
+    color: rgb(74, 146, 238);
+}
+
