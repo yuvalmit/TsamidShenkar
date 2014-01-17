@@ -30,14 +30,16 @@ clearAchievements ()
 
 ###################################################################################################################
 
-# Returning toadys lesson (Activity) (returns lesson object as defined under /javascript/object/lesson.js)
+# Returning toadys lesson (Activity)
+# In the callback function you will recieve lesson object as defined under /javascript/object/lesson.js
 # The callback function signature should look like this -> function lesson (todayLesson)
 
 function getTodayLesson (callback)
 
 ###################################################################################################################
 
-# Returning the current log in user (returns user object as defined under /javascript/object/user.js)
+# Returning the current log in user 
+# In the callback function you will recieve returns user object as defined under /javascript/object/user.js
 
 getCurrentUser ()
 
@@ -46,7 +48,7 @@ getCurrentUser ()
 # Getting the current user avatar, if the option == 1 then it will return the head avatar only
 # if option == 2 then returns the path for the full avatar.
 # Default is the head avatar
-# (returns avatar object as defined under /javascript/object/avatar.js)
+# In the callback function you will recieve avatar object as defined under /javascript/object/avatar.js
 # The callback function signature should look like this -> function avatar (userAvatar)
 
 getUserAvatar (callback, option)
@@ -61,9 +63,10 @@ createNewLesson (name, date, youtube, google)
 ###################################################################################################################
 
 # Return to the callback function an object which consist an associative array of all badges with there ID and Path
-# In the object you will find the method "getBadges" which return the associative array from which you can take the id or path
-# (returns badges object as defined under /javascript/object/badges.js)
+# In the object you will find the method "getBadges" which return 
+# the associative array from which you can take the id or path
 # The callback function signature should look like this -> function badges (allBadges)
+# In the callback function you will recieve badges object as defined under /javascript/object/badges.js
 
 getAllBages (callback)
 
