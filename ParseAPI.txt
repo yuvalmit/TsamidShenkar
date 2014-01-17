@@ -63,8 +63,8 @@ createNewLesson (name, date, youtube, google)
 ###################################################################################################################
 
 # Return to the callback function an object which consist an associative array of all badges with there ID and Path
-# In the object you will find the method "getBadges" which return 
-# the associative array from which you can take the id or path
+# In the object you will find the method "getBadges" which return the associative array,
+# from which you can take the id or path.
 # The callback function signature should look like this -> function badges (allBadges)
 # In the callback function you will recieve badges object as defined under /javascript/object/badges.js
 
