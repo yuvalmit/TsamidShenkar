@@ -106,12 +106,12 @@ function getTodayLesson (callback) {
 
   query.first().then(
         function(lesson) {
-            newLesson = new Lesson();
-            newLesson.setName(parseLesson.get("name"));
-            newLesson.setDate(parseLesson.get("due_date"));
-            newLesson.setdAchievement(parseLesson.get("achievement"));
-            newLesson.setGoogleLink(parseLesson.get("google_link"));
-            newLesson.setYoutubeLink(parseLesson.get("youtube_link"));
+          newLesson = new Lesson();
+          newLesson.setName(parseLesson.get("name"));
+          newLesson.setDate(parseLesson.get("due_date"));
+          newLesson.setdAchievement(parseLesson.get("achievement"));
+          newLesson.setGoogleLink(parseLesson.get("google_link"));
+          newLesson.setYoutubeLink(parseLesson.get("youtube_link"));
 
           callback(newLesson);
         },
