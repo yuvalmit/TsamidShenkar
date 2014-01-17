@@ -1,5 +1,5 @@
 var Lesson = function() {
-
+	this.badge = new Array();
 };
 
 /* Setters*/
@@ -7,12 +7,12 @@ Lesson.prototype.setName = function(name) {
     this.name = name;
 };
 
-Lesson.prototype.setdate = function(date) {
+Lesson.prototype.setDate = function(date) {
     this.date = date;
 };
 
-Lesson.prototype.setBadge = function(badge) {
-    this.badge = badge;
+Lesson.prototype.setBadge = function(id, path) {
+	this.badge.push({"id":id, "path":path});
 };
 
 Lesson.prototype.setGoogleLink = function(link) {

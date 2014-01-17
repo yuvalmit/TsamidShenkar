@@ -105,11 +105,11 @@ function getTodayLesson (callback) {
   query.lessThanOrEqualTo("due_date", endDate);
 
   query.first().then(
-        function(lesson) {
+        function(parseLesson) {
           newLesson = new Lesson();
           newLesson.setName (parseLesson.get("name"));
           newLesson.setDate (parseLesson.get("due_date"));
-          newLesson.setdBadge (parseLesson.get("badge"));
+          newLesson.setBadge (parseLesson.get("badge").id, parseLesson.get("badge").get("path"));
           newLesson.setGoogleLink (parseLesson.get("google_link"));
           newLesson.setYoutubeLink (parseLesson.get("youtube_link"));
 

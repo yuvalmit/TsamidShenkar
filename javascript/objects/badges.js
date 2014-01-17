@@ -2,8 +2,8 @@ var Badges = function() {
 	this.badgesArray = new Array();
 };
 
-Badges.prototype.addBadge = function(ID, path) {
-	this.badgesArray.push({"id":ID, "path":path});
+Badges.prototype.addBadge = function(id, path) {
+	this.badgesArray.push({"id":id, "path":path});
 };
 
 /* Getters */
