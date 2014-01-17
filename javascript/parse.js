@@ -185,20 +185,34 @@ function createNewLesson (name, date, badge, youtube, google) {
   var Lesson = Parse.Object.extend("Lesson");
   var lesson = new Lesson();
 
+  var badgeTable = Parse.Object.extend("Badges"); // Query for getting the badge from parse
+  var query = new Parse.Query(badgeTable);
+  query.equalTo("objectId", badge);
+
   lesson.set("name", name);
   lesson.set("due_date", date);
-  lesson.set("badge", badge);
   lesson.set("youtube_link", youtube);
   lesson.set("google_link", google);
 
-  lesson.save().then(
+  query.get().then( // First getting the badge will be associated with the lesson
+        function (parseBadge) {
+          lesson.set("badge", parseBadge);
+        },
+        function (error) {
+          console.log(error);
+          console.log("Error in getting the badge" + error.code);
+        }
+  ).then(function () { // Second Saving the new lesson into parse
+      lesson.save().then(
         function(lesson) {
           alert('New lesson created with objectId: ' + lesson.id);
         },
         function(error) {
+          console.log(error);
           alert('Failed to create new lesson, with error code: ' + error.code);
         }
-  );
+    );
+  });
 }
 
 /**
@@ -221,24 +235,4 @@ function getAllBages (callback) {
           alert('Failed to get badges, with error code: ' + error.code);
         }
   );
-}
-
-function getUserFromParse (ID) {
-  var parseUser = Parse.Object.extend("User");
-  var query = new Parse.Query(parseUser);
-  query.get(ID, {
-    success: function(parseUser) {
-          var user = new User();
-          user.setName(parseUser.get("username"));
-          user.setEmail(parseUser.get("email"));
-          user.setPrivileges(parseUser.get("privileges"));
-          user.setGender(parseUser.get("gender"));
-          user.setAvatar(parseUser.get("avatar"));
-          user.setAchievements(parseUser.get("achievements"));
-        return user;
-    },
-    error: function(error) {
-      alert("Error: " + error.code + " " + error.message);
-    }
-  });
 }
