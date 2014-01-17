@@ -114,9 +114,11 @@ function getTodayLesson (callback) {
             newLesson.setBadge (parseLesson.get("badge").id, parseLesson.get("badge").get("path"));
             newLesson.setGoogleLink (parseLesson.get("google_link"));
             newLesson.setYoutubeLink (parseLesson.get("youtube_link"));
-          }
 
-          callback(newLesson);
+            callback(newLesson);
+          }
+          else
+            callback(null);
         },
         function(error) {
           console.log("Error: " + error.code + " " + error.message);
