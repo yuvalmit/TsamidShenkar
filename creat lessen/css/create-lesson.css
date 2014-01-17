@@ -14,3 +14,16 @@ form{
     color: rgb(74, 146, 238);
 }
 
+#myDropdown
+{
+	float: right;
+}
+.badgeLabel
+{
+	float: right;	
+}
+
+.clear
+{
+	clear: both;
+}
