@@ -3,10 +3,11 @@ var Badges = function() {
 };
 
 Badges.prototype.addBadge = function(ID, path) {
-	this.badgesArray.push({key1:ID, Key2:path});
+	this.badgesArray.push({"id":ID, "path":path});
 };
 
 /* Getters */
-Badges.prototype.getBadgePath = function() {
-    return this.badgesArray['key2'];
+// Return the associative array of the object in which you will find the key value pair (id, path)
+Badges.prototype.getBadges = function() {
+    return this.badgesArray;
 };
