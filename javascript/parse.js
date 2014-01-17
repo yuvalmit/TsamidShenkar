@@ -88,7 +88,7 @@ function logIn (username, password) {
 /**
 * Returning toadys lesson (Activity)
 */
-function getTodayLesson () {
+function getTodayLesson (callback) {
   var startDate = new Date();
   startDate.setSeconds(0);
   startDate.setMinutes(0);
@@ -106,7 +106,7 @@ function getTodayLesson () {
 
   query.first().then(
         function(lesson) {
-          console.log(lesson);
+          callback(lesson);
         },
         function(error) {
           console.log("Error: " + error.code + " " + error.message);

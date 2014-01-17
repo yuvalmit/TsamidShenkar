@@ -31,8 +31,9 @@ clearAchievements ()
 ###################################################################################################################
 
 # Returning toadys lesson (Activity)
+# The callback function signature should look like this -> function lesson (todayLesson)
 
-getTodayLesson ()
+function getTodayLesson (callback)
 
 ###################################################################################################################
 

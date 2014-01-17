@@ -11,9 +11,12 @@
         <script type="text/javascript" src="javascript/function.js"></script>
 	</head>
 	<script type="text/javascript">
-	function test (userAvatar) {
+	function test (lesson) {
 		console.log("test function was called.");
-		console.log(userAvatar.getHead());
+		if (lesson)
+			console.log(lesson);
+		else
+			console.log("There are no lessons today.")
 	}
 	</script>
 	<body align="center">
@@ -23,12 +26,15 @@
 		<button onclick="logIn('Etay','1234')">Log In</button>
 		<br>
 		<br>
-		<button onclick="createNewLesson ('new lesson', 'Sat, 11 Jan 2014 21:31:36 GMT', 'link/youtube', 'link/google')">Create new lesson</button>
+		<button onclick="createNewLesson ('new lesson', new Date(), 'link/youtube', 'link/google')">Create new lesson</button>
 		<br>
 		<br>
 		<button onclick="getUserAvatar (test, 2)">Get Avatar Test</button>
 		<br>
 		<br>
 		<button onclick="addAchievements ('addAchievements')">Add Achievements</button>
+		<br>
+		<br>
+		<button onclick="getTodayLesson (test)">Get Today Lesson</button>
 	</body>
 </html>
