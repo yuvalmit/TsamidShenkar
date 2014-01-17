@@ -30,7 +30,7 @@ clearAchievements ()
 
 ###################################################################################################################
 
-# Returning toadys lesson (Activity) (returns user object as defined under /javascript/object/lesson.js)
+# Returning toadys lesson (Activity) (returns lesson object as defined under /javascript/object/lesson.js)
 # The callback function signature should look like this -> function lesson (todayLesson)
 
 function getTodayLesson (callback)
