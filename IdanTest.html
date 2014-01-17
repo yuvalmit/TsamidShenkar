@@ -7,21 +7,38 @@
         <script src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
         <script type="text/javascript" src="javascript/objects/user.js"></script>
         <script type="text/javascript" src="javascript/objects/avatar.js"></script>
+        <script type="text/javascript" src="javascript/objects/badges.js"></script>
         <script type="text/javascript" src="javascript/parse.js"></script>
         <script type="text/javascript" src="javascript/function.js"></script>
 	</head>
 	<script type="text/javascript">
-	function test (userAvatar) {
-		console.log(userAvatar.getHead());
+	function test (badges) {
+		console.log("badge function was called.");
+		if (badges)
+		{
+			console.log(badges);
+			console.log(badges.getBadges()[0].id);
+		}
+		else
+			console.log("There are no badges.")
 	}
 	</script>
 	<body align="center">
 		Hello Tsamid!
 		<br>
+		<br>
 		<button onclick="logIn('Etay','1234')">Log In</button>
 		<br>
-		<button onclick="createNewLesson ('new lesson', 'Sat, 11 Jan 2014 21:31:36 GMT', 'link/youtuve', 'link/google')">Create new lesson</button>
 		<br>
-		<button onclick="getUserAvatar(test, 2)">Get Avatar Test</button>
+		<button onclick="createNewLesson ('new lesson', new Date(), 'link/youtube', 'link/google')">Create new lesson</button>
+		<br>
+		<br>
+		<button onclick="getUserAvatar (test, 2)">Get Avatar Test</button>
+		<br>
+		<br>
+		<button onclick="addAchievements ('addAchievements')">Add Achievements</button>
+		<br>
+		<br>
+		<button onclick="getAllBages (test)">Get Badges</button>
 	</body>
 </html>

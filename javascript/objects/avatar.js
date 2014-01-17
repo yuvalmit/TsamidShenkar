@@ -1,11 +1,29 @@
-var Avatar = function(head, eyes, hair, mouth, extra) {
+var Avatar = function() {
+
+};
+
+/* Setters */
+Avatar.prototype.setHead = function(head) {
     this.head = head;
+};
+
+Avatar.prototype.setEyes = function(eyes) {
     this.eyes = eyes;
+};
+
+Avatar.prototype.setHair = function(hair) {
     this.hair = hair;
+};
+
+Avatar.prototype.setMouth = function(mouth) {
     this.mouth = mouth;
+};
+
+Avatar.prototype.setExtra = function(extra) {
     this.extra = extra;
 };
 
+/* Getters */
 Avatar.prototype.getHead = function() {
     return this.head;
 };

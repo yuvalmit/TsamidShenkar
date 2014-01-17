@@ -17,6 +17,20 @@ img{
 	margin-right: auto;
 
 }
+.avatar_layout{
+	height: 77px !important;
+	width: 77px !important;
+}
+
+.avatar_image{
+	height:110px !important;
+	width: 110px !important;
+	position: absolute;
+	top : -5px;
+	left : 428px;
+
+
+}
 
 .cta_avatar img{
 	height: 100%;
@@ -36,7 +50,8 @@ img{
 
 #avatar{
 	background-image: url("/images/tool_bar_items/only-leader-head.png");
-	width: 49%
+	width : 120px;
+	height : 77px;
 }
 .top_menu .cta{
 	width : 14%;

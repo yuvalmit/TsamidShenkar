@@ -1,12 +1,46 @@
-var User = function(name, email, privileges, gender, avatar, prizes) {
-    this.name = name;
-    this.email = email;
-    this.privileges = privileges;
-    this.gender = gender;
-    this.avatar = avatar;
-    this.prizes = prizes;
+// In each creationg of user getting the most updated details
+var User = function() {
+    var parseUser = Parse.User.current();
+
+    this.name = parseUser.get("username");
+    this.email = parseUser.get("email");
+    this.privileges = parseUser.get("privileges");
+    this.gender = parseUser.get("gender");
+    this.avatar = parseUser.get("avatar");
+    this.achievements = parseUser.get("achievements");
+    this.badges = parseUser.get("badges");
 };
 
+/* Setters*/
+User.prototype.setName = function(name) {
+    this.name = name;
+};
+
+User.prototype.setEmail = function(email) {
+    this.email = email;
+};
+
+User.prototype.setPrivileges = function(privileges) {
+    this.privileges = privileges;
+};
+
+User.prototype.setGender = function(gender) {
+    this.gender = gender;
+};
+
+User.prototype.setAvatar = function(avatar) {
+    this.avatar = avatar;
+};
+
+User.prototype.setAchievements = function(achievements) {
+    this.achievements = achievements;
+};
+
+User.prototype.setBadges = function(badges) {
+    this.badges = badges;
+};
+
+/* Getters */
 User.prototype.getName = function() {
     return this.name;
 };
@@ -27,6 +61,10 @@ User.prototype.getAvatar = function() {
     return this.avatar;
 };
 
-User.prototype.getPrizes = function() {
-    return this.prizes;
+User.prototype.getAchievements = function() {
+    return this.achievements;
+};
+
+User.prototype.getBadges = function() {
+    return this.badges;
 };

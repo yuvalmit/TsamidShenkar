@@ -1,0 +1,75 @@
+###################################################################################################################
+
+# Signup function for new users
+
+signUp (username, password, email)
+
+###################################################################################################################
+
+# Log in function to parse, this will create a parse user over the current session
+
+logIn (username, password)
+
+###################################################################################################################
+
+# Logs out the current user
+
+logout ()
+
+###################################################################################################################
+
+# Adding the new given achievement to the current user
+
+addAchievements (achievement)
+
+###################################################################################################################
+
+# Clearing the current user achievements array
+
+clearAchievements ()
+
+###################################################################################################################
+
+# Returning toadys lesson (Activity)
+# In the callback function you will recieve lesson object as defined under /javascript/object/lesson.js
+# The callback function signature should look like this -> function lesson (todayLesson)
+
+function getTodayLesson (callback)
+
+###################################################################################################################
+
+# Returning the current log in user 
+# In the callback function you will recieve returns user object as defined under /javascript/object/user.js
+
+getCurrentUser ()
+
+###################################################################################################################
+
+# Getting the current user avatar, if the option == 1 then it will return the head avatar only
+# if option == 2 then returns the path for the full avatar.
+# Default is the head avatar
+# In the callback function you will recieve avatar object as defined under /javascript/object/avatar.js
+# The callback function signature should look like this -> function avatar (userAvatar)
+
+getUserAvatar (callback, option)
+
+###################################################################################################################
+
+# Create new class with the given arguments.
+# The the date given to this function is formal Date() object
+# The badge given to this function is the badge ID, you can get it from the getAllBadges function
+
+createNewLesson (name, date, badge, youtube, google)
+
+###################################################################################################################
+
+# Return to the callback function an object which consist an associative array of all badges with there "id" and "path"
+# In the object you will find the method "getBadges" which return the associative array,
+# from which you can take the "id" or "path".
+# The callback function signature should look like this -> function badges (allBadges)
+# In the callback function you will recieve badges object as defined under /javascript/object/badges.js
+
+getAllBages (callback)
+
+###################################################################################################################
+
