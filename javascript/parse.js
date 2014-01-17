@@ -41,10 +41,10 @@ function clearAchievements() {
   Parse.User.current().set("achievements", achievementArray, null);
   Parse.User.current().save(null, {
             success: function(achievement) {
-              console.log('Achievement was cleared');
+              console.log('Achievements was cleared');
             },
             error: function(achievement, error) {
-              console.log('Achievement was not added, with error code: ' + error.description);
+              console.log('Achievements was not added, with error code: ' + error.description);
             }
   });
 }
@@ -57,7 +57,7 @@ function addAchievements(achievement) {
 
   var achievementArray = new Array();
   achievementArray = user.getAchievements();
-  achievementArray[achievementArray.length] = achievement;
+  achievementArray.push(achievement);
 
   user.setAchievements(achievementArray);
   Parse.User.current().set("achievements", achievementArray, null);
@@ -106,7 +106,14 @@ function getTodayLesson (callback) {
 
   query.first().then(
         function(lesson) {
-          callback(lesson);
+            newLesson = new Lesson();
+            newLesson.setName(parseLesson.get("name"));
+            newLesson.setDate(parseLesson.get("due_date"));
+            newLesson.setdAchievement(parseLesson.get("achievement"));
+            newLesson.setGoogleLink(parseLesson.get("google_link"));
+            newLesson.setYoutubeLink(parseLesson.get("youtube_link"));
+
+          callback(newLesson);
         },
         function(error) {
           console.log("Error: " + error.code + " " + error.message);
@@ -171,20 +178,6 @@ function getUserAvatar (callback, option) {
     );
 }
 
-function lessonTest () {
-    var Lesson = Parse.Object.extend("Lesson");
-    var query = new Parse.Query(Lesson);
-
-      query.get("8HzXg1qTBP").then(
-            function(lesson) {
-              console.log(lesson.get("due_date"));
-            },
-            function(error) {
-              alert("Error: " + error.code + " " + error.message);
-            }
-    );
-}
-
 /**
 * Create new class with the given arguments
 */
@@ -203,6 +196,28 @@ function createNewLesson (name, date, youtube, google) {
         },
         function(error) {
           alert('Failed to create new lesson, with error code: ' + error.code);
+        }
+  );
+}
+
+/**
+* Return to the callback function an array of all badges with there ID, with that you can call
+*/
+function getAllBages (callback) {
+  var badgesTable = Parse.Object.extend("Badges");
+  var query = new Parse.Query(badgesTable);
+  query.find().then(
+        function(results) {
+          var badges = new Badges();
+          for (var i = 0; i < results.length; i++) {
+            var badge = results[i];
+
+            badges.addBadge(badge.id, badge.get("path"));
+          }
+          callback(badges);
+        },
+        function(error) {
+          alert('Failed to get badges, with error code: ' + error.code);
         }
   );
 }

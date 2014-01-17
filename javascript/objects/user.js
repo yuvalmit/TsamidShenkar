@@ -8,6 +8,7 @@ var User = function() {
     this.gender = parseUser.get("gender");
     this.avatar = parseUser.get("avatar");
     this.achievements = parseUser.get("achievements");
+    this.badges = parseUser.get("badges");
 };
 
 /* Setters*/
@@ -35,6 +36,10 @@ User.prototype.setAchievements = function(achievements) {
     this.achievements = achievements;
 };
 
+User.prototype.setBadges = function(badges) {
+    this.badges = badges;
+};
+
 /* Getters */
 User.prototype.getName = function() {
     return this.name;
@@ -58,4 +63,8 @@ User.prototype.getAvatar = function() {
 
 User.prototype.getAchievements = function() {
     return this.achievements;
+};
+
+User.prototype.getBadges = function() {
+    return this.badges;
 };

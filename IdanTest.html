@@ -7,16 +7,20 @@
         <script src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
         <script type="text/javascript" src="javascript/objects/user.js"></script>
         <script type="text/javascript" src="javascript/objects/avatar.js"></script>
+        <script type="text/javascript" src="javascript/objects/badges.js"></script>
         <script type="text/javascript" src="javascript/parse.js"></script>
         <script type="text/javascript" src="javascript/function.js"></script>
 	</head>
 	<script type="text/javascript">
-	function test (lesson) {
-		console.log("test function was called.");
-		if (lesson)
-			console.log(lesson);
+	function test (badges) {
+		console.log("badge function was called.");
+		if (badges)
+		{
+			console.log(badges.id);
+			console.log(badges[0].getBadgePath());
+		}
 		else
-			console.log("There are no lessons today.")
+			console.log("There are no badges.")
 	}
 	</script>
 	<body align="center">
@@ -35,6 +39,6 @@
 		<button onclick="addAchievements ('addAchievements')">Add Achievements</button>
 		<br>
 		<br>
-		<button onclick="getTodayLesson (test)">Get Today Lesson</button>
+		<button onclick="getAllBages (test)">Get Badges</button>
 	</body>
 </html>
