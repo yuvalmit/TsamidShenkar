@@ -107,11 +107,11 @@ function getTodayLesson (callback) {
   query.first().then(
         function(lesson) {
           newLesson = new Lesson();
-          newLesson.setName(parseLesson.get("name"));
-          newLesson.setDate(parseLesson.get("due_date"));
-          newLesson.setdAchievement(parseLesson.get("achievement"));
-          newLesson.setGoogleLink(parseLesson.get("google_link"));
-          newLesson.setYoutubeLink(parseLesson.get("youtube_link"));
+          newLesson.setName (parseLesson.get("name"));
+          newLesson.setDate (parseLesson.get("due_date"));
+          newLesson.setdBadge (parseLesson.get("badge"));
+          newLesson.setGoogleLink (parseLesson.get("google_link"));
+          newLesson.setYoutubeLink (parseLesson.get("youtube_link"));
 
           callback(newLesson);
         },
@@ -164,11 +164,11 @@ function getUserAvatar (callback, option) {
     query.get(avatarID).then(
             function(parseAvatar) {
               userAvatar = new Avatar();
-              userAvatar.setHead(avatarPath + parseAvatar.get("head_body").get("path"));
-              userAvatar.setEyes(avatarPath + parseAvatar.get("eyes").get("path"));
-              userAvatar.setHair(avatarPath + parseAvatar.get("hair").get("path"));
-              userAvatar.setMouth(avatarPath + parseAvatar.get("mouth").get("path"));
-              userAvatar.setExtra(avatarPath + parseAvatar.get("extra").get("path"));
+              userAvatar.setHead (avatarPath + parseAvatar.get("head_body").get("path"));
+              userAvatar.setEyes (avatarPath + parseAvatar.get("eyes").get("path"));
+              userAvatar.setHair (avatarPath + parseAvatar.get("hair").get("path"));
+              userAvatar.setMouth (avatarPath + parseAvatar.get("mouth").get("path"));
+              userAvatar.setExtra (avatarPath + parseAvatar.get("extra").get("path"));
 
               callback(userAvatar);
             },
@@ -181,12 +181,13 @@ function getUserAvatar (callback, option) {
 /**
 * Create new class with the given arguments
 */
-function createNewLesson (name, date, youtube, google) {
+function createNewLesson (name, date, badge, youtube, google) {
   var Lesson = Parse.Object.extend("Lesson");
   var lesson = new Lesson();
 
   lesson.set("name", name);
   lesson.set("due_date", date);
+  lesson.set("badge", badge);
   lesson.set("youtube_link", youtube);
   lesson.set("google_link", google);
 

@@ -55,10 +55,11 @@ getUserAvatar (callback, option)
 
 ###################################################################################################################
 
-# Create new class with the given arguments
-# the the date given to this function is formal Date() object
+# Create new class with the given arguments.
+# The the date given to this function is formal Date() object
+# The badge given to this function is the badge ID, you can get it from the getAllBadges function
 
-createNewLesson (name, date, youtube, google)
+createNewLesson (name, date, badge, youtube, google)
 
 ###################################################################################################################
 

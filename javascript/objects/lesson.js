@@ -11,8 +11,8 @@ Lesson.prototype.setdate = function(date) {
     this.date = date;
 };
 
-Lesson.prototype.setdAchievement = function(achievement) {
-    this.achievement = achievement;
+Lesson.prototype.setBadge = function(badge) {
+    this.badge = badge;
 };
 
 Lesson.prototype.setGoogleLink = function(link) {
@@ -32,8 +32,8 @@ Lesson.prototype.getDate = function() {
     return this.date;
 };
 
-Lesson.prototype.getdAchievement = function() {
-    return this.achievement;
+Lesson.prototype.getBadge = function() {
+    return this.badge;
 };
 
 Lesson.prototype.getGoogleLink = function() {
