@@ -1,9 +1,11 @@
 function initMain(){
     logIn('Etay' , '1234');
     var userAvatar;
+    var currentLesson;
     var user = getCurrentUser();
     getUserInfo(user);
     getUserAvatar(getAvatarLayout , 1);
+    
 };
 
 function getAvatarLayout(avatar) {
@@ -38,6 +40,10 @@ function getAvatarLayout(avatar) {
        
     }
 
+   
+
+
+
 $( document ).ready(function() {
    $( "#my_zone_image" ).click(function() {
  
@@ -54,6 +60,8 @@ $( document ).ready(function() {
     $( "#home" ).click(function() {
           $("#main_iframe").attr('src' , 'start_page.html');
 });
+
+    
 
 
     initMain();

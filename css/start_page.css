@@ -19,6 +19,14 @@
 	
 }
 
+.main_screen .upload_button{
+	cursor: pointer;
+	margin-left: auto;
+	margin-right: auto;
+	float: right;
+}
+
+
 .bottom_activity{
 	width: 100%;
 	height : 100px;
