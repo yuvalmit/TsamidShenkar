@@ -106,12 +106,15 @@ function getTodayLesson (callback) {
 
   query.first().then(
         function(parseLesson) {
-          newLesson = new Lesson();
-          newLesson.setName (parseLesson.get("name"));
-          newLesson.setDate (parseLesson.get("due_date"));
-          newLesson.setBadge (parseLesson.get("badge").id, parseLesson.get("badge").get("path"));
-          newLesson.setGoogleLink (parseLesson.get("google_link"));
-          newLesson.setYoutubeLink (parseLesson.get("youtube_link"));
+          var newLesson = new Lesson();
+          if(parseLesson)
+          {
+            newLesson.setName (parseLesson.get("name"));
+            newLesson.setDate (parseLesson.get("due_date"));
+            newLesson.setBadge (parseLesson.get("badge").id, parseLesson.get("badge").get("path"));
+            newLesson.setGoogleLink (parseLesson.get("google_link"));
+            newLesson.setYoutubeLink (parseLesson.get("youtube_link"));
+          }
 
           callback(newLesson);
         },

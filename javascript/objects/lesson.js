@@ -1,5 +1,5 @@
 var Lesson = function() {
-	this.badge = new Array();
+	this.badge = new Array(); // The badge property is an associative array which has the id and path of the badge
 };
 
 /* Setters*/
