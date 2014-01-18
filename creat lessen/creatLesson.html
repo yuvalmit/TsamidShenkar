@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title></title>
     <link type="text/css" href="css/bootstrap.css" rel="stylesheet">
@@ -10,7 +10,7 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
-    <script type="text/javascript" src="../javascript/object/badges.js"> </script>
+    <script type="text/javascript" src="../javascript/objects/badges.js"> </script>
     <script type="text/javascript" src="../javascript/object/lesson.js"> </script>
     <script type="text/javascript" src="../javascript/parse.js"> </script>
     <script type="text/javascript" src="js/jquery.ddslick.min.js"></script>
@@ -26,7 +26,13 @@
 <form role="form">
     <div class="form-group">
         <label>Lesson Date*</label>
-        <input type="text" id="activity-start-date" class="form-control"  placeholder="" ></label>
+        <div class="input-icon-wrapper">
+        <div class="right-inner-addon ">
+            <i class="glyphicon glyphicon-calendar"></i>
+            <input type="text" class="form-control" placeholder="click me to pick date" />
+        </div>
+        </div>
+
     </div>
     <div class="form-group">
         <label >Youtube Share link</label>
@@ -38,7 +44,9 @@
     </div>
     <div class="form-group">
         <label>Select a Game from the list</label>
-        <select id="game" name="game"></select>
+        <div class="game-wrapper">
+        <select id="game" name="game" class="form-control"></select>
+        </div>
     </div>
      <div class="form-group row">
         <label class="badgeLabel col-xs-6">Select a Badge</label>
@@ -46,7 +54,7 @@
         <div class="col-xs-8" id="myDropdown"></div>
         <div class="clear"></div>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
 </form>
     </div>
 </div>

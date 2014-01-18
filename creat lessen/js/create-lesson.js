@@ -36,11 +36,13 @@ var ddData = [
 $(function() {
 
 
-
-    $('#activity-start-date').focus(function(){
-       $(this).datepicker();
+    $(".input-icon-wrapper input").on({
+        focus: function() { $(this).datepicker() }
 
     });
+
+
+
 
 
     $('#google-doc').focus(function(){
@@ -62,16 +64,13 @@ $(function() {
     onSelected: function(selectedData){
         //callback function: do something with selectedData;
     }   
-    getAllBages(badgesCallback);
-});
-
 
 });
 
-function badgesCallback(allBadges)
-{
-    console.log(allBadges);
-}
+
+
+});
+
 
 //Dropdown plugin data
 

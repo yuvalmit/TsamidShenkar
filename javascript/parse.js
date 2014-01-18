@@ -235,6 +235,7 @@ function getAllBages (callback) {
             badges.addBadge(badge.id, badge.get("path"));
           }
           callback(badges);
+
         },
         function(error) {
           alert('Failed to get badges, with error code: ' + error.code);
