@@ -103,11 +103,12 @@ function getTodayLesson (callback) {
   var query = new Parse.Query(lessonTable);
   query.greaterThanOrEqualTo("due_date", startDate);
   query.lessThanOrEqualTo("due_date", endDate);
+  query.include("badge"); // Including the badge pointer
 
   query.first().then(
         function(parseLesson) {
           var newLesson = new Lesson();
-          if(parseLesson)
+          if(parseLesson) // If there are any lessons today
           {
             newLesson.setName (parseLesson.get("name"));
             newLesson.setDate (parseLesson.get("due_date"));
@@ -117,7 +118,7 @@ function getTodayLesson (callback) {
 
             callback(newLesson);
           }
-          else
+          else // Else call the callback with null
             callback(null);
         },
         function(error) {
@@ -130,8 +131,7 @@ function getTodayLesson (callback) {
 * Returning the current log in user
 */
 function getCurrentUser () {
-  // Building the user object
-  var user = new User();
+  var user = new User(); // Building the user object
   
   return user;
 }
