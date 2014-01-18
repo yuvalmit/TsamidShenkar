@@ -223,7 +223,7 @@ function createNewLesson (name, date, badge, youtube, google) {
 /**
 * Return to the callback function an array of all badges with there ID, with that you can call
 */
-function getAllBages (callback) {
+function getAllBadges (callback) {
   var badgesTable = Parse.Object.extend("Badges");
   var query = new Parse.Query(badgesTable);
   query.find().then(

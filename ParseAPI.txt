@@ -84,7 +84,7 @@
 ###########################################################################################################################
 
 --------------------------
-| getAllBages (callback) |
+| getAllBadges (callback) |
 --------------------------
 
 # Return to the callback function an object which consist an associative array of all badges with there "id" and "path"
