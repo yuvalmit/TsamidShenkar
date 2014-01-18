@@ -4,7 +4,7 @@
 | signUp (username, password, email) |
 --------------------------------------
 
-# Signup function for new users
+# Signup function for new users.
 
 ###########################################################################################################################
 
@@ -12,7 +12,7 @@
 | logIn (username, password) |
 ------------------------------
 
-# Log in function to parse, this will create a parse user over the current session
+# Log in function to parse, this will create a parse user over the current session.
 
 ###########################################################################################################################
 
@@ -20,7 +20,7 @@
 | logout () |
 -------------
 
-# Logs out the current user
+# Logs out the current user.
 
 ###########################################################################################################################
 
@@ -28,7 +28,7 @@
 | addAchievements (achievement) |
 ---------------------------------
 
-# Adding the new given achievement to the current user
+# Adding the new given achievement to the current user.
 
 ###########################################################################################################################
 
@@ -36,7 +36,7 @@
 | clearAchievements () |
 ------------------------
 
-# Clearing the current user achievements array
+# Clearing the current user achievements array.
 
 ###########################################################################################################################
 
@@ -44,7 +44,7 @@
 | getTodayLesson (callback) |
 -----------------------------
 
-# Returning toadys lesson (Activity)
+# Returning toadys lesson (Activity).
 # In the callback function you will recieve lesson object as defined under /javascript/object/lesson.js
 # The callback function signature should look like this -> function lesson (todayLesson)
 
@@ -54,7 +54,7 @@
 | getCurrentUser () |
 ---------------------
 
-# Returning the current log in user 
+# Returning the current log in user.
 # In the callback function you will recieve returns user object as defined under /javascript/object/user.js
 
 ###########################################################################################################################
@@ -64,8 +64,8 @@
 ------------------------------------
 
 # Getting the current user avatar, if the option == 1 then it will return the head avatar only
-# if option == 2 then returns the path for the full avatar.
-# Default is the head avatar
+# if option == 2 then returns the path for the full avatar,
+# Default is the head avatar.
 # In the callback function you will recieve avatar object as defined under /javascript/object/avatar.js
 # The callback function signature should look like this -> function avatar (userAvatar)
 
@@ -76,8 +76,8 @@
 --------------------------------------------------------
 
 # Create new class with the given arguments.
-# The the date given to this function is formal Date() object
-# The badge given to this function is the badge ID, you can get it from the getAllBadges() function
+# The the date given to this function is formal Date() object.
+# The badge given to this function is the badge ID, you can get it from the getAllBadges() function.
 
 ###########################################################################################################################
 
