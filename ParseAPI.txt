@@ -24,11 +24,14 @@
 
 ###########################################################################################################################
 
----------------------------------
-| addAchievements (achievement) |
----------------------------------
+---------------------
+| getCurrentUser () |
+---------------------
 
-# Adding the new given achievement to the current user.
+# Returning the current logged in user.
+# The function returns user object as defined under /javascript/object/user.js
+# The function is synchronous (no need in callback function) so you can get the returning object like this:
+# var user = getCurrentUser ();
 
 ###########################################################################################################################
 
@@ -50,14 +53,11 @@
 
 ###########################################################################################################################
 
----------------------
-| getCurrentUser () |
----------------------
+---------------------------------
+| addAchievements (achievement) |
+---------------------------------
 
-# Returning the current log in user.
-# The function returns user object as defined under /javascript/object/user.js
-# The function is synchronous (no need in callback function) so you can get the returning object like this:
-# var user = getCurrentUser ();
+# Adding the new given achievement to the current user.
 
 ###########################################################################################################################
 
