@@ -2,7 +2,8 @@
  * Created by Avi on 16/01/14.
  */
 // Shorthand for $( document ).ready()
-var ddData = [
+
+/*var ddData = [
     {
         text: "Facebook",
         value: 1,
@@ -32,7 +33,7 @@ var ddData = [
         imageSrc: "http://dl.dropbox.com/u/40036711/Images/foursquare-icon-32.png"
     }
 ];
-
+*/
 $(function() {
 
 
@@ -56,16 +57,47 @@ $(function() {
 
     });
 
-    $('#myDropdown').ddslick({
-    data:ddData,
-    width:300,
-    selectText: "Select your preferred social network",
-    imagePosition:"right",
-    onSelected: function(selectedData){
-        //callback function: do something with selectedData;
-    }   
+    //getAllBadges sending badges ass callback
+    getAllBadges(badges);
 
-});
+
+//all the badges insert into arr this how we bind the data inside the badges array
+    function badges (arr) {
+        console.log("test function was called.");
+        var a;
+        if (arr)
+        {
+            var ddData=[];
+            arr.badgesArray.forEach(function(item,index){
+                console.log(item.path);
+                console.log(item.id);
+                var tempObj = {
+                    text: "badge name  "+index,
+                    value:item.id ,
+                    selected: false,
+                    description: "badge description",
+                    imageSrc:"../"+item.path
+                };
+                ddData.push(tempObj);
+
+            });
+
+            $('#myDropdown').ddslick({
+
+                data:ddData,
+                width:300,
+                selectText: "Select Badge",
+                imagePosition:"right",
+                onSelected: function(selectedData){
+                    //callback function: do something with selectedData;
+                }
+
+            });
+        }
+        else
+            console.log("There are no args.")
+    }
+
 
 
 

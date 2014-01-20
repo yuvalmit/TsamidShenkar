@@ -17,7 +17,9 @@
     padding: 10px 20px;
     pointer-events: none;
 }
-
+.dd-options.dd-click-off-close {
+    margin-left: 15px;
+}
 
 #formStyle{
     left: 250px;
