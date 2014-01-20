@@ -2,47 +2,29 @@
  * Created by Avi on 16/01/14.
  */
 // Shorthand for $( document ).ready()
-
-/*var ddData = [
-    {
-        text: "Facebook",
-        value: 1,
-        selected: false,
-        description: "Description with Facebook",
-        imageSrc: "http://dl.dropbox.com/u/40036711/Images/facebook-icon-32.png"
-    },
-    {
-        text: "Twitter",
-        value: 2,
-        selected: false,
-        description: "Description with Twitter",
-        imageSrc: "http://dl.dropbox.com/u/40036711/Images/twitter-icon-32.png"
-    },
-    {
-        text: "LinkedIn",
-        value: 3,
-        selected: true,
-        description: "Description with LinkedIn",
-        imageSrc: "http://dl.dropbox.com/u/40036711/Images/linkedin-icon-32.png"
-    },
-    {
-        text: "Foursquare",
-        value: 4,
-        selected: false,
-        description: "Description with Foursquare",
-        imageSrc: "http://dl.dropbox.com/u/40036711/Images/foursquare-icon-32.png"
-    }
-];
-*/
 $(function() {
+
+    var lessonName;
+    var lessonDate;
+    var badgeId;
+    var youtubId;
+    var googleDoc;
+
 
 
     $(".input-icon-wrapper input").on({
-        focus: function() { $(this).datepicker() }
+        focus: function() { $(this).datepicker().toString() }
 
     });
 
 
+    $(".input-icon-wrapper input").datepicker(
+        {
+            onSelect: function()
+            {
+                lessonDate = $(this).datepicker('getDate');
+            }
+        });
 
 
 
@@ -88,8 +70,10 @@ $(function() {
                 width:300,
                 selectText: "Select Badge",
                 imagePosition:"right",
-                onSelected: function(selectedData){
+                onSelected: function(data){
                     //callback function: do something with selectedData;
+                    badgeId  = data.selectedData.valueOf($(this)).value;
+                    console.log(badgeId);
                 }
 
             });
@@ -100,9 +84,25 @@ $(function() {
 
 
 
+$("#sendForm").click(function(){
+
+    lessonName = $("#lessonName").val();
+    alert(lessonName);
+    var url = $("#youtube").val();
+   if(url!=null){
+     youtubId = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+    if(youtubId != null) {
+        alert("video id = "+videoid[1]);
+    } else {
+        alert("The youtube url is not valid.");
+    }
+   }else{alert("empty");}
+});
+
+
 
 });
 
 
-//Dropdown plugin data
+
 
