@@ -24,14 +24,13 @@
 
 ###########################################################################################################################
 
----------------------
-| getCurrentUser () |
----------------------
+-----------------------------
+| getCurrentUser (callback) |
+-----------------------------
 
 # Returning the current logged in user.
-# The function returns user object as defined under /javascript/object/user.js
-# The function is synchronous (no need in callback function) so you can get the returning object like this:
-# var user = getCurrentUser ();
+# In the callback function you will recieve user object as defined under /javascript/object/user.js
+# The callback function signature should look like this -> function user (currentUser)
 
 ###########################################################################################################################
 

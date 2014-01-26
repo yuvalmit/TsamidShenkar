@@ -148,10 +148,20 @@ function getTodayLesson (callback) {
 /**
 * Returning the current log in user
 */
-function getCurrentUser () {
-  var user = new User(); // Building the user object
-  
-  return user;
+function getCurrentUser (callback) {
+  var usersTable = Parse.Object.extend("_User");
+  var query = new Parse.Query(usersTable);
+
+  query.include("avatar"); // Including the avatar pointer
+
+  query.get(Parse.User.current().id).then(
+          function(parseUser) {
+            callback( createUserFromParseUser(parseUser) );
+          },
+          function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+  );
 }
 
 /**
@@ -250,15 +260,15 @@ function getAllOnlineUsers (callback, option) {
   var query = new Parse.Query(usersTable);
 
   query.equalTo("isOnline", true); // Looking for only the online users
-  query.include("avatar"); // Including the mouth pointer
+  query.include("avatar"); // Including the avatar pointer
 
   query.find().then(
         function(results) {
-          var user = new User();
           var usersArray = new Array();
 
           // Going over the results and creating the users array
           for (var i = 0; i < results.length; i++) {
+            var user = new User();
             var parseUser = results[i]; // Getting the user from the resuts array
             
             user.setName( parseUser.get("username") );
@@ -281,7 +291,24 @@ function getAllOnlineUsers (callback, option) {
 }
 
 /**
-* Inner function for creating out custom avatar object from the parse avatar object
+* Inner function for creating custom user object from the parse user object
+*/
+function createUserFromParseUser (parseUser) {
+  var user = new User();
+
+  user.setName( parseUser.get("username") );
+  user.setEmail( parseUser.get("email") );
+  user.setPrivileges( parseUser.get("privileges") );
+  user.setGender( parseUser.get("gender") );
+  user.setAvatar( createAvatarFromParseObject( parseUser.get("avatar")) );
+  user.setAchievements( parseUser.get("achievements") );
+  user.setBadges( parseUser.get("badges") );
+
+  return user;
+}
+
+/**
+* Inner function for creating custom avatar object from the parse avatar object
 */
 function createAvatarFromParseObject (parseAvatar, option) {
   userAvatar = new Avatar();
