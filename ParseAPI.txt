@@ -61,12 +61,13 @@
 
 ###########################################################################################################################
 
-------------------------------------
-| getUserAvatar (callback, option) |
-------------------------------------
+-------------------------------------------
+| getCurrentUserAvatar (callback, option) |
+-------------------------------------------
 
-# Getting the current user avatar, if the option == 1 then it will return the head avatar only
-# if option == 2 then returns the path for the full avatar,
+# Getting the current user avatar.
+# option == 1 will return the head avatar only.
+# option == 2 returns the path for the full avatar.
 # Default is the head avatar.
 # In the callback function you will recieve avatar object as defined under /javascript/object/avatar.js
 # The callback function signature should look like this -> function avatar (userAvatar)
@@ -88,10 +89,22 @@
 --------------------------
 
 # Return to the callback function an object which consist an associative array of all badges with there "id" and "path"
-# In the object you will find the method "getBadges" which return the associative array,
+# In the object you will find the method "getBadges" that return the associative array,
 # from which you can take the "id" or "path".
 # In the callback function you will recieve badges object as defined under /javascript/object/badges.js
 # The callback function signature should look like this -> function badges (allBadges)
+
+###########################################################################################################################
+
+-----------------------------------------
+| getAllOnlineUsers (callback, option)  |
+-----------------------------------------
+
+# Return to the callback function an array of the user object
+# option == 1 will return the head avatar only.
+# option == 2 returns the path for the full avatar.
+# In the callback function you will recieve user array objects as defined under /javascript/object/user.js
+# The callback function signature should look like this -> function onlineUsers (usersArray)
 
 ###########################################################################################################################
 

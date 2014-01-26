@@ -13,6 +13,16 @@
         <script type="text/javascript" src="javascript/function.js"></script>
 	</head>
 	<script type="text/javascript">
+
+	// This will be executed when the window/tab is closed
+	window.onbeforeunload = function() {
+    	console.log("Bye now....");
+	};
+
+	//window.onunload = function() {
+	//	alert("Closed");
+	//}
+
 	function test (arg) {
 		console.log("test function was called.");
 		if (arg)
@@ -28,6 +38,9 @@
 		<br>
 		<br>
 		<button onclick="logIn('Etay','1234')">Log In</button>
+		<br>
+		<br>
+		<button onclick="logout()">Log Out</button>
 		<br>
 		<br>
 		<button onclick="createNewLesson ('new lesson', new Date(), 'link/youtube', 'link/google')">Create new lesson</button>

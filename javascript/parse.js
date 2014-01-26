@@ -12,6 +12,7 @@ function signUp (username, password, email) {
 	user.set("email", email);
 
 	user.set("privileges", 2); // 1 Is for instructor 2 is for normal user
+  user.set("isOnline", true); // Setting the user as online
 
 	user.signUp(null, {
   		success: function(user) {
@@ -27,7 +28,17 @@ function signUp (username, password, email) {
 * Logs out the current user
 */
 function logout () {
-  Parse.User.logOut();
+  Parse.User.current().set("isOnline", false, null); // Setting the user as logged off in the DB
+  Parse.User.current().save().then(
+            function(arg) {
+              console.log('User logged off.');
+            },
+            function(error) {
+              console.log('Could not log off, with error code: ' + error.description);
+            }
+  );
+
+  Parse.User.logOut(); // Logging out the current user from the session
 }
 
 /**
@@ -39,14 +50,14 @@ function clearAchievements() {
   var achievementArray = new Array();
   user.setAchievements(achievementArray);
   Parse.User.current().set("achievements", achievementArray, null);
-  Parse.User.current().save(null, {
-            success: function(achievement) {
+  Parse.User.current().save().then(
+            function(achievement) {
               console.log('Achievements was cleared');
             },
-            error: function(achievement, error) {
+            function(error) {
               console.log('Achievements was not added, with error code: ' + error.description);
             }
-  });
+  );
 }
 
 /**
@@ -61,28 +72,35 @@ function addAchievements(achievement) {
 
   user.setAchievements(achievementArray);
   Parse.User.current().set("achievements", achievementArray, null);
-  Parse.User.current().save(null, {
-            success: function(achievement) {
+  Parse.User.current().save().then(
+            function(achievement) {
               console.log('Achievement was added');
             },
-            error: function(achievement, error) {
+            function(error) {
               console.log('Achievement was not added, with error code: ' + error.description);
             }
-  });
+  );
 }
 
 /**
 * Log in function to parse, this will create a parse user over the current session
 */
 function logIn (username, password) {
-	Parse.User.logIn(username, password, {
-  		success: function(user) {
-    	 console.log(user.get("username") + " logged in.");
+	Parse.User.logIn(username, password, null).then(
+  		function(user) {
+    	 return user;
   		},
-  		error: function(user, error) {
+  		function(error) {
     		alert("LogIn error: " + error.code + " " + error.message);
-  		}
-	});
+  		}).then(
+          function(user) {
+          Parse.User.current().set("isOnline", true, null); // Setting the user as logged in in the DB
+          Parse.User.current().save().then(
+                    function(arg) {
+                      console.log(user.get("username") + " logged in.");
+                    }
+          );
+  });
 }
 
 /**
@@ -141,24 +159,10 @@ function getCurrentUser () {
 * if option is 2 then returns the path for the full avatar.
 * Default is the head avatar
 */
-function getUserAvatar (callback, option) {
+function getCurrentUserAvatar (callback, option) {
     var avatarTable = Parse.Object.extend("Avatars");
     var query = new Parse.Query(avatarTable);
     var avatarID = Parse.User.current().get("avatar").id;
-
-    switch (option) {
-      case 1:
-        var avatarPath = "assets/images/avatarImages/";
-        break;
-
-      case 2:
-        var avatarPath = "assets/images/fullAvatarImages/";
-        break;
-
-      default:
-        var avatarPath = "assets/images/avatarImages/";
-        break;
-    }
 
     query.include("head_body"); // Including the head pointer
     query.include("hair"); // Including the hair pointer
@@ -168,14 +172,8 @@ function getUserAvatar (callback, option) {
     
     query.get(avatarID).then(
             function(parseAvatar) {
-              userAvatar = new Avatar();
-              userAvatar.setHead (avatarPath + parseAvatar.get("head_body").get("path"));
-              userAvatar.setEyes (avatarPath + parseAvatar.get("eyes").get("path"));
-              userAvatar.setHair (avatarPath + parseAvatar.get("hair").get("path"));
-              userAvatar.setMouth (avatarPath + parseAvatar.get("mouth").get("path"));
-              userAvatar.setExtra (avatarPath + parseAvatar.get("extra").get("path"));
 
-              callback(userAvatar);
+              callback(createAvatarFromParseObject(parseAvatar, option));
             },
             function(error) {
               alert("Error: " + error.code + " " + error.message);
@@ -229,6 +227,7 @@ function getAllBadges (callback) {
   query.find().then(
         function(results) {
           var badges = new Badges();
+
           for (var i = 0; i < results.length; i++) {
             var badge = results[i];
 
@@ -242,3 +241,71 @@ function getAllBadges (callback) {
         }
   );
 }
+
+/**
+* Calling the callback function with an array of all the online users
+*/
+function getAllOnlineUsers (callback, option) {
+  var usersTable = Parse.Object.extend("_User");
+  var query = new Parse.Query(usersTable);
+
+  query.equalTo("isOnline", true); // Looking for only the online users
+  query.include("avatar"); // Including the mouth pointer
+
+  query.find().then(
+        function(results) {
+          var user = new User();
+          var usersArray = new Array();
+
+          // Going over the results and creating the users array
+          for (var i = 0; i < results.length; i++) {
+            var parseUser = results[i]; // Getting the user from the resuts array
+            
+            user.setName( parseUser.get("username") );
+            user.setEmail( parseUser.get("email") );
+            user.setPrivileges( parseUser.get("privileges") );
+            user.setGender( parseUser.get("gender") );
+            user.setAvatar( createAvatarFromParseObject( parseUser.get("avatar"), option) );
+            user.setAchievements( parseUser.get("achievements") );
+            user.setBadges( parseUser.get("badges") );
+
+            usersArray.push(user);
+          }
+
+          callback(usersArray);
+        },
+        function(error) {
+          alert('Failed to get users, with error code: ' + error.code);
+        }
+  );
+}
+
+/**
+* Inner function for creating out custom avatar object from the parse avatar object
+*/
+function createAvatarFromParseObject (parseAvatar, option) {
+  userAvatar = new Avatar();
+
+  switch (option) {
+    case 1:
+      var avatarPath = "assets/images/avatarImages/";
+      break;
+
+    case 2:
+      var avatarPath = "assets/images/fullAvatarImages/";
+      break;
+
+    default:
+      var avatarPath = "assets/images/avatarImages/";
+      break;
+  }
+
+  userAvatar.setHead (avatarPath + parseAvatar.get("head_body").get("path"));
+  userAvatar.setEyes (avatarPath + parseAvatar.get("eyes").get("path"));
+  userAvatar.setHair (avatarPath + parseAvatar.get("hair").get("path"));
+  userAvatar.setMouth (avatarPath + parseAvatar.get("mouth").get("path"));
+  userAvatar.setExtra (avatarPath + parseAvatar.get("extra").get("path"));
+
+  return userAvatar;
+}
+
