@@ -22,7 +22,26 @@
     <favorites_list name="TsamidShenkar" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="creatLesson.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/creat lessen/creatLesson.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="74" selection-start="861" selection-end="861" vertical-scroll-proportion="0.3642857" vertical-offset="34" max-vertical-offset="1241">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create-lesson.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/creat lessen/js/create-lesson.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="22" selection-start="1836" selection-end="1836" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1972">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -79,7 +98,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -164,6 +182,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -235,13 +254,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2057101" sideWeight="0.67156863" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2057101" sideWeight="0.67156863" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -291,9 +310,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/parse.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="232" column="35" selection-start="6988" selection-end="6988" vertical-scroll-proportion="0.0" vertical-offset="3713" max-vertical-offset="4233">
-          <folding />
-        </state>
+        <state line="232" column="35" selection-start="6988" selection-end="6988" vertical-scroll-proportion="0.0" vertical-offset="3713" max-vertical-offset="4233" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create-lesson-form.html">
@@ -315,44 +332,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/objects/lesson.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/IdanTest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="807" selection-end="959" vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="833">
-          <folding />
-        </state>
+        <state line="15" column="4" selection-start="807" selection-end="959" vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="833" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/function.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/parse.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="233" column="0" selection-start="7115" selection-end="7115" vertical-scroll-proportion="3.7986348" vertical-offset="1735" max-vertical-offset="4233">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/creat lessen/creatLesson.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="62" selection-start="1286" selection-end="1296" vertical-scroll-proportion="0.39464286" vertical-offset="255" max-vertical-offset="1241">
-          <folding />
-        </state>
+        <state line="233" column="0" selection-start="7115" selection-end="7115" vertical-scroll-proportion="3.7986348" vertical-offset="1735" max-vertical-offset="4233" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ParseAPI.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="0" selection-start="4112" selection-end="4112" vertical-scroll-proportion="0.9419795" vertical-offset="1097" max-vertical-offset="1751">
-          <folding />
-        </state>
+        <state line="97" column="0" selection-start="4112" selection-end="4112" vertical-scroll-proportion="0.9419795" vertical-offset="1097" max-vertical-offset="1751" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/creat lessen/js/jquery.ddslick.min.js">
@@ -362,16 +362,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/creat lessen/css/create-lesson.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="23" selection-start="491" selection-end="491" vertical-scroll-proportion="0.2901024" vertical-offset="340" max-vertical-offset="1054" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/creat lessen/js/create-lesson.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="9" selection-start="1902" selection-end="1902" vertical-scroll-proportion="0.6911263" vertical-offset="938" max-vertical-offset="1938">
+        <state line="75" column="22" selection-start="1836" selection-end="1836" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1972">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/creat lessen/css/create-lesson.css">
+    <entry file="file://$PROJECT_DIR$/creat lessen/creatLesson.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="23" selection-start="491" selection-end="491" vertical-scroll-proportion="0.2901024" vertical-offset="340" max-vertical-offset="1054">
+        <state line="14" column="74" selection-start="861" selection-end="861" vertical-scroll-proportion="0.3642857" vertical-offset="34" max-vertical-offset="1241">
           <folding />
         </state>
       </provider>

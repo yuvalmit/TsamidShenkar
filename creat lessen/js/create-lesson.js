@@ -4,6 +4,7 @@
 // Shorthand for $( document ).ready()
 $(function() {
 
+    /*this verbals needs to be sent to built in creatlesson function*/
     var lessonName;
     var lessonDate;
     var badgeId;
@@ -72,7 +73,8 @@ $(function() {
                 imagePosition:"right",
                 onSelected: function(data){
                     //callback function: do something with selectedData;
-                    badgeId  = data.selectedData.valueOf($(this)).value;
+                    badgeId = data.selectedData.value;
+                    //badgeId  = data.selectedData.valueOf($(this)).value;
                     console.log(badgeId);
                 }
 
