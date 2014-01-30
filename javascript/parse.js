@@ -192,6 +192,28 @@ function getUserAvatar (callback, parseAvatar, option) {
 }
 
 /**
+* This function is to set the user avatar, it needs to get the ID's of the elements.
+*/
+function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
+    //var avatarTable = Parse.Object.extend("Avatars");
+    //var newAvatar = avatarTable();
+
+    var newAvatar = user.getAvatar();
+
+    newAvatar.set("head_body", head_body);
+    newAvatar.set("hair", hair);
+    newAvatar.set("eyes", eyes);
+    newAvatar.set("extra", extra);
+    newAvatar.set("mouth", mouth);
+
+    newAvatar.save().then(
+              function (avatar) {
+                callback(true);
+              }
+    );
+}
+
+/**
 * Create new class with the given arguments
 */
 function createNewLesson (name, date, badge, youtube, google) {
