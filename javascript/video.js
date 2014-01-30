@@ -3,6 +3,7 @@ var youtubeId;
 $(document).ready(function(){
 
   getTodayLesson(getYoutubeLink);
+  getAllOnlineUsers(setAvatars);
   //videoPageInit("JaAWdljhD5o");   
 });
 
@@ -11,6 +12,22 @@ function getYoutubeLink(lesson)
   yt = lesson.getYoutubeLink();
   console.log(yt);
   videoPageInit(yt);
+}
+
+function setAvatars(usersArray)
+{
+  var avatersSection = $("#video-bottom-section");
+  var avatarsImages = new Array();
+  avatarsImages[0] = "assets/images/viewingPage/siting-avatar-flip.png";
+  avatarsImages[1] = "assets/images/viewingPage/siting-avatar-2-flip.png";
+  avatarsImages[2] = "assets/images/viewingPage/siting-avatar-3-flip.png";
+  avatarsImages[3] = "assets/images/viewingPage/siting-avatar.png";
+  avatarsImages[5] = "assets/images/viewingPage/siting-avatar-2.png";
+  avatarsImages[6] = "assets/images/viewingPage/siting-avatar-3.png";
+  $.each(usersArray, function(index, val) {
+    var avatar = "<section class='avatar' name='"+this.name+"'><img src="+avatarsImages[index]+"></section>";
+    avatersSection.append(avatar);
+  });
 }
 
 function videoPageInit(youtubeLink)
