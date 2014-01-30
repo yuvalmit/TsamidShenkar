@@ -13,7 +13,7 @@ function signUp (callback, username, password, email) {
 	user.set("password", password);
 	user.set("email", email);
 
-	user.set("privileges", 2); // 1 Is for instructor 2 is for normal user
+	user.set("privileges", 2); // 1 Is for normal user 2 is for admin
   user.set("isOnline", true); // Setting the user as online
 
   avatar.save().then(
