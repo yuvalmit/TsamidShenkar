@@ -155,11 +155,9 @@ function getCurrentUser (callback) {
   var query = new Parse.Query(usersTable);
 
   query.include("avatar"); // Including the avatar pointer
-  query.include("avatar").include("head_body");
 
   query.get(Parse.User.current().id).then(
           function(parseUser) {
-            //callback( createUserFromParseUser(parseUser) );
             callback ( createUserFromParseUser(parseUser) );
           },
           function(error) {
@@ -238,6 +236,16 @@ function createNewLesson (name, date, badge, youtube, google) {
 function getAllItems (callback, tableName) {
   var table = Parse.Object.extend(tableName);
   var query = new Parse.Query(table);
+  var avatarPath = "";
+
+  switch (tableName) {
+    case "Badges":
+      break;
+
+    default:
+      avatarPath = "assets/images/avatarImages/";
+      break;
+  }
 
   query.find().then(
         function(results) {
@@ -246,7 +254,7 @@ function getAllItems (callback, tableName) {
           for (var i = 0; i < results.length; i++) {
             var item = results[i];
 
-            items.push({ "id":item.id, "path":item.get("path") });
+            items.push({ "id":item.id, "path": avatarPath + item.get("path") });
           }
           callback(items);
         },
