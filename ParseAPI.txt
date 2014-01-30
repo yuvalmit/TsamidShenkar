@@ -71,6 +71,7 @@
 # option == 1 will return the head avatar only.
 # option == 2 returns the path for the full avatar.
 # Default is the head avatar.
+# The parseAvater is reacable from each user object by the getAvatar() method.
 # In the callback function you will recieve avatar object as defined under /javascript/object/avatar.js
 # The callback function signature should look like this -> function avatar (userAvatar)
 
