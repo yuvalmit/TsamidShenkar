@@ -155,26 +155,27 @@ function getCurrentUser (callback) {
   var query = new Parse.Query(usersTable);
 
   query.include("avatar"); // Including the avatar pointer
+  query.include("avatar").include("head_body");
 
   query.get(Parse.User.current().id).then(
           function(parseUser) {
-            callback( createUserFromParseUser(parseUser) );
+            //callback( createUserFromParseUser(parseUser) );
+            callback ( createUserFromParseUser(parseUser) );
           },
           function(error) {
             alert("Error: " + error.code + " " + error.message);
-          }
-  );
+  });
 }
 
 /**
-* Getting the current user avatar, if the function recieve 1 in option then returns the head avatar only
+* Getting the user avatar, if the function recieve 1 in option then returns the head avatar only
 * if option is 2 then returns the path for the full avatar.
 * Default is the head avatar
 */
-function getCurrentUserAvatar (callback, option) {
+function getUserAvatar (callback, parseAvatar, option) {
     var avatarTable = Parse.Object.extend("Avatars");
     var query = new Parse.Query(avatarTable);
-    var avatarID = Parse.User.current().get("avatar").id;
+    var avatarID = parseAvatar.id;
 
     query.include("head_body"); // Including the head pointer
     query.include("hair"); // Including the hair pointer
@@ -184,7 +185,6 @@ function getCurrentUserAvatar (callback, option) {
     
     query.get(avatarID).then(
             function(parseAvatar) {
-
               callback(createAvatarFromParseObject(parseAvatar, option));
             },
             function(error) {
@@ -246,7 +246,6 @@ function getAllBadges (callback) {
             badges.addBadge(badge.id, badge.get("path"));
           }
           callback(badges);
-
         },
         function(error) {
           alert('Failed to get badges, with error code: ' + error.code);
@@ -257,7 +256,7 @@ function getAllBadges (callback) {
 /**
 * Calling the callback function with an array of all the online users
 */
-function getAllOnlineUsers (callback, option) {
+function getAllOnlineUsers (callback) {
   var usersTable = Parse.Object.extend("_User");
   var query = new Parse.Query(usersTable);
 
@@ -277,7 +276,7 @@ function getAllOnlineUsers (callback, option) {
             user.setEmail( parseUser.get("email") );
             user.setPrivileges( parseUser.get("privileges") );
             user.setGender( parseUser.get("gender") );
-            user.setAvatar( createAvatarFromParseObject( parseUser.get("avatar"), option) );
+            user.setAvatar( parseUser.get("avatar") );
             user.setAchievements( parseUser.get("achievements") );
             user.setBadges( parseUser.get("badges") );
 
@@ -302,7 +301,7 @@ function createUserFromParseUser (parseUser) {
   user.setEmail( parseUser.get("email") );
   user.setPrivileges( parseUser.get("privileges") );
   user.setGender( parseUser.get("gender") );
-  user.setAvatar( createAvatarFromParseObject( parseUser.get("avatar")) );
+  user.setAvatar( parseUser.get("avatar") );
   user.setAchievements( parseUser.get("achievements") );
   user.setBadges( parseUser.get("badges") );
 

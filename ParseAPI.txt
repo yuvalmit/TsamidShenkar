@@ -63,11 +63,11 @@
 
 ###########################################################################################################################
 
--------------------------------------------
-| getCurrentUserAvatar (callback, option) |
--------------------------------------------
+-------------------------------------------------
+| getUserAvatar (callback, parseAvatar, option) |
+-------------------------------------------------
 
-# Getting the current user avatar.
+# Getting a user avatar.
 # option == 1 will return the head avatar only.
 # option == 2 returns the path for the full avatar.
 # Default is the head avatar.
@@ -98,13 +98,11 @@
 
 ###########################################################################################################################
 
------------------------------------------
-| getAllOnlineUsers (callback, option)  |
------------------------------------------
+---------------------------------
+| getAllOnlineUsers (callback)  |
+---------------------------------
 
 # Return to the callback function an array of the user object
-# option == 1 will return the head avatar only.
-# option == 2 returns the path for the full avatar.
 # In the callback function you will recieve user array objects as defined under /javascript/object/user.js
 # The callback function signature should look like this -> function onlineUsers (usersArray)
 

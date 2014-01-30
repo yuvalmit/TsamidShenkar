@@ -19,11 +19,19 @@
     	 logout();
 	};
 
+	function test2 (arg) {
+		console.log("test2 function was called.");
+		console.log(arg.getHead());
+	}
+
 	function test (arg) {
 		console.log("test function was called.");
+
+		getUserAvatar (test2, arg.getAvatar());
+
 		if (arg)
 		{
-			console.log(arg.getAvatar().getHead());
+			//console.log(arg.getAvatar().getHead());
 			//console.log(arg);
 		}
 		else
