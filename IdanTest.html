@@ -13,21 +13,32 @@
         <script type="text/javascript" src="javascript/function.js"></script>
 	</head>
 	<script type="text/javascript">
+
+	// This will be executed when the window/tab is closed
+	window.onbeforeunload = function() {
+    	 //logout();
+	};
+
+	function test2 (arg) {
+		console.log("test2 function was called.");
+		console.log(arg);
+	}
+
 	function test (arg) {
 		console.log("test function was called.");
-		if (arg)
-		{
-			console.log(arg);
-		}
-		else
-			console.log("There are no args.")
+		console.log(arg);
+
+		setUserAvatar (test2, arg, "PqEO0UlbTq", "7CC3aqMR8j", "0deLrHrLYY", "0zxeOkbThj", "clFNVogMF2");
 	}
 	</script>
 	<body align="center">
 		Hello Tsamid!
 		<br>
 		<br>
-		<button onclick="logIn('Etay','1234')">Log In</button>
+		<button onclick="logIn(test, 'Etay','1234')">Log In</button>
+		<br>
+		<br>
+		<button onclick="logout()">Log Out</button>
 		<br>
 		<br>
 		<button onclick="createNewLesson ('new lesson', new Date(), 'link/youtube', 'link/google')">Create new lesson</button>

@@ -20,16 +20,16 @@ img{
 .avatar_layout{
 	height: 77px !important;
 	width: 77px !important;
+
 }
 
 .avatar_image{
 	height:110px !important;
 	width: 110px !important;
 	position: absolute;
-	top : -5px;
-	left : 428px;
-
-
+	top : -11px;
+	right : 4px;
+	
 }
 
 .cta_avatar img{
@@ -54,7 +54,8 @@ img{
 	height : 77px;
 }
 .top_menu .cta{
-	width : 14%;
+	position: relative;
+	width : 10%;
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
@@ -63,21 +64,32 @@ img{
 	height: 100%;
 }
 
+.top_menu{
+	
+}
+
+.tsamid_logo{
+		height: 100px;
+		width : 10%;
+		display: inline-block;
+	}
+
 .top_menu .cta:hover{
-	background-color: orange;
+	background-color: #63bded;
 }
 
 .top_menu .user_info{
-	width : 39%;
+	width : 30%;
 	display: inline-block;
 	z-index : 2;
 	color : orange;
+	position: relative;
+	vertical-align: top;
 
 }
 
 .top_menu .user_info .text_info{
 	width: 39%;
-	margin-left: 10%;
 	display: inline-block;
 	vertical-align: top;
 }

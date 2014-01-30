@@ -8,11 +8,14 @@
 
 ###########################################################################################################################
 
-------------------------------
-| logIn (username, password) |
-------------------------------
+-------------------------------------------------
+| function logIn (callback, username, password) |
+-------------------------------------------------
 
 # Log in function to parse, this will create a parse user over the current session.
+# In the callback function you will get a boolean value,
+# true for successful login, false otherwise
+# The callback function signature should look like this -> function loginCallback (isLoginSuccessful)
 
 ###########################################################################################################################
 
@@ -24,14 +27,13 @@
 
 ###########################################################################################################################
 
----------------------
-| getCurrentUser () |
----------------------
+-----------------------------
+| getCurrentUser (callback) |
+-----------------------------
 
 # Returning the current logged in user.
-# The function returns user object as defined under /javascript/object/user.js
-# The function is synchronous (no need in callback function) so you can get the returning object like this:
-# var user = getCurrentUser ();
+# In the callback function you will recieve user object as defined under /javascript/object/user.js
+# The callback function signature should look like this -> function user (currentUser)
 
 ###########################################################################################################################
 
@@ -61,13 +63,15 @@
 
 ###########################################################################################################################
 
-------------------------------------
-| getUserAvatar (callback, option) |
-------------------------------------
+-------------------------------------------------
+| getUserAvatar (callback, parseAvatar, option) |
+-------------------------------------------------
 
-# Getting the current user avatar, if the option == 1 then it will return the head avatar only
-# if option == 2 then returns the path for the full avatar,
+# Getting a user avatar.
+# option == 1 will return the head avatar only.
+# option == 2 returns the path for the full avatar.
 # Default is the head avatar.
+# The parseAvater is reacable from each user object by the getAvatar() method.
 # In the callback function you will recieve avatar object as defined under /javascript/object/avatar.js
 # The callback function signature should look like this -> function avatar (userAvatar)
 
@@ -83,15 +87,34 @@
 
 ###########################################################################################################################
 
---------------------------
-| getAllBadges (callback) |
---------------------------
+-------------------------------------
+| getAllItems (callback, tableName) |
+--------------------------------------
 
-# Return to the callback function an object which consist an associative array of all badges with there "id" and "path"
-# In the object you will find the method "getBadges" which return the associative array,
-# from which you can take the "id" or "path".
-# In the callback function you will recieve badges object as defined under /javascript/object/badges.js
-# The callback function signature should look like this -> function badges (allBadges)
+# The callback function will be called with an associative array (id, path) with all items in the given table
+# The possible tables are -> AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges
+
+###########################################################################################################################
+
+---------------------------------
+| getAllOnlineUsers (callback)  |
+---------------------------------
+
+# Return to the callback function an array of the user object
+# In the callback function you will recieve user array objects as defined under /javascript/object/user.js
+# The callback function signature should look like this -> function onlineUsers (usersArray)
+
+###########################################################################################################################
+
+------------------------------------------------------------------------
+| setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth)  |
+------------------------------------------------------------------------
+
+# Set a new avatar for a given user.
+# the user the function need is a user object as defined under /javascript/object/user.js
+# the function will update that user avatar with the new items
+# all the other items should be the ID's which you can get from the "getAllItems" method
+# The callback function signature should look like this -> function isUpdate (isUpdateSuccessful)
 
 ###########################################################################################################################
 

@@ -34,18 +34,26 @@
 	height : 100px;
 }
 
-
+.avatar_image{
+	
+	
+}
 
 .avatar_img {
-	height: 100%;
-	width: 16.3%;
+	height: 110px;
+	width: 14%;
 	display: inline-block;
 	text-align: center;
+	position: relative;
+	
 
 }
 
 .avatar_img img{
 	height: 100%;
+	width: 100%;
+	position: absolute !important;
+	
 }
 
 .video_placeholder{

@@ -1,14 +1,6 @@
 // In each creationg of user getting the most updated details
 var User = function() {
-    var parseUser = Parse.User.current();
 
-    this.name = parseUser.get("username");
-    this.email = parseUser.get("email");
-    this.privileges = parseUser.get("privileges");
-    this.gender = parseUser.get("gender");
-    this.avatar = parseUser.get("avatar");
-    this.achievements = parseUser.get("achievements");
-    this.badges = parseUser.get("badges");
 };
 
 /* Setters*/
@@ -53,6 +45,7 @@ User.prototype.getPrivileges = function() {
     return this.privileges;
 };
 
+// The Avatar in the user object is a parse object and with it you can get the cutom avatar object
 User.prototype.getGender = function() {
     return this.gender;
 };
