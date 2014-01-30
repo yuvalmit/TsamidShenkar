@@ -85,21 +85,23 @@ function addAchievements(achievement) {
 /**
 * Log in function to parse, this will create a parse user over the current session
 */
-function logIn (username, password) {
+function logIn (callback, username, password) {
 	Parse.User.logIn(username, password, null).then(
   		function(user) {
     	 return user;
   		},
   		function(error) {
     		alert("LogIn error: " + error.code + " " + error.message);
+        callback(false);
   		}).then(
           function(user) {
           Parse.User.current().set("isOnline", true, null); // Setting the user as logged in in the DB
           Parse.User.current().save().then(
                     function(arg) {
                       console.log(user.get("username") + " logged in.");
+                      callback(true);
                     }
-          );
+      );
   });
 }
 
