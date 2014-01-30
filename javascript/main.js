@@ -1,10 +1,13 @@
+
+var user;
+
 function initMain(){
+
     logIn( loginTest ,'Etay' , '1234');
     var userAvatar;
     var currentLesson;
-    var user = getCurrentUser();
-    getUserInfo(user);
-    getUserAvatar(getAvatarLayout , 1);
+    getCurrentUser(getUser);
+    
 
     
 };
@@ -13,7 +16,30 @@ function loginTest(success){
     
 }
 
+function getUser(result){
+
+  user = result;
+  getUserInfo(user);
+  getUserAvatar( getAvatarLayout , user.getAvatar() , 1);
+ 
+}
+
+function getOnlineUsers(usersArray){
+    usersArray.forEach(function (userInstance) {
+        //if (userInstance["name"] !== user["name"]) {
+           getUserAvatar(getAvatarLayout , userInstance.getAvatar() , 1);
+        //}
+       
+    });
+}
+
+
+
+
+
+
 function getAvatarLayout(avatar) {
+        
         userAvatar = avatar;
         var head   = userAvatar.getHead();
         var eyes   = userAvatar.getEyes();
@@ -21,11 +47,11 @@ function getAvatarLayout(avatar) {
         var hair   = userAvatar.getHair();
         var extra  = userAvatar.getExtra();
 
-       $("#avatar_head").attr( "src" , head);
-       $("#avatar_eyes").attr( "src" , eyes);
-       $("#avatar_mouth").attr( "src" , mouth);
-       $("#avatar_hair").attr( "src" , hair);
-       $("#avatar_extra").attr( "src" , extra);
+       $("#avatar").find("#avatar_head").attr( "src" , head);
+       $("#avatar").find("#avatar_eyes").attr( "src" , eyes);
+       $("#avatar").find("#avatar_mouth").attr( "src" , mouth);
+       $("#avatar").find("#avatar_hair").attr( "src" , hair);
+       $("#avatar").find("#avatar_extra").attr( "src" , extra);
        
    };
 
@@ -66,9 +92,7 @@ $( document ).ready(function() {
           $("#main_iframe").attr('src' , 'start_page.html');
 });
 
-    
-
-
+  
     initMain();
 
 
