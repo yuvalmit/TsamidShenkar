@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "Tsamid": {
+            "applicationId": "hCiKNPSGy9q5iT40j0d9DAiLHpavkJMWxmsC15tS", 
+            "masterKey": "bQN5Rx9iEgTmO7O0E0pfIqal4G19quvR1jmThkJM"
+        }, 
+        "_default": {
+            "link": "Tsamid"
+        }
+    }
+}
