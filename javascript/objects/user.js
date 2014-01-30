@@ -45,6 +45,7 @@ User.prototype.getPrivileges = function() {
     return this.privileges;
 };
 
+// The Avatar in the user object is a parse object and with it you can get the cutom avatar object
 User.prototype.getGender = function() {
     return this.gender;
 };

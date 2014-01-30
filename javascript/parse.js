@@ -238,6 +238,7 @@ function getAllItems (callback, tableName) {
   var query = new Parse.Query(table);
   var avatarPath = "";
 
+  // Switch case for the tables, Badges table has the full path already
   switch (tableName) {
     case "Badges":
       break;
