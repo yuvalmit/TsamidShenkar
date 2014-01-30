@@ -2,44 +2,6 @@
  * Created by Avi on 16/01/14.
  */
 // Shorthand for $( document ).ready()
-<<<<<<< HEAD:create-lesson/js/create-lesson.js
-var ddData = [
-    {
-        text: "Facebook",
-        value: 1,
-        selected: false,
-        description: "Description with Facebook",
-        imageSrc: "http://dl.dropbox.com/u/40036711/Images/facebook-icon-32.png"
-    },
-    {
-        text: "Twitter",
-        value: 2,
-        selected: false,
-        description: "Description with Twitter",
-        imageSrc: "http://dl.dropbox.com/u/40036711/Images/twitter-icon-32.png"
-    },
-    {
-        text: "LinkedIn",
-        value: 3,
-        selected: true,
-        description: "Description with LinkedIn",
-        imageSrc: "http://dl.dropbox.com/u/40036711/Images/linkedin-icon-32.png"
-    },
-    {
-        text: "Foursquare",
-        value: 4,
-        selected: false,
-        description: "Description with Foursquare",
-        imageSrc: "http://dl.dropbox.com/u/40036711/Images/foursquare-icon-32.png"
-    }
-];
-
-function badges(allBadges){
-        console.log(allBadges);
-    }
-
-=======
->>>>>>> 83c98459ab32bb5e7630606e98eff4b664dbacdb:creat lessen/js/create-lesson.js
 $(function() {
 
     var lessonName;
@@ -77,42 +39,33 @@ $(function() {
 
     });
 
-<<<<<<< HEAD:create-lesson/js/create-lesson.js
-    $('#myDropdown').ddslick({
-    data:ddData,
-    width:300,
-    selectText: "Select your preferred social network",
-    imagePosition:"right",
-    onSelected: function(selectedData){
-        //callback function: do something with selectedData;
-    }   
- 
-    getAllBages(badges);
-=======
     //getAllBadges sending badges ass callback
-    getAllBadges(badges);
+    getAllItems(badges, "Badges");
 
 
 //all the badges insert into arr this how we bind the data inside the badges array
     function badges (arr) {
         console.log("test function was called.");
+        console.log(arr);
         var a;
         if (arr)
         {
             var ddData=[];
-            arr.badgesArray.forEach(function(item,index){
-                console.log(item.path);
-                console.log(item.id);
-                var tempObj = {
+            $.each(arr, function(index, val) {
+                 /* iterate through array or object */
+                 console.log(this.id);
+                 console.log(this.path);
+                 console.log(index);
+                  var tempObj = {
                     text: "badge name  "+index,
-                    value:item.id ,
+                    value: this.id ,
                     selected: false,
                     description: "badge description",
-                    imageSrc:"../"+item.path
+                    imageSrc:"../"+this.path
                 };
                 ddData.push(tempObj);
-
             });
+
 
             $('#myDropdown').ddslick({
 
@@ -147,17 +100,12 @@ $("#sendForm").click(function(){
         alert("The youtube url is not valid.");
     }
    }else{alert("empty");}
->>>>>>> 83c98459ab32bb5e7630606e98eff4b664dbacdb:creat lessen/js/create-lesson.js
 });
 
 
 
 });
 
-<<<<<<< HEAD:create-lesson/js/create-lesson.js
-
-=======
->>>>>>> 83c98459ab32bb5e7630606e98eff4b664dbacdb:creat lessen/js/create-lesson.js
 
 
 
