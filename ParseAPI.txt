@@ -106,3 +106,15 @@
 
 ###########################################################################################################################
 
+------------------------------------------------------------------------
+| setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth)  |
+------------------------------------------------------------------------
+
+# Set a new avatar for a given user.
+# the user the function need is a user object as defined under /javascript/object/user.js
+# the function will update that user avatar with the new items
+# all the other items should be the ID's which you can get from the "getAllItems" method
+# The callback function signature should look like this -> function isUpdate (isUpdateSuccessful)
+
+###########################################################################################################################
+

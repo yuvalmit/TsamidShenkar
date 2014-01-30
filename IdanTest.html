@@ -21,18 +21,14 @@
 
 	function test2 (arg) {
 		console.log("test2 function was called.");
-		console.log(arg.getHead());
+		console.log(arg);
 	}
 
 	function test (arg) {
 		console.log("test function was called.");
-		setUserAvatar (test2, arg.getAvatar(), "PqEO0UlbTq", "7CC3aqMR8j", "0deLrHrLYY", "0zxeOkbThj", "clFNVogMF2");
-		if (arg)
-		{
-			console.log(arg);
-		}
-		else
-			console.log("There are no args.")
+		console.log(arg);
+
+		setUserAvatar (test2, arg, "PqEO0UlbTq", "7CC3aqMR8j", "0deLrHrLYY", "0zxeOkbThj", "clFNVogMF2");
 	}
 	</script>
 	<body align="center">
