@@ -2,14 +2,14 @@ var youtubeId;
 
 $(document).ready(function(){
 
-  //getTodayLesson (getYoutubeLink);
-  videoPageInit("JaAWdljhD5o");   
+  getTodayLesson(getYoutubeLink);
+  //videoPageInit("JaAWdljhD5o");   
 });
 
 function getYoutubeLink(lesson)
 {
   yt = lesson.getYoutubeLink();
-  concole.log(yt);
+  console.log(yt);
   videoPageInit(yt);
 }
 

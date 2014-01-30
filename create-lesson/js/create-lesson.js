@@ -90,16 +90,28 @@ $(function() {
 $("#sendForm").click(function(){
 
     lessonName = $("#lessonName").val();
-    alert(lessonName);
     var url = $("#youtube").val();
+
    if(url!=null){
      youtubId = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
     if(youtubId != null) {
-        alert("video id = "+videoid[1]);
+        alert("video id = "+youtubId[1]);
     } else {
         alert("The youtube url is not valid.");
     }
-   }else{alert("empty");}
+   }else{
+    alert("empty");
+    }
+
+    googleDoc = $('#google-doc').val();
+    console.log("lesson name:"+lessonName);
+    console.log("lesson date:"+lessonDate);
+    console.log("badge Id:"+badgeId);
+    console.log("youtube Id:"+youtubId);
+    console.log("google doc:"+googleDoc); 
+    
+   //createNewLesson (name, date, badge, youtube, google)
+   createNewLesson(lessonName , lessonDate, badgeId, youtubId[1] , googleDoc);
 });
 
 
