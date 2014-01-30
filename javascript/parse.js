@@ -3,8 +3,10 @@ Parse.initialize("hCiKNPSGy9q5iT40j0d9DAiLHpavkJMWxmsC15tS", "TmiPKzW632NWSIkuBB
 /**
 * Signup function for new users
 */
-function signUp (username, password, email) {
+function signUp (callback, username, password, email) {
 	var user = new Parse.User();
+  var avatarTable = Parse.Object.extend("Avatars");
+  var avatar = new avatarTable();
 	
 	// Setting the new user credentials
 	user.set("username", username);
@@ -14,14 +16,19 @@ function signUp (username, password, email) {
 	user.set("privileges", 2); // 1 Is for instructor 2 is for normal user
   user.set("isOnline", true); // Setting the user as online
 
-	user.signUp(null, {
-  		success: function(user) {
-    		alert("Welcome " + username + " :)");
-  		},
-  		error: function(user, error) {
-    		alert("SignUp error: " + error.code + " " + error.message);
-  		}
-	});
+  avatar.save().then(
+    function (avatar) {
+      user.set("avatar",avatar);
+      user.signUp(null, {
+        success: function(user) {
+          callback(true);
+        },
+        error: function(user, error) {
+          alert("SignUp error: " + error.code + " " + error.message);
+        }
+      });
+    }
+  );
 }
 
 /**
@@ -44,9 +51,7 @@ function logout () {
 /**
 * Clearing the current user achievements array
 */
-function clearAchievements() {
-  var user = getCurrentUser();
-
+function clearAchievements(user) {
   var achievementArray = new Array();
   user.setAchievements(achievementArray);
   Parse.User.current().set("achievements", achievementArray, null);
@@ -63,9 +68,7 @@ function clearAchievements() {
 /**
 * Adding the new given achievement to the current user
 */
-function addAchievements(achievement) {
-  var user = getCurrentUser();
-
+function addAchievementToUser(achievement, user) {
   var achievementArray = new Array();
   achievementArray = user.getAchievements();
   achievementArray.push(achievement);
@@ -78,6 +81,23 @@ function addAchievements(achievement) {
             },
             function(error) {
               console.log('Achievement was not added, with error code: ' + error.description);
+            }
+  );
+}
+
+function addBagdeToUser (badge, user) {
+  var badgesArray = new Array();
+  badgesArray = user.getBadges();
+  badgesArray.push(badge);
+
+  user.setBadges(badgesArray);
+  Parse.User.current().set("badges", badgesArray, null);
+  Parse.User.current().save().then(
+            function(badge) {
+              console.log('Badge was added');
+            },
+            function(error) {
+              console.log('Badge was not added, with error code: ' + error.description);
             }
   );
 }
