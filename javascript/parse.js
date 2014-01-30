@@ -215,59 +215,24 @@ function getUserAvatar (callback, parseAvatar, option) {
 * This function is to set the user avatar, it needs to get the ID's of the elements.
 */
 function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
-    var headBodyTable = Parse.Object.extend("AvatarHeadBody");
-    var hairTable = Parse.Object.extend("AvatarHair");
-    var eyesTable = Parse.Object.extend("AvatarEyes");
-    var extraTable = Parse.Object.extend("AvatarExtra");
-    var mouthTable = Parse.Object.extend("AvatarMouth");
+    var headBodyObject = Parse.Object.extend("AvatarHeadBody");
+    var hairObject = Parse.Object.extend("AvatarHair");
+    var eyesObject = Parse.Object.extend("AvatarEyes");
+    var extraObject = Parse.Object.extend("AvatarExtra");
+    var mouthObject = Parse.Object.extend("AvatarMouth");
 
     var newAvatar = user.getAvatar();
-    console.log(newAvatar.get("hair"));
 
-    var query = new Parse.Query(headBodyTable);
+    newAvatar.set("head_body", new headBodyObject().set("objectId", head_body));
+    newAvatar.set("hair", new hairObject().set("objectId", hair));
+    newAvatar.set("eyes", new eyesObject().set("objectId", eyes));
+    newAvatar.set("extra", new extraObject().set("objectId", extra));
+    newAvatar.set("mouth", new mouthObject().set("objectId", mouth));
 
-    // First get the new HeadBody object from parse
-    query.get(head_body).then(
-          function (parseHeadBody) {
-            newAvatar.set("head_body", parseHeadBody);
-            newAvatar.save();
-          }).then( // Then get the new hair object from parse
-          function () {
-            var query = new Parse.Query(hairTable);
-            query.get(hair).then(
-                  function (parseHair) {
-                    newAvatar.set("hair", parseHair);
-                    newAvatar.save();
-                  });
-          }).then( // Then get the new eyes object from parse
-          function () {
-            var query = new Parse.Query(eyesTable);
-            query.get(eyes).then(
-                  function (parseEyes) {
-                    newAvatar.set("eyes", parseEyes);
-                    newAvatar.save();
-                  });
-          }).then( // Then get the new extra object from parse
-          function () {
-            var query = new Parse.Query(extraTable);
-            query.get(extra).then(
-                  function (parseExtra) {
-                    newAvatar.set("extra", parseExtra);
-                    newAvatar.save();
-                  });
-          }).then( // Then get the new mouth object from parse
-          function () {
-            var query = new Parse.Query(mouthTable);
-            query.get(mouth).then(
-                  function (parseMouth) {
-                    newAvatar.set("mouth", parseMouth);
-                    newAvatar.save();
-                  });
-          }).then( // Then call the callback function with true
-            function () {
-              callback(true);
-            }
-    );
+    newAvatar.save().then(
+      function (newAvatar) {
+        callback(true);
+    });
 }
 
 /**
