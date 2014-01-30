@@ -54,7 +54,7 @@ img{
 	height : 77px;
 }
 .top_menu .cta{
-	width : 14%;
+	width : 10%;
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
@@ -63,12 +63,19 @@ img{
 	height: 100%;
 }
 
+.top_menu{
+	.tsamid_logo{
+		height: 100%;
+		width : 10%;
+	}
+}
+
 .top_menu .cta:hover{
-	background-color: orange;
+	background-color: #63bded;
 }
 
 .top_menu .user_info{
-	width : 39%;
+	width : 30%;
 	display: inline-block;
 	z-index : 2;
 	color : orange;

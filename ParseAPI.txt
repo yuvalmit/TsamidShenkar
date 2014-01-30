@@ -1,75 +1,108 @@
-###################################################################################################################
+###########################################################################################################################
 
-# Signup function for new users
+--------------------------------------
+| signUp (username, password, email) |
+--------------------------------------
 
-signUp (username, password, email)
+# Signup function for new users.
 
-###################################################################################################################
+###########################################################################################################################
 
-# Log in function to parse, this will create a parse user over the current session
+-------------------------------------------------
+| function logIn (callback, username, password) |
+-------------------------------------------------
 
-logIn (username, password)
+# Log in function to parse, this will create a parse user over the current session.
+# In the callback function you will get a boolean value,
+# true for successful login, false otherwise
+# The callback function signature should look like this -> function loginCallback (isLoginSuccessful)
 
-###################################################################################################################
+###########################################################################################################################
 
-# Logs out the current user
+-------------
+| logout () |
+-------------
 
-logout ()
+# Logs out the current user.
 
-###################################################################################################################
+###########################################################################################################################
 
-# Adding the new given achievement to the current user
+-----------------------------
+| getCurrentUser (callback) |
+-----------------------------
 
-addAchievements (achievement)
+# Returning the current logged in user.
+# In the callback function you will recieve user object as defined under /javascript/object/user.js
+# The callback function signature should look like this -> function user (currentUser)
 
-###################################################################################################################
+###########################################################################################################################
 
-# Clearing the current user achievements array
+------------------------
+| clearAchievements () |
+------------------------
 
-clearAchievements ()
+# Clearing the current user achievements array.
 
-###################################################################################################################
+###########################################################################################################################
 
-# Returning toadys lesson (Activity)
+-----------------------------
+| getTodayLesson (callback) |
+-----------------------------
+
+# Returning toadys lesson (Activity).
 # In the callback function you will recieve lesson object as defined under /javascript/object/lesson.js
 # The callback function signature should look like this -> function lesson (todayLesson)
 
-function getTodayLesson (callback)
+###########################################################################################################################
 
-###################################################################################################################
+---------------------------------
+| addAchievements (achievement) |
+---------------------------------
 
-# Returning the current log in user 
-# In the callback function you will recieve returns user object as defined under /javascript/object/user.js
+# Adding the new given achievement to the current user.
 
-getCurrentUser ()
+###########################################################################################################################
 
-###################################################################################################################
+-------------------------------------------------
+| getUserAvatar (callback, parseAvatar, option) |
+-------------------------------------------------
 
-# Getting the current user avatar, if the option == 1 then it will return the head avatar only
-# if option == 2 then returns the path for the full avatar.
-# Default is the head avatar
+# Getting a user avatar.
+# option == 1 will return the head avatar only.
+# option == 2 returns the path for the full avatar.
+# Default is the head avatar.
+# The parseAvater is reacable from each user object by the getAvatar() method.
 # In the callback function you will recieve avatar object as defined under /javascript/object/avatar.js
 # The callback function signature should look like this -> function avatar (userAvatar)
 
-getUserAvatar (callback, option)
+###########################################################################################################################
 
-###################################################################################################################
+--------------------------------------------------------
+| createNewLesson (name, date, badge, youtube, google) |
+--------------------------------------------------------
 
 # Create new class with the given arguments.
-# The the date given to this function is formal Date() object
-# The badge given to this function is the badge ID, you can get it from the getAllBadges function
+# The date given to this function is formal Date() object.
+# The badge given to this function is the badge ID, you can get it from the getAllBadges() function.
 
-createNewLesson (name, date, badge, youtube, google)
+###########################################################################################################################
 
-###################################################################################################################
+-------------------------------------
+| getAllItems (callback, tableName) |
+--------------------------------------
 
-# Return to the callback function an object which consist an associative array of all badges with there "id" and "path"
-# In the object you will find the method "getBadges" which return the associative array,
-# from which you can take the "id" or "path".
-# The callback function signature should look like this -> function badges (allBadges)
-# In the callback function you will recieve badges object as defined under /javascript/object/badges.js
+# The callback function will be called with an associative array (id, path) with all items in the given table
+# The possible tables are -> AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges
 
-getAllBages (callback)
+###########################################################################################################################
 
-###################################################################################################################
+---------------------------------
+| getAllOnlineUsers (callback)  |
+---------------------------------
+
+# Return to the callback function an array of the user object
+# In the callback function you will recieve user array objects as defined under /javascript/object/user.js
+# The callback function signature should look like this -> function onlineUsers (usersArray)
+
+###########################################################################################################################
 
