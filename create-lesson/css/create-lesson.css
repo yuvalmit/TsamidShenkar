@@ -1,0 +1,56 @@
+.input-icon-wrapper{
+    width: 180px;
+}
+.game-wrapper{
+    width: 180px;
+}
+
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 20px;
+    pointer-events: none;
+}
+.dd-options.dd-click-off-close {
+    margin-left: 15px;
+}
+
+#formStyle{
+    left: 250px;
+    background-color: #ECE9E9;
+    border: 5px solid rgb(199, 194, 194);
+}
+
+#sendForm{
+    margin-bottom: 15px;
+}
+
+.create-lesson-title{
+    font-size: 50px;
+    text-align: center;
+    color: rgb(74, 146, 238);
+}
+
+#activity-start-date{
+    width: 50%;
+
+}
+
+#myDropdown
+{
+	float: left;
+}
+
+.clear
+{
+	clear: both;
+}
+.dd-select{
+    margin-left: 15px;
+}
