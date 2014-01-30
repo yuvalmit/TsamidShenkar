@@ -87,15 +87,12 @@
 
 ###########################################################################################################################
 
---------------------------
-| getAllBadges (callback) |
---------------------------
+-------------------------------------
+| getAllItems (callback, tableName) |
+--------------------------------------
 
-# Return to the callback function an object which consist an associative array of all badges with there "id" and "path"
-# In the object you will find the method "getBadges" that return the associative array,
-# from which you can take the "id" or "path".
-# In the callback function you will recieve badges object as defined under /javascript/object/badges.js
-# The callback function signature should look like this -> function badges (allBadges)
+# The callback function will be called with an associative array (id, path) with all items in the given table
+# The possible tables are -> AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges
 
 ###########################################################################################################################
 

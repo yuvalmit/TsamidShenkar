@@ -16,7 +16,7 @@
 
 	// This will be executed when the window/tab is closed
 	window.onbeforeunload = function() {
-    	 logout();
+    	 //logout();
 	};
 
 	function test2 (arg) {
@@ -26,13 +26,10 @@
 
 	function test (arg) {
 		console.log("test function was called.");
-
-		getUserAvatar (test2, arg.getAvatar());
-
+		//getUserAvatar (test2, arg.getAvatar());
 		if (arg)
 		{
-			//console.log(arg.getAvatar().getHead());
-			//console.log(arg);
+			console.log(arg);
 		}
 		else
 			console.log("There are no args.")

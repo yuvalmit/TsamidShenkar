@@ -231,21 +231,24 @@ function createNewLesson (name, date, badge, youtube, google) {
 }
 
 /**
-* Return to the callback function an array of all badges with there ID, with that you can call
+* Return to the callback function an array of all items with their id and path
+* The possible tables are
+* AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges
 */
-function getAllBadges (callback) {
-  var badgesTable = Parse.Object.extend("Badges");
-  var query = new Parse.Query(badgesTable);
+function getAllItems (callback, tableName) {
+  var table = Parse.Object.extend(tableName);
+  var query = new Parse.Query(table);
+
   query.find().then(
         function(results) {
-          var badges = new Badges();
+          var items = new Array();
 
           for (var i = 0; i < results.length; i++) {
-            var badge = results[i];
+            var item = results[i];
 
-            badges.addBadge(badge.id, badge.get("path"));
+            items.push({ "id":item.id, "path":item.get("path") });
           }
-          callback(badges);
+          callback(items);
         },
         function(error) {
           alert('Failed to get badges, with error code: ' + error.code);
