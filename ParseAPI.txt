@@ -8,11 +8,14 @@
 
 ###########################################################################################################################
 
-------------------------------
-| logIn (username, password) |
-------------------------------
+-------------------------------------------------
+| function logIn (callback, username, password) |
+-------------------------------------------------
 
 # Log in function to parse, this will create a parse user over the current session.
+# In the callback function you will get a boolean value,
+# true for successful login, false otherwise
+# The callback function signature should look like this -> function loginCallback (isLoginSuccessful)
 
 ###########################################################################################################################
 
