@@ -105,6 +105,9 @@ function addBagdeToUser (badge, user) {
   );
 }
 
+/**
+* Retriving the given user badges, in the callback function an associative array will be received
+*/
 function getAllUserBadges (callback, user) {
   var usersTable = Parse.Object.extend("_User");
   var query = new Parse.Query(usersTable);
@@ -119,7 +122,10 @@ function getAllUserBadges (callback, user) {
 
                 query.find().then(
                     function (results) {
-                      console.log(results);
+                      var badges = new Array();
+                      for (i in results)
+                        badges.push({ "id":results[i].id, "path": results[i].get("path") }); // Creating the associative array
+                      callback(badges);
                     }
                 );
   });
