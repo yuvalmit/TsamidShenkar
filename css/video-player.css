@@ -27,6 +27,12 @@ header nav ul li {
 	display: inline-block;
 }
 
+.video-wrapper
+{
+	text-align: center;
+	background: url("../assets/images/viewingPage/bg-watch.png");
+}
+
 .toolbar-button{
 	width: 70px;
 	height: 70px;
@@ -34,13 +40,13 @@ header nav ul li {
 
 #embed-player-section
 {
-	text-align: center;
-	background: url("../assets/images/video-page/bg-watch.png");
+	
 }
 
 #video-bottom-section
 {
 	height: 134px;
+	text-align: center;
 }
 
 #video-bottom-section .avatar

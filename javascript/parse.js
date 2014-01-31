@@ -3,25 +3,32 @@ Parse.initialize("hCiKNPSGy9q5iT40j0d9DAiLHpavkJMWxmsC15tS", "TmiPKzW632NWSIkuBB
 /**
 * Signup function for new users
 */
-function signUp (username, password, email) {
+function signUp (callback, username, password, email) {
 	var user = new Parse.User();
+  var avatarTable = Parse.Object.extend("Avatars");
+  var avatar = new avatarTable();
 	
 	// Setting the new user credentials
 	user.set("username", username);
 	user.set("password", password);
 	user.set("email", email);
 
-	user.set("privileges", 2); // 1 Is for instructor 2 is for normal user
+	user.set("privileges", 1); // 1 Is for normal user 2 is for admin
   user.set("isOnline", true); // Setting the user as online
 
-	user.signUp(null, {
-  		success: function(user) {
-    		alert("Welcome " + username + " :)");
-  		},
-  		error: function(user, error) {
-    		alert("SignUp error: " + error.code + " " + error.message);
-  		}
-	});
+  avatar.save().then(
+    function (avatar) {
+      user.set("avatar",avatar);
+      user.signUp(null, {
+        success: function(user) {
+          callback(true);
+        },
+        error: function(user, error) {
+          alert("SignUp error: " + error.code + " " + error.message);
+        }
+      });
+    }
+  );
 }
 
 /**
@@ -44,42 +51,78 @@ function logout () {
 /**
 * Clearing the current user achievements array
 */
-function clearAchievements() {
-  var user = getCurrentUser();
-
+function clearAchievements(user) {
   var achievementArray = new Array();
-  user.setAchievements(achievementArray);
-  Parse.User.current().set("achievements", achievementArray, null);
-  Parse.User.current().save().then(
-            function(achievement) {
-              console.log('Achievements was cleared');
-            },
-            function(error) {
-              console.log('Achievements was not added, with error code: ' + error.description);
-            }
-  );
+  var usersTable = Parse.Object.extend("_User");
+  var query = new Parse.Query(usersTable);
+  
+  query.include("avatar");
+  query.get(Parse.User.current().id).then(
+              function (parseUser) {
+                parseUser.get("avatar").set("achievements", achievementArray);
+                parseUser.get("avatar").save(); // Saving the new updated avatar
+              });
 }
 
 /**
 * Adding the new given achievement to the current user
 */
-function addAchievements(achievement) {
-  var user = getCurrentUser();
-
+function addAchievementToUser(achievement, user) {
   var achievementArray = new Array();
-  achievementArray = user.getAchievements();
-  achievementArray.push(achievement);
+  var usersTable = Parse.Object.extend("_User");
+  var query = new Parse.Query(usersTable);
+  
+  query.include("avatar");
+  query.get(Parse.User.current().id).then(
+              function (parseUser) {
+                achievementArray = parseUser.get("avatar").get("achievements"); // Getting the current extras
+                achievementArray.push(achievement); // Adding the new achievement
+                parseUser.get("avatar").set("achievements", achievementArray);
+                parseUser.get("avatar").save(); // Saving the new updated avatar
+              },
+              function (error) {
+                console.log("Could not save achievement, error: " + error.description);
+              });
+}
 
-  user.setAchievements(achievementArray);
-  Parse.User.current().set("achievements", achievementArray, null);
+/**
+* Adding new badge to the given user
+*/
+function addBagdeToUser (badge, user) {
+  var badgesArray = new Array();
+  badgesArray = user.getBadges();
+  badgesArray.push(badge);
+
+  user.setBadges(badgesArray);
+  Parse.User.current().set("badges", badgesArray, null);
   Parse.User.current().save().then(
-            function(achievement) {
-              console.log('Achievement was added');
+            function(badge) {
+              console.log('Badge was added');
             },
             function(error) {
-              console.log('Achievement was not added, with error code: ' + error.description);
+              console.log('Badge was not added, with error code: ' + error.description);
             }
   );
+}
+
+function getAllUserBadges (callback, user) {
+  var usersTable = Parse.Object.extend("_User");
+  var query = new Parse.Query(usersTable);
+
+  query.get(Parse.User.current().id).then(
+              function (parseUser) {
+                var badgesTable = Parse.Object.extend("Badges");
+                var query = new Parse.Query(badgesTable);
+
+                console.log(parseUser.get("badges"));
+                query.containedIn("objectId", parseUser.get("badges"));
+
+                query.find().then(
+                    function (results) {
+                      console.log(results);
+                    }
+                );
+  });
 }
 
 /**
@@ -195,59 +238,26 @@ function getUserAvatar (callback, parseAvatar, option) {
 * This function is to set the user avatar, it needs to get the ID's of the elements.
 */
 function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
-    var headBodyTable = Parse.Object.extend("AvatarHeadBody");
-    var hairTable = Parse.Object.extend("AvatarHair");
-    var eyesTable = Parse.Object.extend("AvatarEyes");
-    var extraTable = Parse.Object.extend("AvatarExtra");
-    var mouthTable = Parse.Object.extend("AvatarMouth");
+    var headBodyObject = Parse.Object.extend("AvatarHeadBody");
+    var hairObject = Parse.Object.extend("AvatarHair");
+    var eyesObject = Parse.Object.extend("AvatarEyes");
+    var extraObject = Parse.Object.extend("AvatarExtra");
+    var mouthObject = Parse.Object.extend("AvatarMouth");
 
     var newAvatar = user.getAvatar();
-    console.log(newAvatar.get("hair"));
 
-    var query = new Parse.Query(headBodyTable);
+    newAvatar.set("head_body", new headBodyObject().set("objectId", head_body));
+    newAvatar.set("hair", new hairObject().set("objectId", hair));
+    newAvatar.set("eyes", new eyesObject().set("objectId", eyes));
+    newAvatar.set("mouth", new mouthObject().set("objectId", mouth));
 
-    // First get the new HeadBody object from parse
-    query.get(head_body).then(
-          function (parseHeadBody) {
-            newAvatar.set("head_body", parseHeadBody);
-            newAvatar.save();
-          }).then( // Then get the new hair object from parse
-          function () {
-            var query = new Parse.Query(hairTable);
-            query.get(hair).then(
-                  function (parseHair) {
-                    newAvatar.set("hair", parseHair);
-                    newAvatar.save();
-                  });
-          }).then( // Then get the new eyes object from parse
-          function () {
-            var query = new Parse.Query(eyesTable);
-            query.get(eyes).then(
-                  function (parseEyes) {
-                    newAvatar.set("eyes", parseEyes);
-                    newAvatar.save();
-                  });
-          }).then( // Then get the new extra object from parse
-          function () {
-            var query = new Parse.Query(extraTable);
-            query.get(extra).then(
-                  function (parseExtra) {
-                    newAvatar.set("extra", parseExtra);
-                    newAvatar.save();
-                  });
-          }).then( // Then get the new mouth object from parse
-          function () {
-            var query = new Parse.Query(mouthTable);
-            query.get(mouth).then(
-                  function (parseMouth) {
-                    newAvatar.set("mouth", parseMouth);
-                    newAvatar.save();
-                  });
-          }).then( // Then call the callback function with true
-            function () {
-              callback(true);
-            }
-    );
+    if (extra) // If there is an extra to set
+      newAvatar.set("extra", new extraObject().set("objectId", extra));
+
+    newAvatar.save().then(
+      function (newAvatar) {
+        callback(true);
+    });
 }
 
 /**
@@ -256,35 +266,24 @@ function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
 function createNewLesson (name, date, badge, youtube, google) {
   var Lesson = Parse.Object.extend("Lesson");
   var lesson = new Lesson();
-
-  var badgeTable = Parse.Object.extend("Badges"); // Query for getting the badge from parse
-  var query = new Parse.Query(badgeTable);
-  query.equalTo("objectId", badge);
+  var badgeObject = Parse.Object.extend("Badges");
 
   lesson.set("name", name);
   lesson.set("due_date", date);
   lesson.set("youtube_link", youtube);
   lesson.set("google_link", google);
+  lesson.set("badge", new badgeObject().set("objectId", badge));
 
-  query.get().then( // First getting the badge will be associated with the lesson
-        function (parseBadge) {
-          lesson.set("badge", parseBadge);
-        },
-        function (error) {
-          console.log(error);
-          console.log("Error in getting the badge" + error.code);
-        }
-  ).then(function () { // Second Saving the new lesson into parse
-      lesson.save().then(
-        function(lesson) {
-          alert('New lesson created with objectId: ' + lesson.id);
-        },
-        function(error) {
-          console.log(error);
-          alert('Failed to create new lesson, with error code: ' + error.code);
-        }
-    );
-  });
+
+  lesson.save().then(
+    function(lesson) {
+       alert('New lesson created with objectId: ' + lesson.id);
+      },
+      function(error) {
+        console.log(error);
+        alert('Failed to create new lesson, with error: ' + error.description);
+      }
+  );
 }
 
 /**
@@ -348,7 +347,6 @@ function getAllOnlineUsers (callback) {
             user.setPrivileges( parseUser.get("privileges") );
             user.setGender( parseUser.get("gender") );
             user.setAvatar( parseUser.get("avatar") );
-            user.setAchievements( parseUser.get("achievements") );
             user.setBadges( parseUser.get("badges") );
 
             usersArray.push(user);
@@ -373,7 +371,6 @@ function createUserFromParseUser (parseUser) {
   user.setPrivileges( parseUser.get("privileges") );
   user.setGender( parseUser.get("gender") );
   user.setAvatar( parseUser.get("avatar") );
-  user.setAchievements( parseUser.get("achievements") );
   user.setBadges( parseUser.get("badges") );
 
   return user;
@@ -403,8 +400,9 @@ function createAvatarFromParseObject (parseAvatar, option) {
   userAvatar.setEyes (avatarPath + parseAvatar.get("eyes").get("path"));
   userAvatar.setHair (avatarPath + parseAvatar.get("hair").get("path"));
   userAvatar.setMouth (avatarPath + parseAvatar.get("mouth").get("path"));
-  userAvatar.setExtra (avatarPath + parseAvatar.get("extra").get("path"));
+
+  if (parseAvatar.get("extra")) // If the user has any extra
+    userAvatar.setExtra (avatarPath + parseAvatar.get("extra").get("path"));
 
   return userAvatar;
 }
-

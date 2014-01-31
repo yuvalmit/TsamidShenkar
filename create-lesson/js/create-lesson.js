@@ -13,7 +13,7 @@ $(function() {
 
 
     $(".input-icon-wrapper input").on({
-        focus: function() { $(this).datepicker() }
+        focus: function() { $(this).datepicker().toString() }
 
     });
 
@@ -22,8 +22,7 @@ $(function() {
         {
             onSelect: function()
             {
-                lessonDate = $(this).val();
-                console.log(lessonDate);
+                lessonDate = $(this).datepicker('getDate');
             }
         });
 
@@ -44,7 +43,6 @@ $(function() {
     getAllItems(badges, "Badges");
 
 
-
 //all the badges insert into arr this how we bind the data inside the badges array
     function badges (arr) {
         console.log("test function was called.");
@@ -54,11 +52,11 @@ $(function() {
         {
             var ddData=[];
             $.each(arr, function(index, val) {
-                 /* iterate through array or object */
-                 console.log(this.id);
-                 console.log(this.path);
-                 console.log(index);
-                  var tempObj = {
+                /* iterate through array or object */
+                console.log(this.id);
+                console.log(this.path);
+                console.log(index);
+                var tempObj = {
                     text: "badge name  "+index,
                     value: this.id ,
                     selected: false,
@@ -89,30 +87,33 @@ $(function() {
 
 
 
-$("#sendForm").click(function(){
+    $("#sendForm").click(function(){
 
-    lessonName = $("#lessonName").val();
-    alert(lessonName);
-    googleDoc = $('#google-doc').val();
-    var url = $("#youtube").val();
-   if(url!=null){
-     youtubId = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-    if(youtubId != null) {
-        alert("video id = "+videoid[1]);
-    } else {
-        alert("The youtube url is not valid.");
-    }
-   }else{alert("empty");
-   }
-    createNewLesson(lessonName,lessonDate,badgeId,youtubId,googleDoc);
+        lessonName = $("#lessonName").val();
+        var url = $("#youtube").val();
+
+        if(url!=null){
+            youtubId = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+            if(youtubId != null) {
+                alert("video id = "+youtubId[1]);
+            } else {
+                alert("The youtube url is not valid.");
+            }
+        }else{
+            alert("empty");
+        }
+
+        googleDoc = $('#google-doc').val();
+        console.log("lesson name:"+lessonName);
+        console.log("lesson date:"+lessonDate);
+        console.log("badge Id:"+badgeId);
+        console.log("youtube Id:"+youtubId);
+        console.log("google doc:"+googleDoc);
+
+        //createNewLesson (name, date, badge, youtube, google)
+        createNewLesson(lessonName , lessonDate, badgeId, youtubId[1] , googleDoc);
+    });
+
+
 
 });
-
-
-
-
-});
-
-
-
-

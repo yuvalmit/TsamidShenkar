@@ -1,10 +1,12 @@
 ###########################################################################################################################
 
---------------------------------------
-| signUp (username, password, email) |
---------------------------------------
+------------------------------------------------
+| signUp (callback, username, password, email) |
+------------------------------------------------
 
 # Signup function for new users.
+# In the call back function you will get true for successful login, false otherwise
+# The callback function signature should look like this -> function signupCallback (isSignupSuccessful)
 
 ###########################################################################################################################
 
@@ -37,11 +39,12 @@
 
 ###########################################################################################################################
 
-------------------------
-| clearAchievements () |
-------------------------
+----------------------------
+| clearAchievements (user) |
+----------------------------
 
-# Clearing the current user achievements array.
+# Clearing the given user achievements array.
+# The user is an object as defined under /javascript/object/user.js
 
 ###########################################################################################################################
 
@@ -55,11 +58,12 @@
 
 ###########################################################################################################################
 
----------------------------------
-| addAchievements (achievement) |
----------------------------------
+--------------------------------------------
+| addAchievementToUser (achievement, user) |
+--------------------------------------------
 
-# Adding the new given achievement to the current user.
+# Adding the new given achievement to the given user.
+# The user is an object as defined under /javascript/object/user.js
 
 ###########################################################################################################################
 
@@ -93,6 +97,7 @@
 
 # The callback function will be called with an associative array (id, path) with all items in the given table
 # The possible tables are -> AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges
+# The callback function signature should look like this -> function allItems (items)
 
 ###########################################################################################################################
 
@@ -113,6 +118,7 @@
 # Set a new avatar for a given user.
 # the user the function need is a user object as defined under /javascript/object/user.js
 # the function will update that user avatar with the new items
+# If the user still has no extra (achievement) you should send null.
 # all the other items should be the ID's which you can get from the "getAllItems" method
 # The callback function signature should look like this -> function isUpdate (isUpdateSuccessful)
 
