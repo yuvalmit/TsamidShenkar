@@ -79,6 +79,9 @@ function addAchievementToUser(achievement, user) {
                 achievementArray.push(achievement); // Adding the new achievement
                 parseUser.get("avatar").set("achievements", achievementArray);
                 parseUser.get("avatar").save(); // Saving the new updated avatar
+              },
+              function (error) {
+                console.log("Could not save achievement, error: " + error.description);
               });
 }
 
@@ -100,6 +103,26 @@ function addBagdeToUser (badge, user) {
               console.log('Badge was not added, with error code: ' + error.description);
             }
   );
+}
+
+function getAllUserBadges (callback, user) {
+  var usersTable = Parse.Object.extend("_User");
+  var query = new Parse.Query(usersTable);
+
+  query.get(Parse.User.current().id).then(
+              function (parseUser) {
+                var badgesTable = Parse.Object.extend("Badges");
+                var query = new Parse.Query(badgesTable);
+
+                console.log(parseUser.get("badges"));
+                query.containsAll("ObjectId", parseUser.get("badges"));
+
+                query.find().then(
+                    function (results) {
+                      console.log(results);
+                    }
+                );
+  });
 }
 
 /**
@@ -226,8 +249,10 @@ function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
     newAvatar.set("head_body", new headBodyObject().set("objectId", head_body));
     newAvatar.set("hair", new hairObject().set("objectId", hair));
     newAvatar.set("eyes", new eyesObject().set("objectId", eyes));
-    newAvatar.set("extra", new extraObject().set("objectId", extra));
     newAvatar.set("mouth", new mouthObject().set("objectId", mouth));
+
+    if (extra) // If there is an extra to set
+      newAvatar.set("extra", new extraObject().set("objectId", extra));
 
     newAvatar.save().then(
       function (newAvatar) {
