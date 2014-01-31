@@ -24,10 +24,6 @@ User.prototype.setAvatar = function(avatar) {
     this.avatar = avatar;
 };
 
-User.prototype.setAchievements = function(achievements) {
-    this.achievements = achievements;
-};
-
 User.prototype.setBadges = function(badges) {
     this.badges = badges;
 };
@@ -52,10 +48,6 @@ User.prototype.getGender = function() {
 
 User.prototype.getAvatar = function() {
     return this.avatar;
-};
-
-User.prototype.getAchievements = function() {
-    return this.achievements;
 };
 
 User.prototype.getBadges = function() {
