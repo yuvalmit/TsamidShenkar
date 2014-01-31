@@ -331,7 +331,7 @@ function getAllItems (callback, tableName) {
       break;
 
     default:
-      avatarPath = "assets/images/avatarImages/";
+      avatarPath = "yuvalmit.appspot.com/static/assets/images/avatarImages/";
       break;
   }
 
@@ -413,15 +413,15 @@ function createAvatarFromParseObject (parseAvatar, option) {
 
   switch (option) {
     case 1:
-      var avatarPath = "assets/images/avatarImages/";
+      var avatarPath = "yuvalmit.appspot.com/static/assets/images/avatarImages/";
       break;
 
     case 2:
-      var avatarPath = "assets/images/fullAvatarImages/";
+      var avatarPath = "yuvalmit.appspot.com/static/assets/images/fullAvatarImages/";
       break;
 
     default:
-      var avatarPath = "assets/images/avatarImages/";
+      var avatarPath = "yuvalmit.appspot.com/static/assets/images/avatarImages/";
       break;
   }
 
