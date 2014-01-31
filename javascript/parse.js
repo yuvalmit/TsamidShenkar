@@ -115,7 +115,7 @@ function getAllUserBadges (callback, user) {
                 var query = new Parse.Query(badgesTable);
 
                 console.log(parseUser.get("badges"));
-                query.containsAll("ObjectId", parseUser.get("badges"));
+                query.containedIn("objectId", parseUser.get("badges"));
 
                 query.find().then(
                     function (results) {
@@ -281,7 +281,7 @@ function createNewLesson (name, date, badge, youtube, google) {
       },
       function(error) {
         console.log(error);
-        alert('Failed to create new lesson, with error code: ' + error.code);
+        alert('Failed to create new lesson, with error: ' + error.description);
       }
   );
 }
@@ -406,4 +406,3 @@ function createAvatarFromParseObject (parseAvatar, option) {
 
   return userAvatar;
 }
-
