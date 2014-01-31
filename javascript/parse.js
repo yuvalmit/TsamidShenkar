@@ -1,5 +1,7 @@
 Parse.initialize("hCiKNPSGy9q5iT40j0d9DAiLHpavkJMWxmsC15tS", "TmiPKzW632NWSIkuBB0Yj4HzYR4sJTba04k3iA8F");
 
+var GLOBAL_PREFIX=""; //  -> "//yuvalmit.appspot.com/static/"
+
 /**
 * Signup function for new users
 */
@@ -122,7 +124,7 @@ function getAllUserBadges (callback, user) {
                     function (results) {
                       var badges = new Array();
                       for (i in results)
-                        badges.push({ "id":results[i].id, "path": results[i].get("path") }); // Creating the associative array
+                        badges.push({ "id":results[i].id, "path": GLOBAL_PREFIX + results[i].get("path") }); // Creating the associative array
                       callback(badges);
                     }
                 );
@@ -146,8 +148,10 @@ function getAllUserAchievements (callback, user) {
             query.find().then(
                 function (results) {
                   var extras = new Array();
+                  var path = GLOBAL_PREFIX + "assets/images/avatarImages/";
+
                   for (i in results)
-                    extras.push({ "id":results[i].id, "path": results[i].get("path") }); // Creating the associative array
+                    extras.push({ "id":results[i].id, "path": path + results[i].get("path") }); // Creating the associative array
                   callback(extras);
                 }
             );
@@ -204,7 +208,7 @@ function getTodayLesson (callback) {
           {
             newLesson.setName (parseLesson.get("name"));
             newLesson.setDate (parseLesson.get("due_date"));
-            newLesson.setBadge (parseLesson.get("badge").id, parseLesson.get("badge").get("path"));
+            newLesson.setBadge (parseLesson.get("badge").id, GLOBAL_PREFIX + parseLesson.get("badge").get("path"));
             newLesson.setGoogleLink (parseLesson.get("google_link"));
             newLesson.setYoutubeLink (parseLesson.get("youtube_link"));
 
@@ -328,10 +332,11 @@ function getAllItems (callback, tableName) {
   // Switch case for the tables, Badges table has the full path already
   switch (tableName) {
     case "Badges":
+      avatarPath = GLOBAL_PREFIX ;
       break;
 
     default:
-      avatarPath = "//yuvalmit.appspot.com/static/assets/images/avatarImages/";
+      avatarPath = GLOBAL_PREFIX + "assets/images/avatarImages/";
       break;
   }
 
@@ -413,15 +418,15 @@ function createAvatarFromParseObject (parseAvatar, option) {
 
   switch (option) {
     case 1:
-      var avatarPath = "//yuvalmit.appspot.com/static/assets/images/avatarImages/";
+      var avatarPath = GLOBAL_PREFIX + "assets/images/avatarImages/";
       break;
 
     case 2:
-      var avatarPath = "//yuvalmit.appspot.com/static/assets/images/fullAvatarImages/";
+      var avatarPath = GLOBAL_PREFIX + "assets/images/fullAvatarImages/";
       break;
 
     default:
-      var avatarPath = "//yuvalmit.appspot.com/static/assets/images/avatarImages/";
+      var avatarPath = GLOBAL_PREFIX + "assets/images/avatarImages/";
       break;
   }
 
@@ -435,3 +440,4 @@ function createAvatarFromParseObject (parseAvatar, option) {
 
   return userAvatar;
 }
+
