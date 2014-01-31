@@ -96,7 +96,7 @@
 --------------------------------------
 
 # The callback function will be called with an associative array (id, path) with all items in the given table
-# The possible tables are -> AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges
+# The possible tables are -> AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges, Achievements
 
 ###########################################################################################################################
 

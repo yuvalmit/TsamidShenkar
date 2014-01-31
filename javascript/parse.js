@@ -85,6 +85,9 @@ function addAchievementToUser(achievement, user) {
   );
 }
 
+/**
+* Adding new badge to the given user
+*/
 function addBagdeToUser (badge, user) {
   var badgesArray = new Array();
   badgesArray = user.getBadges();
@@ -241,41 +244,30 @@ function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
 function createNewLesson (name, date, badge, youtube, google) {
   var Lesson = Parse.Object.extend("Lesson");
   var lesson = new Lesson();
-
-  var badgeTable = Parse.Object.extend("Badges"); // Query for getting the badge from parse
-  var query = new Parse.Query(badgeTable);
-  query.equalTo("objectId", badge);
+  var badgeObject = Parse.Object.extend("Badges");
 
   lesson.set("name", name);
   lesson.set("due_date", date);
   lesson.set("youtube_link", youtube);
   lesson.set("google_link", google);
+  lesson.set("badge", new badgeObject().set("objectId", badge));
 
-  query.get().then( // First getting the badge will be associated with the lesson
-        function (parseBadge) {
-          lesson.set("badge", parseBadge);
-        },
-        function (error) {
-          console.log(error);
-          console.log("Error in getting the badge" + error.code);
-        }
-  ).then(function () { // Second Saving the new lesson into parse
-      lesson.save().then(
-        function(lesson) {
-          alert('New lesson created with objectId: ' + lesson.id);
-        },
-        function(error) {
-          console.log(error);
-          alert('Failed to create new lesson, with error code: ' + error.code);
-        }
-    );
-  });
+
+  lesson.save().then(
+    function(lesson) {
+       alert('New lesson created with objectId: ' + lesson.id);
+      },
+      function(error) {
+        console.log(error);
+        alert('Failed to create new lesson, with error code: ' + error.code);
+      }
+  );
 }
 
 /**
 * Return to the callback function an array of all items with their id and path
 * The possible tables are
-* AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges
+* AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges, Achievements
 */
 function getAllItems (callback, tableName) {
   var table = Parse.Object.extend(tableName);
