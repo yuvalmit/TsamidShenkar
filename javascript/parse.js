@@ -1,14 +1,14 @@
 Parse.initialize("hCiKNPSGy9q5iT40j0d9DAiLHpavkJMWxmsC15tS", "TmiPKzW632NWSIkuBB0Yj4HzYR4sJTba04k3iA8F");
 
-var GLOBAL_PREFIX=""; //  -> "//yuvalmit.appspot.com/static/"
+var GLOBAL_PREFIX = ""; //  -> "//yuvalmit.appspot.com/static/"
 
 /**
 * Signup function for new users
 */
 function signUp (callback, username, password, email) {
 	var user = new Parse.User();
-  var avatarTable = Parse.Object.extend("Avatars");
-  var avatar = new avatarTable();
+  var avatarObject = Parse.Object.extend("Avatars");
+  var avatar = new avatarObject();
 	
 	// Setting the new user credentials
 	user.set("username", username);
@@ -17,6 +17,10 @@ function signUp (callback, username, password, email) {
 
 	user.set("privileges", 1); // 1 Is for normal user 2 is for admin
   user.set("isOnline", true); // Setting the user as online
+  user.set("badges", new Array()); // Setting an empty array of badges for the new user
+  user.set("favoriteFood", new Array()); // Setting an empty array of favorite food for the new user
+
+  avatar.set("achievements", new Array()); // Setting an empty array of achievements for the new user avatar
 
   avatar.save().then(
     function (avatar) {
@@ -93,9 +97,8 @@ function addAchievementToUser(achievement, user) {
 function addBagdeToUser (badge, user) {
   var badgesArray = new Array();
   badgesArray = user.getBadges();
-  badgesArray.push(badge);
+  badgesArray.push(badge); // This will add the badge to the local user object
 
-  user.setBadges(badgesArray);
   Parse.User.current().set("badges", badgesArray, null);
   Parse.User.current().save().then(
             function(badge) {
@@ -103,6 +106,25 @@ function addBagdeToUser (badge, user) {
             },
             function(error) {
               console.log('Badge was not added, with error code: ' + error.description);
+            }
+  );
+}
+
+/**
+* Adding the user new favorite food
+*/
+function addFavotireFoodToUser (food, user) {
+  var favoriteFoodArray = new Array();
+  favoriteFoodArray = user.getFavoriteFood();
+  favoriteFoodArray.push(food); // This will add the favorite food to the local user object
+
+  Parse.User.current().set("favoriteFood", favoriteFoodArray, null);
+  Parse.User.current().save().then(
+            function(food) {
+              console.log('Favorite food was added');
+            },
+            function(error) {
+              console.log('Favorite food was not added, with error code: ' + error.description);
             }
   );
 }
@@ -376,12 +398,7 @@ function getAllOnlineUsers (callback) {
             var user = new User();
             var parseUser = results[i]; // Getting the user from the resuts array
             
-            user.setName( parseUser.get("username") );
-            user.setEmail( parseUser.get("email") );
-            user.setPrivileges( parseUser.get("privileges") );
-            user.setGender( parseUser.get("gender") );
-            user.setAvatar( parseUser.get("avatar") );
-            user.setBadges( parseUser.get("badges") );
+            user = createUserFromParseUser(parseUser);
 
             usersArray.push(user);
           }
@@ -406,6 +423,7 @@ function createUserFromParseUser (parseUser) {
   user.setGender( parseUser.get("gender") );
   user.setAvatar( parseUser.get("avatar") );
   user.setBadges( parseUser.get("badges") );
+  user.setFavoriteFood( parseUser.get("favoriteFood") );
 
   return user;
 }

@@ -96,7 +96,8 @@
 --------------------------------------
 
 # The callback function will be called with an associative array (id, path) with all items in the given table
-# The possible tables are -> AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges
+# The possible tables are (case sensetive):
+# AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges, Food
 # The callback function signature should look like this -> function allItems (items)
 
 ###########################################################################################################################
@@ -140,5 +141,20 @@
 
 ###########################################################################################################################
 
+--------------------------------------
+| addFavotireFoodToUser (food, user) |
+--------------------------------------
+
+# Adding to the given user the new favorite food (you should send the favorite food ID)
+
+###########################################################################################################################
+
+--------------------------------
+| addBagdeToUser (badge, user) |
+--------------------------------
+
+# Adding to the given user the new badge (you should send the badge ID)
+
+###########################################################################################################################
 
 
