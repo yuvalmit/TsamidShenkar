@@ -55,22 +55,6 @@ function logout () {
 }
 
 /**
-* Clearing the current user achievements array
-*/
-function clearAchievements(user) {
-  var achievementArray = new Array();
-  var usersTable = Parse.Object.extend("_User");
-  var query = new Parse.Query(usersTable);
-  
-  query.include("avatar");
-  query.get(Parse.User.current().id).then(
-              function (parseUser) {
-                parseUser.get("avatar").set("achievements", achievementArray);
-                parseUser.get("avatar").save(); // Saving the new updated avatar
-              });
-}
-
-/**
 * Adding the new given achievement to the current user
 */
 function addAchievementToUser(achievement, user) {
@@ -162,21 +146,42 @@ function getAllUserAchievements (callback, user) {
   var avatarID = user.getAvatar().id;
 
   query.get(avatarID).then(
-          function (parseAvatar) {
-            var extraTable = Parse.Object.extend("AvatarExtra");
-            var query = new Parse.Query(extraTable);
+        function (parseAvatar) {
+          var extraTable = Parse.Object.extend("AvatarExtra");
+          var query = new Parse.Query(extraTable);
 
-            query.containedIn("objectId", parseAvatar.get("achievements"));
-            query.find().then(
-                function (results) {
-                  var extras = new Array();
-                  var path = GLOBAL_PREFIX + "assets/images/avatarImages/";
+          query.containedIn("objectId", parseAvatar.get("achievements"));
+          query.find().then(
+              function (results) {
+                var extras = new Array();
+                var path = GLOBAL_PREFIX + "assets/images/avatarImages/";
 
-                  for (i in results)
-                    extras.push({ "id":results[i].id, "path": path + results[i].get("path") }); // Creating the associative array
-                  callback(extras);
-                }
-            );
+                for (i in results)
+                  extras.push({ "id":results[i].id, "path": path + results[i].get("path") }); // Creating the associative array
+                callback(extras);
+              }
+          );
+  });
+}
+
+function getAllUserFavoriteFood (callback, user) {
+  var usersTable = Parse.Object.extend("_User");
+  var query = new Parse.Query(usersTable);
+
+  query.get(Parse.User.current().id).then(
+        function (parseUser) {
+          var foodTable = Parse.Object.extend("Food");
+          var query = new Parse.Query(foodTable);
+
+          query.containedIn("objectId", parseUser.get("favoriteFood"));
+          query.find().then(
+              function (results) {
+                var foodArray = new Array();
+                for (i in results)
+                  foodArray.push({ "id":results[i].id, "path": GLOBAL_PREFIX + results[i].get("path") }); // Creating the associative array
+                callback(foodArray);
+              }
+          );
   });
 }
 
@@ -344,7 +349,7 @@ function createNewLesson (name, date, badge, youtube, google) {
 /**
 * Return to the callback function an array of all items with their id and path
 * The possible tables are
-* AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges
+* AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges, Food
 */
 function getAllItems (callback, tableName) {
   var table = Parse.Object.extend(tableName);
