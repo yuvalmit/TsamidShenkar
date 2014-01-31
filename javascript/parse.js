@@ -376,7 +376,7 @@ function createAvatarFromParseObject (parseAvatar, option) {
   userAvatar.setHair (avatarPath + parseAvatar.get("hair").get("path"));
   userAvatar.setMouth (avatarPath + parseAvatar.get("mouth").get("path"));
 
-  if (parseAvatar.get("extra").get("path")) // If the user has any extra
+  if (parseAvatar.get("extra")) // If the user has any extra
     userAvatar.setExtra (avatarPath + parseAvatar.get("extra").get("path"));
 
   return userAvatar;
