@@ -39,7 +39,6 @@ function getOnlineUsers(usersArray){
 
 
 function getAvatarLayout(avatar) {
-        
         userAvatar = avatar;
         var head   = userAvatar.getHead();
         var eyes   = userAvatar.getEyes();
