@@ -13,7 +13,7 @@ $(function() {
 
 
     $(".input-icon-wrapper input").on({
-        focus: function() { $(this).datepicker().toString() }
+        focus: function() { $(this).datepicker() }
 
     });
 
@@ -22,7 +22,8 @@ $(function() {
         {
             onSelect: function()
             {
-                lessonDate = $(this).datepicker('getDate');
+                lessonDate = $(this).val();
+                console.log(lessonDate);
             }
         });
 
@@ -41,6 +42,7 @@ $(function() {
 
     //getAllBadges sending badges ass callback
     getAllItems(badges, "Badges");
+
 
 
 //all the badges insert into arr this how we bind the data inside the badges array
@@ -91,6 +93,7 @@ $("#sendForm").click(function(){
 
     lessonName = $("#lessonName").val();
     alert(lessonName);
+    googleDoc = $('#google-doc').val();
     var url = $("#youtube").val();
    if(url!=null){
      youtubId = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
@@ -99,8 +102,12 @@ $("#sendForm").click(function(){
     } else {
         alert("The youtube url is not valid.");
     }
-   }else{alert("empty");}
+   }else{alert("empty");
+   }
+    createNewLesson(lessonName,lessonDate,badgeId,youtubId,googleDoc);
+
 });
+
 
 
 
