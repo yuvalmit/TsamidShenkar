@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" dir="rtl">
+  <!-- The hangout API JavaScript. Always include this first -->
+  <script type="text/javascript" src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+
+  <!-- The JavaScript for this app. This must always be a full URL not a
+       relative path.
+       Tip: You can load it from a local web server such as
+       http://localhost/app.js for faster single user development -->
+        <script src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
+    
+    <script type="text/javascript" src="javascript/parse.js"></script>
+    <script type="text/javascript" src="javascript/objects/user.js"></script>
+  <script type="text/javascript" src="javascript/edit_avatar.js"></script>
+    
+
+  <link rel="stylesheet" type="text/css" href="css/edit-avatar.css">
+</head>
+
+<body onload="init_page();">
+    <div id="edit-avatar-frame">
+        
+        <div id="avatar-creation">
+            
+            <input type="image" id="hair" onclick="set_selection_contents('hair','#c2daff','default');">
+            
+            <input type="image" id="eyes" onclick="set_selection_contents('eyes','#efc2ff','default');">
+            
+            <input type="image" id="mouth" onclick="set_selection_contents('mouth','#b9e3a6','default');">  
+            
+            <input type="image" id="prizes" onclick="set_selection_contents('prizes','#ffd9a6','default');">    
+            
+            <div id="selection-list" align="center"></div>
+        
+            <div id="color-selection" align="center" ></div>
+        
+        </div>    
+    
+    
+    <div id="avatar-bg">
+        <img id="bg-img">        
+    </div>
+        
+    <div id="avatar-full">
+        <img id="avatar-body">
+        <img id="avatar-hair">
+        <img id="avatar-eyes">
+        <img id="avatar-mouth">
+        <img id="avatar-prizes">
+    </div>
+    
+   <div id="save-avatar">        
+         <input type="button" id="button-save" value="SAVE" onclick="save_avatar();">
+        
+    </div>
+        
+</div>        
+    
+    
+</body>
+</html>

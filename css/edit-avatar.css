@@ -1,0 +1,95 @@
+#edit-avatar-frame
+{
+    width:800px; 
+    height:523px;  
+    border-color: #000000;
+    border-style: solid;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:auto;
+    margin-bottom:auto;
+    background-color:#0000d0;
+}
+#avatar-creation 
+{
+    height:200px; 
+    width: 400px; 
+    position: absolute; 
+    top:50px;
+}
+
+#hair,#eyes,#mouth,#prizes
+{
+    height: 100px; 
+    width: 100px; 
+    float:left;
+}
+
+
+#selection-list 
+{
+    height:370px; 
+    width:380px; 
+    position: absolute; 
+    top:100px; 
+    border-color: #fff;
+    border-style: inset; 
+    border-radius: 25px;
+}
+
+#color-selection 
+{
+    height:50px; 
+    width:380px; 
+    position: absolute; 
+    top:420px; 
+    z-index: 1;
+}
+
+#avatar-bg 
+{
+    z-index: 0;
+    height:600px; 
+    width:900px; 
+    position: relative;
+    left: 370px;
+    top: 238px;
+}
+
+#bg-img 
+{
+    height: 50%; 
+    width: 50%;
+}
+
+#button-save 
+{
+    position: relative;
+    height: 50px; 
+    width: 100px;
+    left: 690px;
+    bottom: 1130px;
+    border-color: #fff;
+    border-style: inset; 
+    border-radius: 10px;
+    background-color:#2ac98c;
+    cursor:pointer;
+    z-index: 2;
+}
+
+#avatar-full 
+{
+    height:1000px; 
+    width:700px;
+    position: relative;
+    left: 420px;                                
+    bottom: 600px;
+    z-index: 1;
+}
+
+#avatar-body,#avatar-hair,#avatar-eyes,#avatar-mouth,#avatar-prizes
+{
+    height: 50%; 
+    width: 50%; 
+    position: absolute;
+}
