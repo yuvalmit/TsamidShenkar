@@ -117,9 +117,7 @@ function getAllUserBadges (callback, user) {
                 var badgesTable = Parse.Object.extend("Badges");
                 var query = new Parse.Query(badgesTable);
 
-                console.log(parseUser.get("badges"));
                 query.containedIn("objectId", parseUser.get("badges"));
-
                 query.find().then(
                     function (results) {
                       var badges = new Array();
@@ -128,6 +126,31 @@ function getAllUserBadges (callback, user) {
                       callback(badges);
                     }
                 );
+  });
+}
+
+/**
+* Retriving the given user achievements (extras), in the callback function an associative array will be received
+*/
+function getAllUserAchievements (callback, user) {
+  var avatarTable = Parse.Object.extend("Avatars");
+  var query = new Parse.Query(avatarTable);
+  var avatarID = user.getAvatar().id;
+
+  query.get(avatarID).then(
+          function (parseAvatar) {
+            var extraTable = Parse.Object.extend("AvatarExtra");
+            var query = new Parse.Query(extraTable);
+
+            query.containedIn("objectId", parseAvatar.get("achievements"));
+            query.find().then(
+                function (results) {
+                  var extras = new Array();
+                  for (i in results)
+                    extras.push({ "id":results[i].id, "path": results[i].get("path") }); // Creating the associative array
+                  callback(extras);
+                }
+            );
   });
 }
 

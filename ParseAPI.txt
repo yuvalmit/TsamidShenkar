@@ -128,8 +128,15 @@
 | getAllUserBadges (callback, user) |
 -------------------------------------
 
-# Return to the callback function an associative array (id, path) of all the badges for the
-# given user.
+# Return to the callback function an associative array (id, path) of all the badges for the given user.
+
+###########################################################################################################################
+
+-------------------------------------------
+| getAllUserAchievements (callback, user) |
+-------------------------------------------
+
+# Return to the callback function an associative array (id, path) of all the achievements (extras) for the given user.
 
 ###########################################################################################################################
 
