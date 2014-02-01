@@ -157,6 +157,7 @@
 	width: 450px;
 	z-index: 2;
 	top: -19px;
+	display: none;
 }
 
 .avatarWrapper .avatar img{

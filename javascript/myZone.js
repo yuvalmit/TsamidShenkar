@@ -41,13 +41,14 @@ $(document).ready(function() {
 
 	 function buildAvatar(avatar)
 	 {
-	 	console.log(avatar);
 	 	$(".head").attr("src", avatar.head);
-	 	 $(".hair").attr("src", avatar.hair);
-	 	 $(".mouth").attr("src", avatar.mouth);
-	 	 $(".eyes").attr("src", avatar.eyes);
-	 	 $(".extra").attr("src", avatar.extra);
-
+	 	$(".hair").attr("src", avatar.hair);
+	 	$(".mouth").attr("src", avatar.mouth);
+	 	$(".eyes").attr("src", avatar.eyes);
+	 	if (avatar.extra) {
+	 		$(".extra").attr("src", avatar.extra);
+	 		$(".extra").show();
+	 	}
 	 }
 
 	function navLeft(element)
