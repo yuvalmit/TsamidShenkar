@@ -11,7 +11,7 @@
 ###########################################################################################################################
 
 -------------------------------------------------
-| function logIn (callback, username, password) |
+| logIn (callback, username, password) |
 -------------------------------------------------
 
 # Log in function to parse, this will create a parse user over the current session.
