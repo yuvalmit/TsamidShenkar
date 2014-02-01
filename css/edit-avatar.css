@@ -87,7 +87,7 @@
     z-index: 1;
 }
 
-#avatar-body,#avatar-hair,#avatar-eyes,#avatar-mouth,#avatar-prizes
+#AvatarBody,#AvatarHair,#AvatarEyes,#AvatarMouth,#AvatarExtra
 {
     height: 50%; 
     width: 50%; 
