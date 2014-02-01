@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" dir="rtl">
+	<link type="text/css" rel="stylesheet" href="css/myZone.css">
+	<script type="text/javascript" src="javascript/jquery-1.10.2.min.js"></script>
+	<script src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
+  	<script type="text/javascript" src="javascript/parse.js"></script>
+   	<script type="text/javascript" src="javascript/objects/user.js"></script>
+    <script type="text/javascript" src="javascript/objects/avatar.js"></script>
+     <script type="text/javascript" src="javascript/objects/badges.js"></script>
+</head>
+
+<body>
+<div class="myZoneWrapper">
+
+	<div class="favoritesWrapper">
+		<button class="prev navFood"><</button>
+		<button class="next navFood">></button>
+		
+		<button class="prev navBadges"><</button>
+		<button class="next navBadges">></button>
+		
+		<div class="itemsContainer">
+		<span class="title">
+			<H3>מאכלים אהובים</H3>
+		</span>
+			<div class="overflow">
+				<div id="foodImages" class="imagesContainer">
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="itemsContainer">
+		<span class="title">
+			<H3>הטלאים שלי</H3>
+		</span>
+			<div class="overflow">
+				<div id="badgesImages" class="imagesContainer">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="achievementsWrapper">
+	<span class="title">
+	<H2>ההישגים שלי</H2>
+	</span>
+		<div id="achievementsImages" class="imagesContainer">
+		</div>
+	</div>
+
+	<div class="avatarWrapper"> 
+		<span class="title">
+		</span>
+		<div class="avatar">
+			<button class="editBtn">Edit</button>
+			<img class="extra" src="" />
+			<img class="head" src="" />
+			<img class="hair" src="" />
+			<img class="mouth" src="" />
+			<img class="eyes" src="" /> 
+		</div>
+	</div>
+</div>
+
+<script src="javascript/myZone.js"></script>
+
+</body>
+</html>
