@@ -2,6 +2,12 @@ Parse.initialize("hCiKNPSGy9q5iT40j0d9DAiLHpavkJMWxmsC15tS", "TmiPKzW632NWSIkuBB
 
 var GLOBAL_PREFIX = ""; //  -> "//yuvalmit.appspot.com/static/"
 
+// Local paths
+var LOCAL_FOOD_PATH = "assets/images/myZonePage/";
+var LOCAL_BADGE_PATH = "assets/images/badges/";
+var LOCAL_AVATAR_PATH = "assets/images/avatarImages/";
+var LOCAL_FULL_AVATAR_PATH = "assets/images/fullAvatarImages/";
+
 /**
 * Signup function for new users
 */
@@ -129,8 +135,10 @@ function getAllUserBadges (callback, user) {
                 query.find().then(
                     function (results) {
                       var badges = new Array();
+                      var path = GLOBAL_PREFIX + LOCAL_BADGE_PATH;
+
                       for (i in results)
-                        badges.push({ "id":results[i].id, "path": GLOBAL_PREFIX + results[i].get("path") }); // Creating the associative array
+                        badges.push({ "id":results[i].id, "path": path + results[i].get("path") }); // Creating the associative array
                       callback(badges);
                     }
                 );
@@ -154,7 +162,7 @@ function getAllUserAchievements (callback, user) {
           query.find().then(
               function (results) {
                 var extras = new Array();
-                var path = GLOBAL_PREFIX + "assets/images/avatarImages/";
+                var path = GLOBAL_PREFIX + LOCAL_AVATAR_PATH;
 
                 for (i in results)
                   extras.push({ "id":results[i].id, "path": path + results[i].get("path") }); // Creating the associative array
@@ -164,6 +172,9 @@ function getAllUserAchievements (callback, user) {
   });
 }
 
+/**
+* Retriving the given user favorite food, in the callback function an associative array will be received
+*/
 function getAllUserFavoriteFood (callback, user) {
   var usersTable = Parse.Object.extend("_User");
   var query = new Parse.Query(usersTable);
@@ -177,8 +188,10 @@ function getAllUserFavoriteFood (callback, user) {
           query.find().then(
               function (results) {
                 var foodArray = new Array();
+                var path = GLOBAL_PREFIX + LOCAL_FOOD_PATH;
+
                 for (i in results)
-                  foodArray.push({ "id":results[i].id, "path": GLOBAL_PREFIX + results[i].get("path") }); // Creating the associative array
+                  foodArray.push({ "id":results[i].id, "path": path + results[i].get("path") }); // Creating the associative array
                 callback(foodArray);
               }
           );
@@ -235,7 +248,7 @@ function getTodayLesson (callback) {
           {
             newLesson.setName (parseLesson.get("name"));
             newLesson.setDate (parseLesson.get("due_date"));
-            newLesson.setBadge (parseLesson.get("badge").id, GLOBAL_PREFIX + parseLesson.get("badge").get("path"));
+            newLesson.setBadge (parseLesson.get("badge").id, GLOBAL_PREFIX + LOCAL_BADGE_PATH + parseLesson.get("badge").get("path"));
             newLesson.setGoogleLink (parseLesson.get("google_link"));
             newLesson.setYoutubeLink (parseLesson.get("youtube_link"));
 
@@ -359,11 +372,15 @@ function getAllItems (callback, tableName) {
   // Switch case for the tables, Badges table has the full path already
   switch (tableName) {
     case "Badges":
-      avatarPath = GLOBAL_PREFIX ;
+      avatarPath = GLOBAL_PREFIX + LOCAL_BADGE_PATH;
+      break;
+
+    case "Food":
+      avatarPath = GLOBAL_PREFIX + LOCAL_FOOD_PATH;
       break;
 
     default:
-      avatarPath = GLOBAL_PREFIX + "assets/images/avatarImages/";
+      avatarPath = GLOBAL_PREFIX + LOCAL_AVATAR_PATH;
       break;
   }
 
@@ -441,15 +458,15 @@ function createAvatarFromParseObject (parseAvatar, option) {
 
   switch (option) {
     case 1:
-      var avatarPath = GLOBAL_PREFIX + "assets/images/avatarImages/";
+      var avatarPath = GLOBAL_PREFIX + LOCAL_AVATAR_PATH;
       break;
 
     case 2:
-      var avatarPath = GLOBAL_PREFIX + "assets/images/fullAvatarImages/";
+      var avatarPath = GLOBAL_PREFIX + LOCAL_FULL_AVATAR_PATH;
       break;
 
     default:
-      var avatarPath = GLOBAL_PREFIX + "assets/images/avatarImages/";
+      var avatarPath = GLOBAL_PREFIX + LOCAL_AVATAR_PATH;
       break;
   }
 
