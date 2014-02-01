@@ -82,12 +82,15 @@
 
 ###########################################################################################################################
 
--------------------------------------
-| getAllItems (callback, tableName) |
---------------------------------------
+---------------------------------------------
+| getAllItems (callback, tableName, option) |
+---------------------------------------------
 
 # The callback function will be called with an associative array (id, path) with all items in the given table
 # The possible tables are (case sensetive):
+# The option is the avatar related parts only, it won't have any effect on the other items such as Badges / Food
+# option == 1 will return the head avatar only.
+# option == 2 returns the path for the full avatar.
 # AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges, Food
 # The callback function signature should look like this -> function allItems (items)
 

@@ -364,7 +364,7 @@ function createNewLesson (name, date, badge, youtube, google) {
 * The possible tables are
 * AvatarExtra, AvatarEyes, AvatarHair, AvatarHeadBody, AvatarMouth, Badges, Food
 */
-function getAllItems (callback, tableName) {
+function getAllItems (callback, tableName, option) {
   var table = Parse.Object.extend(tableName);
   var query = new Parse.Query(table);
   var avatarPath = "";
@@ -380,7 +380,10 @@ function getAllItems (callback, tableName) {
       break;
 
     default:
-      avatarPath = GLOBAL_PREFIX + LOCAL_AVATAR_PATH;
+      if (option == 1)
+        avatarPath = GLOBAL_PREFIX + LOCAL_AVATAR_PATH;
+      else
+        avatarPath = GLOBAL_PREFIX + LOCAL_FULL_AVATAR_PATH;
       break;
   }
 
