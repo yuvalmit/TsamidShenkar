@@ -19,23 +19,16 @@
   <link rel="stylesheet" type="text/css" href="css/edit-avatar.css">
 </head>
 
-<body onload="init_page();">
-    <div id="edit-avatar-frame">
-        
-        <div id="avatar-creation">
+<body onload="init_avatar_page();">
+    <div id="edit-avatar-frame">        
+        <div id="avatar-creation">            
+            <input type="image" id="avatar-full-hair" onclick="set_selection_contents('AvatarHair','#c2daff','black');">            
+            <input type="image" id="avatar-full-eyes" onclick="set_selection_contents('AvatarEyes','#efc2ff','');">            
+            <input type="image" id="avatar-full-mouth" onclick="set_selection_contents('AvatarMouth','#b9e3a6','');">              
+            <input type="image" id="avatar-full-extra" onclick="set_selection_contents('AvatarExtra','#ffd9a6','');">
             
-            <input type="image" id="hair" onclick="set_selection_contents('AvatarHair','#c2daff','default');">
-            
-            <input type="image" id="eyes" onclick="set_selection_contents('AvatarEyes','#efc2ff','default');">
-            
-            <input type="image" id="mouth" onclick="set_selection_contents('AvatarMouth','#b9e3a6','default');">  
-            
-            <input type="image" id="prizes" onclick="set_selection_contents('AvatarExtra','#ffd9a6','default');">    
-            
-            <div id="selection-list" align="center"></div>
-        
-            <div id="color-selection" align="center" ></div>
-        
+            <div id="selection-list" align="center"></div>        
+            <div id="color-selection" align="center" ></div>        
         </div>    
     
     
@@ -52,8 +45,7 @@
     </div>
     
    <div id="save-avatar">        
-         <input type="button" id="button-save" value="SAVE" onclick="save_avatar();">
-        
+         <input type="button" id="button-save" value="SAVE" onclick="save_avatar();">        
     </div>
         
 </div>        
