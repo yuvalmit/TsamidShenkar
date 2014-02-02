@@ -1,22 +1,14 @@
 
+var gCurrentColor;
 
-var currentContents;
-var currentColor;
-
-function test(result)
+function testLogIn(result)
 {
-    if (result)
-    {
-        //alert("Logged in!");
-    }
+    if (!result) { console.error("Failed to log in!"); }
 }
 
 function init_page() 
-{
-    var elemList;
-    currentContents = "hair-selection";
-    
-    logIn(test,"Etay","1234");
+{    
+    logIn(testLogIn,"Etay","1234");
     set_selection_contents('hair','#c2daff','default');
     
     document.getElementById("prizes").src = "assets/images/buttons/prize-button.png";
@@ -27,90 +19,107 @@ function init_page()
     document.getElementById("bg-img").src = "assets/images/buttons/floor-plant.png";
     
     //if (boy)
-    document.getElementById("AvatarBody").src = "assets/images/fullAvatarImages/black.png";
+    document.getElementById("AvatarBody").src = "assets/images/fullAvatarImages/boy.png";
     //else (-> girl)
     //document.getElementById("avatar-body").src = "layout/avatar-girl.png";
     
-//    elemList = get_avatar_elements('hair', 'default');
-   // document.getElementById("avatar-hair").src = elemList[0].path;
-//    
-//    elemList = get_avatar_elements('eyes', 'default');
-//    document.getElementById("avatar-eyes").src = elemList[0].path;
-//    
-//    elemList = get_avatar_elements('mouth', 'default');
-//    document.getElementById("avatar-mouth").src = elemList[0].path;
-//    
-//    elemList = get_avatar_elements('prizes', 'default');
-//    document.getElementById("avatar-prizes").src = elemList[0].path;
+    getCurrentUser(getCurrentAvatar);    
     
+    set_selection_contents('AvatarHair','#c2daff','black');
     
-    set_selection_contents('AvatarHair','#c2daff','default');
-    
+}
+
+function getCurrentAvatar(result)
+{
+    var user = result;
+    getUserAvatar(getCurrentAvatar, user.getAvatar(), 1);
+}
+
+function getAvatarElements(avatar)
+{
+    var userAvatar = avatar;
+    document.getElementById("AvatarHair").src = userAvatar.getHead();
+    document.getElementById("AvatarEyes").src = userAvatar.getEyes();
+    document.getElementById("AvatarMouth").src = userAvatar.getMouth();
+    document.getElementById("AvatarHair").src = userAvatar.getHair();
+    document.getElementById("AvatarExtra").src = userAvatar.getExtra();
 }
 
 
 function set_selection_contents(content_id, bg_color, contents_color)
 {
-    
+    var colorsStrArr = ["black","brown","red"];
+    var colorsValArr = ["black","#834625","orange"];
     var contentElement = document.getElementById('selection-list');   
     while (contentElement.firstChild) contentElement.removeChild(contentElement.firstChild);
     
-    getAllItems(view_hair_selection, content_id);
+    gCurrentColor = contents_color;
+    getAllItems(view_elements_selection, content_id, 2);
     
     contentElement.style.background = bg_color;
     
     var colorsElement = document.getElementById('color-selection');
     while (colorsElement.firstChild) colorsElement.removeChild(colorsElement.firstChild);
-    if (content_id == "hair")
+    if (content_id == "AvatarHair")
     {     
-        var elem = document.createElement("input");
-        elem.setAttribute("type","button");
-        elem.style.cursor = "pointer";
-        elem.style.background = "black";
-        elem.style.height = "50px";
-        elem.style.width = "50px";
-        elem.style.marginLeft = "20px";
-        elem.setAttribute("onClick", "set_selection_contents('AvatarHair','" + bg_color + "', 'default');");
-        colorsElement.appendChild(elem);
-        
-        var elem = document.createElement("input");
-        elem.setAttribute("type","button");
-        elem.style.cursor = "pointer";
-        elem.style.background = "#a5552a";
-        elem.style.height = "50px";
-        elem.style.width = "50px";
-        elem.style.marginLeft = "20px";
-        elem.setAttribute("onClick", "set_selection_contents('AvatarHair','" + bg_color + "', 'brown');");
-        colorsElement.appendChild(elem);
-        
-        var elem = document.createElement("input");
-        elem.setAttribute("type","button");
-        elem.style.cursor = "pointer";
-        elem.style.background = "yellow";
-        elem.style.height = "50px";
-        elem.style.width = "50px";
-        elem.style.marginLeft = "20px";
-        elem.setAttribute("onClick", "set_selection_contents('AvatarHair','" + bg_color + "', 'yellow');");
-        colorsElement.appendChild(elem);        
+        for (var i = 0; i < 3; i++)
+        {
+            var elem = document.createElement("input");
+            elem.setAttribute("type","button");
+            elem.style.cursor = "pointer";
+            elem.style.background = colorsValArr[i];
+            elem.style.height = "50px";
+            elem.style.width = "50px";
+            elem.style.marginLeft = "20px";
+            elem.setAttribute("onClick", "set_selection_contents('AvatarHair','" + bg_color + "', '"+ colorsStrArr[i] +"');");
+            colorsElement.appendChild(elem);
+        }      
     }
 }
 
-function view_hair_selection(elemList)
+function view_elements_selection(elemList)
 {
-    for (var id in elemList) {
-        console.log(elemList[id].path);  
+    var path, elemId;
+    for (var id in elemList) 
+    {
+        path = elemList[id].path;
         var elem = document.createElement("input");
         elem.setAttribute("type","image");
-        elem.setAttribute("src", elemList[id].path);
+        elem.setAttribute("src", path);
         elem.style.height = "35%";
         elem.style.width = "35%";
         elem.style.margin = "10px";
         elem.style.borderColor = "white";
         elem.style.borderStyle = "inset";
         elem.style.borderRadius = "25px";
-
-        elem.setAttribute("onClick", "change_image('AvatarHair', '" + elemList[id].path + "');");
-        document.getElementById('selection-list').appendChild(elem);
+        
+        if (path.indexOf("hair") != -1)
+        {
+            elemId = "AvatarHair";
+            if (path.indexOf(gCurrentColor) != -1)
+            {
+                elem.setAttribute("onClick", "change_image('"+ elemId +"', '" + path + "');");
+                document.getElementById('selection-list').appendChild(elem);
+            }
+        }
+        else
+        {
+            if (path.indexOf("eye") != -1)
+            {
+                elemId = "AvatarEyes";
+            }
+            else if (path.indexOf("mouth") != -1)
+            {
+                elemId = "AvatarMouth";
+            }
+            else if (path.indexOf("extra") != -1)
+            {
+                elemId = "AvatarExtra";
+            }
+            
+            elem.setAttribute("onClick", "change_image('"+ elemId +"', '" + path + "');");
+            document.getElementById('selection-list').appendChild(elem);
+        }
     }
 }
 
@@ -128,7 +137,7 @@ function change_image(imgId, images_path)
 
 function save_avatar()
 {
-    document.getElementById("AvatarBody").src = "assets/images/fullAvatarImages/white.png";
+    document.getElementById("AvatarBody").src = "assets/images/fullAvatarImages/girl.png";
 }
 
 

@@ -20,22 +20,15 @@
 </head>
 
 <body onload="init_page();">
-    <div id="edit-avatar-frame">
-        
-        <div id="avatar-creation">
+    <div id="edit-avatar-frame">        
+        <div id="avatar-creation">            
+            <input type="image" id="hair" onclick="set_selection_contents('AvatarHair','#c2daff','default');">            
+            <input type="image" id="eyes" onclick="set_selection_contents('AvatarEyes','#efc2ff','default');">            
+            <input type="image" id="mouth" onclick="set_selection_contents('AvatarMouth','#b9e3a6','default');">              
+            <input type="image" id="prizes" onclick="set_selection_contents('AvatarExtra','#ffd9a6','default');">
             
-            <input type="image" id="hair" onclick="set_selection_contents('AvatarHair','#c2daff','default');">
-            
-            <input type="image" id="eyes" onclick="set_selection_contents('AvatarEyes','#efc2ff','default');">
-            
-            <input type="image" id="mouth" onclick="set_selection_contents('AvatarMouth','#b9e3a6','default');">  
-            
-            <input type="image" id="prizes" onclick="set_selection_contents('AvatarExtra','#ffd9a6','default');">    
-            
-            <div id="selection-list" align="center"></div>
-        
-            <div id="color-selection" align="center" ></div>
-        
+            <div id="selection-list" align="center"></div>        
+            <div id="color-selection" align="center" ></div>        
         </div>    
     
     
