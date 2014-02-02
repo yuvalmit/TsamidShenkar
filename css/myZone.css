@@ -1,0 +1,165 @@
+.favoritesWrapper {
+	width : 520px;
+	height : 600px;
+	overflow : auto;
+	position: absolute;
+	left : 20px;
+	top: 50px;
+	/* border : 1px solid red; */
+}
+
+.favoritesWrapper .itemsContainer  {
+	width: 80%;
+	position: relative;
+	/* border: 1px solid blue; */
+	margin: 0 auto;
+	height: 150px;
+}
+
+.favoritesWrapper .itemsContainer .title {
+	text-align : center;
+
+}
+
+.favoritesWrapper .itemsContainer .imagesContainer {
+	position : relative;
+	margin : 0 auto;
+	height: 100%;
+	overflow-x : hidden;
+	/* border : 1px solid green; */
+	width: 2000px;
+	left: 0px;
+	transition: left .5s;
+}
+
+.favoritesWrapper .overflow {
+	height: 80px;
+	overflow: hidden;
+	-webkit-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow:    0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+	box-shadow:         0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+	border-radius: 14px;
+}
+
+.favoritesWrapper .itemsContainer .imagesContainer img {
+	width: 76px;
+	height: 76px;
+	margin-right: 25px;
+}
+
+.favoritesWrapper .prev {
+	position: absolute;
+	left: 11px;
+}
+
+.favoritesWrapper .next {
+	position: absolute;
+	left: 467px;
+}
+
+.navFood {
+	top: 87px;
+}
+
+.navBadges {
+	top: 239px;
+}
+
+.achievementsWrapper  {
+	width : 280px;
+	height : 600px;
+	position : absolute;
+	left : 610px;
+	top: 50px;
+	/* border : 1px solid red; */
+}
+
+.achievementsWrapper .imagesContainer  {
+	width : 80%;
+	position : relative;
+	margin : 0 auto;
+	overflow : auto;
+	/* border : 1px solid blue; */
+	height: 83%;
+}
+
+.achievementsWrapper .imagesContainer img{
+	float: left;
+	width: 165px;
+}
+
+.achievementsWrapper .title {
+	text-align: center;
+}
+
+.avatarWrapper {
+	position : absolute;
+	top : 50px;
+	right: 20px;
+	width : 380px;
+	height : 600px;
+	/*border : 1px solid red;*/
+}
+
+.avatarWrapper .title{
+	position : absolute;
+	top : 0px;
+	margin-left: 8px;
+	width : 95%;
+	height : 130px;
+	/*border : 1px solid black;*/
+}
+.avatarWrapper .title {
+	text-align : center;
+}
+
+.avatarWrapper .avatar{
+	position: absolute;
+	margin-left: 8px;
+	top: 80px;
+	width : 95%;
+	height : 420px;
+	/*border : 1px solid blue;*/
+}
+.avatarWrapper .avatar .editBtn{
+	position: absolute;
+
+}
+.avatarWrapper .avatar .head{
+	width: 288px;
+	height: 411px;
+	left: 40px;
+	z-index: 0;
+}
+
+.avatarWrapper .avatar .eyes{
+	width: 222px;
+	top: 14px;
+	left: 68px;
+}
+
+.avatarWrapper .avatar .hair{
+	width: 286px;
+	top: 0px;
+	left: 41px;
+	z-index: 1;
+}
+
+
+.avatarWrapper .avatar .mouth{
+	top: -3px;
+	width: 309px;
+	left: 30px;
+}
+
+.avatarWrapper .avatar .extra {
+	left: -29px;
+	width: 450px;
+	z-index: 2;
+	top: -19px;
+	display: none;
+}
+
+.avatarWrapper .avatar img{
+	position: absolute;
+}
