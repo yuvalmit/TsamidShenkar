@@ -2,8 +2,6 @@
 var user;
 
 function initMain(){
-
-    logIn( loginTest ,'Etay' , '1234');
     var userAvatar;
     var currentLesson;
     getCurrentUser(getUser);
@@ -32,10 +30,6 @@ function getOnlineUsers(usersArray){
        
     });
 }
-
-
-
-
 
 
 function getAvatarLayout(avatar) {
