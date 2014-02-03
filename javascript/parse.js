@@ -258,7 +258,7 @@ function getTodayLesson (callback) {
             callback(null);
         },
         function(error) {
-          console.log("Error: " + error.code + " " + error.message);
+          console.log("Error: " + error.description);
         }
   );
 }
@@ -277,7 +277,7 @@ function getCurrentUser (callback) {
             callback ( createUserFromParseUser(parseUser) );
           },
           function(error) {
-            alert("Error: " + error.code + " " + error.message);
+            alert("Error: " + error.description);
   });
 }
 
@@ -302,7 +302,7 @@ function getUserAvatar (callback, parseAvatar, option) {
               callback(createAvatarFromParseObject(parseAvatar, option));
             },
             function(error) {
-              alert("Error: " + error.code + " " + error.message);
+              alert("Error: " + error.description);
             }
     );
 }
@@ -431,7 +431,7 @@ function getAllOnlineUsers (callback) {
           callback(usersArray);
         },
         function(error) {
-          alert('Failed to get users, with error code: ' + error.code);
+          alert('Failed to get users, with error: ' + error.description);
         }
   );
 }
