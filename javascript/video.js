@@ -2,7 +2,7 @@ var youtubeId;
 
 $(document).ready(function(){
 
-
+//initVideoPage();
   //videoPageInit("JaAWdljhD5o");   
 });
 

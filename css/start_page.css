@@ -19,6 +19,8 @@
 	
 }
 
+
+
 .main_screen .upload_button{
 	cursor: pointer;
 	margin-left: auto;
@@ -35,8 +37,11 @@
 }
 
 .avatar_image{
+	border: 0px solid !important;
 	
-	
+}
+.avatar_layout{
+	border: 0px solid !important;
 }
 
 .avatar_img {
@@ -45,7 +50,11 @@
 	display: inline-block;
 	text-align: center;
 	position: relative;
-	
+	border: 0px solid !important;
+	-moz-outline-style: none;
+	outline: none;
+	border: 0;
+	display: none;			
 
 }
 
@@ -54,6 +63,11 @@
 	width: 100%;
 	position: absolute !important;
 	
+}
+
+.avatar_section img{
+	outline: none;
+	border: 0px solid !important;
 }
 
 .video_placeholder{

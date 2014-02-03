@@ -19,19 +19,27 @@ function getUsersAvatarLayout(avatar) {
 	        var mouth  = userAvatar.getMouth();
 	        var hair   = userAvatar.getHair();
 	        var extra  = userAvatar.getExtra();
-	        console.log("counter " +counter);
+	       
 	        var domElement = $('#'+counter);
 
-
+	       $(domElement).css("display", "inline-block"); 
 	       $(domElement).find("#avatar_head").attr( "src" , head);
 	       $(domElement).find("#avatar_eyes").attr( "src" , eyes);
 	       $(domElement).find("#avatar_mouth").attr( "src" , mouth);
 	       $(domElement).find("#avatar_hair").attr( "src" , hair);
-	       $(domElement).find("#avatar_extra").attr( "src" , extra);
+	       if(extra){
+	       	 console.log("IM HERE ");
+	       	 $(domElement).find("#avatar_extra").attr( "src" , extra);
+	       }else{
+	       	 $(domElement).find("#avatar_extra").css("display" , "none");
+	       }
 
+	       
+	      
         }else{
         	alert("Full !! Too many users online");
         }
+
         
        
    };
@@ -41,6 +49,7 @@ function getOnlineUsers(usersArray){
     usersArray.forEach(function (userInstance) { 	 
          getUserAvatar(getUsersAvatarLayout , userInstance.getAvatar() , 1); 
     });
+
 }
 
 
