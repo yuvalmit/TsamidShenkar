@@ -73,7 +73,8 @@ $( document ).ready(function() {
         $("#main_iframe").attr('src' , 'MyZone.html');
 });
 
-    $( "#video_image" ).click(function() {
+    $( "#video_page" ).click(function() {
+         
           $("#main_iframe").attr('src' , 'video-player.html');
          
 });
