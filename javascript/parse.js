@@ -37,7 +37,7 @@ function signUp (callback, username, password, email, gender) {
           callback(true);
         },
         error: function(user, error) {
-          alert("Signup error: " + error.description);
+          console.log("Signup error: " + error.description);
         }
       });
     }
@@ -209,7 +209,7 @@ function logIn (callback, username, password) {
     	 return user;
   		},
   		function(error) {
-    		alert("LogIn error: " + error.description);
+    		console.log("LogIn error: " + error.description);
         callback(false);
   		}).then(
           function(user) {
@@ -278,7 +278,7 @@ function getCurrentUser (callback) {
             callback ( createUserFromParseUser(parseUser) );
           },
           function(error) {
-            alert("Error: " + error.description);
+            console.log("Error: " + error.description);
   });
 }
 
@@ -303,7 +303,7 @@ function getUserAvatar (callback, parseAvatar, option) {
               callback(createAvatarFromParseObject(parseAvatar, option));
             },
             function(error) {
-              alert("Error: " + error.description);
+              console.log("Error: " + error.description);
             }
     );
 }
@@ -361,11 +361,10 @@ function createNewLesson (name, date, badge, youtube, google) {
 
   lesson.save().then(
     function(lesson) {
-       alert('New lesson created with objectId: ' + lesson.id);
+       console.log('New lesson created with objectId: ' + lesson.id);
       },
       function(error) {
-        console.log(error);
-        alert('Failed to create new lesson, with error: ' + error.description);
+        console.log('Failed to create new lesson, with error: ' + error.description);
       }
   );
 }
@@ -410,7 +409,7 @@ function getAllItems (callback, tableName, option) {
           callback(items);
         },
         function(error) {
-          alert('Failed to get badges, with error code: ' + error.code);
+          console.log('Failed to get badges, with error code: ' + error.code);
         }
   );
 }
@@ -442,7 +441,7 @@ function getAllOnlineUsers (callback) {
           callback(usersArray);
         },
         function(error) {
-          alert('Failed to get users, with error: ' + error.description);
+          console.log('Failed to get users, with error: ' + error.description);
         }
   );
 }
