@@ -327,7 +327,7 @@ function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
 
     if (eyes)
       newAvatar.set("eyes", new eyesObject().set("objectId", eyes));
-    
+
     if (mouth)
       newAvatar.set("mouth", new mouthObject().set("objectId", mouth));
 
@@ -336,7 +336,10 @@ function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
 
     newAvatar.save().then(
       function (newAvatar) {
-        callback(true);
+        callback(true),
+      function (error) {
+          console.log("Error: " + error.description);
+        }
     });
 }
 
