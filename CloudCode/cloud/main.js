@@ -25,11 +25,11 @@ Parse.Cloud.beforeSave("Avatars", function(request, response) {
 
 	// If there is no value in the extra field it means there is no values in the other columns
 	if (!request.object.get("extra")) {
-  	request.object.set("extra",extra);
-  	request.object.set("eyes",eyes);
-  	request.object.set("hair",hair);
-  	request.object.set("head_body",headBody);
-  	request.object.set("mouth",mouth);
+	  	request.object.set("extra",extra);
+	  	request.object.set("eyes",eyes);
+	  	request.object.set("hair",hair);
+	  	request.object.set("head_body",headBody);
+	  	request.object.set("mouth",mouth);
 	}
 
 	response.success();
