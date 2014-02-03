@@ -23,7 +23,7 @@ function signUp (callback, username, password, email, gender) {
 
 	user.set("privileges", 1); // 1 Is for normal user 2 is for admin
   user.set("isOnline", true); // Setting the user as online
-  user.set("gender", gender);
+  user.set("gender", gender); // Setting the user gender
   user.set("badges", new Array()); // Setting an empty array of badges for the new user
   user.set("favoriteFood", new Array()); // Setting an empty array of favorite food for the new user
 
