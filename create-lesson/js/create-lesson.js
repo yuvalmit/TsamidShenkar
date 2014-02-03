@@ -13,7 +13,7 @@ $(function() {
 
 
     $(".input-icon-wrapper input").on({
-        focus: function() { $(this).datepicker().toString() }
+        focus: function() { $(this).datepicker();}
 
     });
 
@@ -22,7 +22,9 @@ $(function() {
         {
             onSelect: function()
             {
-                lessonDate = $(this).datepicker('getDate');
+                lessonDate = new Date($(this).val()+" 14:00:00");
+
+                console.log(lessonDate);
             }
         });
 
@@ -98,9 +100,11 @@ $(function() {
                 alert("video id = "+youtubId[1]);
             } else {
                 alert("The youtube url is not valid.");
+                youtubId[1] = "";
             }
         }else{
             alert("empty");
+            youtubId[1] = "";
         }
 
         googleDoc = $('#google-doc').val();

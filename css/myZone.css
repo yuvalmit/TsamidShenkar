@@ -1,10 +1,32 @@
+.myZoneWrapper{
+    background-color: #fffac7;
+    height: 500px;
+}
+.avatarWrapper{
+    height: 80px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 14px;
+    right: 400px;
+    position : absolute;
+    top : 50px;
+    width : 380px;
+    height : 600px;
+    /*border : 1px solid red;*/
+}
+.avatarWrapper.row{
+    height: 494px;
+}
+
 .favoritesWrapper {
 	width : 520px;
 	height : 600px;
 	overflow : auto;
 	position: absolute;
 	left : 20px;
-	top: 50px;
+	top: 0px;
 	/* border : 1px solid red; */
 }
 
@@ -13,7 +35,7 @@
 	position: relative;
 	/* border: 1px solid blue; */
 	margin: 0 auto;
-	height: 150px;
+	height: 110px;
 }
 
 .favoritesWrapper .itemsContainer .title {
@@ -55,6 +77,7 @@
 .favoritesWrapper .next {
 	position: absolute;
 	left: 467px;
+
 }
 
 .navFood {
@@ -62,16 +85,21 @@
 }
 
 .navBadges {
-	top: 239px;
+    top: 215px;
 }
 
 .achievementsWrapper  {
-	width : 280px;
-	height : 600px;
-	position : absolute;
-	left : 610px;
-	top: 50px;
-	/* border : 1px solid red; */
+    width: 80%;
+    height: 230px;
+    position: absolute;
+    left: 48px;
+    top: 318px;
+    border: 1px solid none;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 14px;
 }
 
 .achievementsWrapper .imagesContainer  {
@@ -92,14 +120,7 @@
 	text-align: center;
 }
 
-.avatarWrapper {
-	position : absolute;
-	top : 50px;
-	right: 20px;
-	width : 380px;
-	height : 600px;
-	/*border : 1px solid red;*/
-}
+
 
 .avatarWrapper .title{
 	position : absolute;
@@ -124,6 +145,11 @@
 .avatarWrapper .avatar .editBtn{
 	position: absolute;
 
+}
+.editBtn{
+    z-index: 100;
+    bottom: 0px;
+    position: absolute;
 }
 .avatarWrapper .avatar .head{
 	width: 288px;

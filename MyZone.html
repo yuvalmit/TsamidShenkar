@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" dir="rtl">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
 	<link type="text/css" rel="stylesheet" href="css/myZone.css">
 	<script type="text/javascript" src="javascript/jquery-1.10.2.min.js"></script>
 	<script src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
@@ -14,7 +15,7 @@
 <body>
 <div class="myZoneWrapper">
 
-	<div class="favoritesWrapper">
+	<div class="favoritesWrapper col-md-8">
 		<button class="prev navFood"><</button>
 		<button class="next navFood">></button>
 		
@@ -41,31 +42,35 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	
-	<div class="achievementsWrapper">
+        <div class="achievementsWrapper">
 	<span class="title">
 	<H2>ההישגים שלי</H2>
 	</span>
-		<div id="achievementsImages" class="imagesContainer">
-		</div>
+            <div id="achievementsImages" class="imagesContainer">
+            </div>
+        </div>
 	</div>
+	
+	
 
-	<div class="avatarWrapper"> 
-		<span class="title">
-		</span>
-		<div class="avatar">
-			<button class="editBtn">Edit</button>
+
+	<div class="avatarWrapper row">
+		<div class="title col-md-6">
+		</div>
+		<div class="avatar col-md-6">
+
 			<img class="extra" src="" />
 			<img class="head" src="" />
 			<img class="hair" src="" />
 			<img class="mouth" src="" />
 			<img class="eyes" src="" /> 
 		</div>
+       <button class="editBtn btn btn-primary btn-block">Edit</button>
 	</div>
+
 </div>
 
+<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 <script src="javascript/myZone.js"></script>
 
 </body>

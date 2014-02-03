@@ -83,7 +83,7 @@ $(document).ready(function() {
 		navRight(".favoritesWrapper .imagesContainer:nth(1)");
 	});
 	
-	$("#editBtn").click(function() {
+	$(" .editBtn").click(function() {
 		window.location="edit-avatar.html";
 	});
 

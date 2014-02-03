@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbce85b4-af53-499f-9bf0-ffc4de34c574" name="Default" comment="" />
+    <list default="true" id="fbce85b4-af53-499f-9bf0-ffc4de34c574" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/bootstrap.min.css" />
+      <change type="DELETED" beforePath="C:\Users\Avi\Documents\GitHub\TsamidShenkar\create-lesson\css\bootstrap.min.css" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\Avi\Documents\GitHub\TsamidShenkar\create-lesson\css\bootstrap.css" afterPath="$PROJECT_DIR$/css/bootstrap.css" />
+      <change type="MOVED" beforePath="C:\Users\Avi\Documents\GitHub\TsamidShenkar\create-lesson\js\bootstrap.js" afterPath="$PROJECT_DIR$/javascript/bootstrap.js" />
+      <change type="MOVED" beforePath="C:\Users\Avi\Documents\GitHub\TsamidShenkar\create-lesson\js\bootstrap.min.js" afterPath="$PROJECT_DIR$/javascript/bootstrap.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyZone.html" afterPath="$PROJECT_DIR$/MyZone.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create-lesson/creatLesson.html" afterPath="$PROJECT_DIR$/create-lesson/creatLesson.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create-lesson/js/create-lesson.js" afterPath="$PROJECT_DIR$/create-lesson/js/create-lesson.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/myZone.css" afterPath="$PROJECT_DIR$/css/myZone.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/myZone.js" afterPath="$PROJECT_DIR$/javascript/myZone.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/video-player.css" afterPath="$PROJECT_DIR$/css/video-player.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/video-player.html" afterPath="$PROJECT_DIR$/video-player.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="TsamidShenkar.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,19 +37,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="creatLesson.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/create-lesson/creatLesson.html">
+      <file leaf-file-name="MyZone.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MyZone.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="10" selection-start="1333" selection-end="1333" vertical-scroll-proportion="-2.5769231" vertical-offset="426" max-vertical-offset="1241">
+            <state line="50" column="14" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.8108614" vertical-offset="417" max-vertical-offset="1394">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create-lesson.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/create-lesson/js/create-lesson.js">
+      <file leaf-file-name="myZone.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/myZone.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="0" selection-start="3015" selection-end="3015" vertical-scroll-proportion="0.8259386" vertical-offset="1539" max-vertical-offset="2125">
+            <state line="85" column="7" selection-start="2018" selection-end="2018" vertical-scroll-proportion="0.0" vertical-offset="1029" max-vertical-offset="1615">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myZone.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/myZone.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="14" selection-start="338" selection-end="338" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="3349">
               <folding />
             </state>
           </provider>
@@ -64,6 +87,11 @@
         <option value="$PROJECT_DIR$/creat lessen/css/create-lesson.css" />
         <option value="$PROJECT_DIR$/creat lessen/js/create-lesson.js" />
         <option value="$PROJECT_DIR$/create-lesson/js/create-lesson.js" />
+        <option value="$PROJECT_DIR$/css/video-player.css" />
+        <option value="$PROJECT_DIR$/video-player.html" />
+        <option value="$PROJECT_DIR$/javascript/myZone.js" />
+        <option value="$PROJECT_DIR$/MyZone.html" />
+        <option value="$PROJECT_DIR$/css/myZone.css" />
       </list>
     </option>
   </component>
@@ -127,7 +155,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="create-lesson" />
+              <option name="myItemId" value="javascript" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -141,11 +169,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="create-lesson" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -158,10 +182,16 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="settings.github" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/WebstormProjects/test" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Avi\Documents\GitHub\TsamidShenkar\javascript" />
+      <recent name="C:\Users\Avi\Documents\GitHub\TsamidShenkar\css" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
@@ -222,7 +252,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -258,23 +288,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/create-lesson-form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="10" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/creat lessen/js/create-lesson.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="1500" selection-end="1500" vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="1360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/parse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="232" column="35" selection-start="6988" selection-end="6988" vertical-scroll-proportion="0.0" vertical-offset="3713" max-vertical-offset="4233" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/create-lesson-form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="10" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867" />
@@ -317,21 +330,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/creat lessen/js/create-lesson.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="46" selection-start="421" selection-end="421" vertical-scroll-proportion="0.609215" vertical-offset="0" max-vertical-offset="1972">
+        <state line="21" column="46" selection-start="421" selection-end="421" vertical-scroll-proportion="0.609215" vertical-offset="0" max-vertical-offset="1972" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/video-player.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="653" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/video-player.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="57" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="714">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create-lesson/creatLesson.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="10" selection-start="1333" selection-end="1333" vertical-scroll-proportion="-2.5769231" vertical-offset="426" max-vertical-offset="1241">
+        <state line="27" column="35" selection-start="1248" selection-end="1248" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1241">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create-lesson/js/create-lesson.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="0" selection-start="3015" selection-end="3015" vertical-scroll-proportion="0.8259386" vertical-offset="1539" max-vertical-offset="2125">
+        <state line="3" column="38" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="2193">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/myZone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="7" selection-start="2018" selection-end="2018" vertical-scroll-proportion="0.0" vertical-offset="1029" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/myZone.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="14" selection-start="338" selection-end="338" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="3349">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyZone.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="14" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.8108614" vertical-offset="417" max-vertical-offset="1394">
           <folding />
         </state>
       </provider>
