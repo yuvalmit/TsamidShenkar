@@ -319,10 +319,17 @@ function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
 
     var newAvatar = user.getAvatar();
 
-    newAvatar.set("head_body", new headBodyObject().set("objectId", head_body));
-    newAvatar.set("hair", new hairObject().set("objectId", hair));
-    newAvatar.set("eyes", new eyesObject().set("objectId", eyes));
-    newAvatar.set("mouth", new mouthObject().set("objectId", mouth));
+    if (head_body)
+      newAvatar.set("head_body", new headBodyObject().set("objectId", head_body));
+
+    if (hair)
+      newAvatar.set("hair", new hairObject().set("objectId", hair));
+
+    if (eyes)
+      newAvatar.set("eyes", new eyesObject().set("objectId", eyes));
+    
+    if (mouth)
+      newAvatar.set("mouth", new mouthObject().set("objectId", mouth));
 
     if (extra) // If there is an extra to set
       newAvatar.set("extra", new extraObject().set("objectId", extra));
