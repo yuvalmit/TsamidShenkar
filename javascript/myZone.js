@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	logIn(sge, "Etay", 1234);
+	//logIn(sge, "Etay", 1234);
 
 	function sge(elem) {
 		console.log(elem);

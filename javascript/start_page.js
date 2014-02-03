@@ -22,11 +22,13 @@ function getUsersAvatarLayout(avatar) {
 	        console.log("counter " +counter);
 	        var domElement = $('#'+counter);
 
+
 	       $(domElement).find("#avatar_head").attr( "src" , head);
 	       $(domElement).find("#avatar_eyes").attr( "src" , eyes);
 	       $(domElement).find("#avatar_mouth").attr( "src" , mouth);
 	       $(domElement).find("#avatar_hair").attr( "src" , hair);
 	       $(domElement).find("#avatar_extra").attr( "src" , extra);
+
         }else{
         	alert("Full !! Too many users online");
         }
@@ -34,9 +36,9 @@ function getUsersAvatarLayout(avatar) {
        
    };
 
+
 function getOnlineUsers(usersArray){
-    usersArray.forEach(function (userInstance) {
-    	 
+    usersArray.forEach(function (userInstance) { 	 
          getUserAvatar(getUsersAvatarLayout , userInstance.getAvatar() , 1); 
     });
 }

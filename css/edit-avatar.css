@@ -8,7 +8,7 @@
     margin-right:auto;
     margin-top:auto;
     margin-bottom:auto;
-    background-color:#0000d0;
+    background-color:#fffac7;
 }
 #avatar-creation 
 {
@@ -16,6 +16,7 @@
     width: 400px; 
     position: absolute; 
     top:50px;
+    border-style: none;
 }
 
 #avatar-full-hair,#avatar-full-eyes,#avatar-full-mouth,#avatar-full-extra
@@ -23,6 +24,7 @@
     height: 100px; 
     width: 100px; 
     float:left;
+    border-style: none;
 }
 
 
@@ -84,11 +86,13 @@
     position: relative;
     left: 420px;                                
     bottom: 600px;
+    border-style: none;
     z-index: 1;
 }
 
 #AvatarBody,#AvatarHair,#AvatarEyes,#AvatarMouth,#AvatarExtra
 {
+    border-style: none;
     height: 50%; 
     width: 50%; 
     position: absolute;
