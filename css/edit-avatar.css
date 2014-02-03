@@ -1,5 +1,6 @@
 #edit-avatar-frame
 {
+    position: relative;
     width:800px; 
     height:523px;  
     border-color: #000000;
@@ -16,7 +17,7 @@
     width: 400px; 
     position: absolute; 
     top:50px;
-    left:20%;
+   
     border-style: none;
 }
 
