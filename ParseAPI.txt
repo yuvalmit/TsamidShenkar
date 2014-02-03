@@ -1,8 +1,8 @@
 ###########################################################################################################################
 
---------------------------------------------------------
-| signUp (callback, username, password, email, gender) |
---------------------------------------------------------
+------------------------------------------------
+| signUp (callback, username, password, email) |
+------------------------------------------------
 
 # Signup function for new users.
 # In the call back function you will get true for successful login, false otherwise
