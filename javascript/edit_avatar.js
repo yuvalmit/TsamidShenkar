@@ -20,10 +20,10 @@ function testAvatarUpdate(result)
 }
 
 function init_avatar_page() 
-{    
-    //signUp(testSignUp,"Elad","1234","my@email.com");
-    //logout();
-    logIn(testLogIn,"Elad","1234");
+{   
+//    logout();
+//    signUp(testSignUp,"Elad","1234","my@email.com"); 
+//    logIn(testLogIn,"Elad","1234");
     
     getCurrentUser(getCurrentAvatar);
     set_selection_contents('AvatarHair','#c2daff','black');
@@ -47,7 +47,7 @@ function getAvatarElements(userAvatar)
     document.getElementById("AvatarEyes").src = userAvatar.getEyes();
     document.getElementById("AvatarMouth").src = userAvatar.getMouth();
     document.getElementById("AvatarHair").src = userAvatar.getHair();
-    document.getElementById("AvatarExtra").src = userAvatar.getExtra();
+    if (userAvatar.getExtra()) { document.getElementById("AvatarExtra").src = userAvatar.getExtra(); }
 }
 
 function setCurrentAvatar(user)
@@ -147,6 +147,6 @@ function change_image(imgId, images_path, elemId)
 function save_avatar()
 {
     getCurrentUser(setCurrentAvatar);
-    //window.location = "myZone.html";
+    window.location = "myZone.html";
 }
 
