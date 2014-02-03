@@ -39,12 +39,17 @@ function getAvatarLayout(avatar) {
         var mouth  = userAvatar.getMouth();
         var hair   = userAvatar.getHair();
         var extra  = userAvatar.getExtra();
+        domElement = $('#avatar');
 
        $("#avatar").find("#avatar_head").attr( "src" , head);
        $("#avatar").find("#avatar_eyes").attr( "src" , eyes);
        $("#avatar").find("#avatar_mouth").attr( "src" , mouth);
        $("#avatar").find("#avatar_hair").attr( "src" , hair);
-       $("#avatar").find("#avatar_extra").attr( "src" , extra);
+       if(extra){
+           $(domElement).find("#avatar_extra").attr( "src" , extra);
+         }else{
+           $(domElement).find("#avatar_extra").css("display" , "none");
+         }
        
    };
 
