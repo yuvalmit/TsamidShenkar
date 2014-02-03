@@ -36,7 +36,7 @@ function signUp (callback, username, password, email) {
           callback(true);
         },
         error: function(user, error) {
-          alert("SignUp error: " + error.code + " " + error.message);
+          alert("Signup error: " + error.description);
         }
       });
     }
@@ -53,7 +53,7 @@ function logout () {
               console.log('User logged off.');
             },
             function(error) {
-              console.log('Could not log off, with error code: ' + error.description);
+              console.log('Could not log off, with error: ' + error.description);
             }
   );
 
@@ -78,7 +78,7 @@ function addAchievementToUser(achievement, user) {
               },
               function (error) {
                 console.log("Could not save achievement, error: " + error.description);
-              });
+  });
 }
 
 /**
@@ -202,12 +202,13 @@ function getAllUserFavoriteFood (callback, user) {
 * Log in function to parse, this will create a parse user over the current session
 */
 function logIn (callback, username, password) {
-	Parse.User.logIn(username, password, null).then(
+	// Log in to the system
+  Parse.User.logIn(username, password, null).then(
   		function(user) {
     	 return user;
   		},
   		function(error) {
-    		alert("LogIn error: " + error.code + " " + error.message);
+    		alert("LogIn error: " + error.description);
         callback(false);
   		}).then(
           function(user) {
@@ -216,8 +217,7 @@ function logIn (callback, username, password) {
                     function(arg) {
                       console.log(user.get("username") + " logged in.");
                       callback(true);
-                    }
-      );
+      });
   });
 }
 
@@ -258,7 +258,7 @@ function getTodayLesson (callback) {
             callback(null);
         },
         function(error) {
-          console.log("Error: " + error.code + " " + error.message);
+          console.log("Error: " + error.description);
         }
   );
 }
@@ -277,7 +277,7 @@ function getCurrentUser (callback) {
             callback ( createUserFromParseUser(parseUser) );
           },
           function(error) {
-            alert("Error: " + error.code + " " + error.message);
+            alert("Error: " + error.description);
   });
 }
 
@@ -302,7 +302,7 @@ function getUserAvatar (callback, parseAvatar, option) {
               callback(createAvatarFromParseObject(parseAvatar, option));
             },
             function(error) {
-              alert("Error: " + error.code + " " + error.message);
+              alert("Error: " + error.description);
             }
     );
 }
@@ -319,10 +319,17 @@ function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
 
     var newAvatar = user.getAvatar();
 
-    newAvatar.set("head_body", new headBodyObject().set("objectId", head_body));
-    newAvatar.set("hair", new hairObject().set("objectId", hair));
-    newAvatar.set("eyes", new eyesObject().set("objectId", eyes));
-    newAvatar.set("mouth", new mouthObject().set("objectId", mouth));
+    if (head_body)
+      newAvatar.set("head_body", new headBodyObject().set("objectId", head_body));
+
+    if (hair)
+      newAvatar.set("hair", new hairObject().set("objectId", hair));
+
+    if (eyes)
+      newAvatar.set("eyes", new eyesObject().set("objectId", eyes));
+    
+    if (mouth)
+      newAvatar.set("mouth", new mouthObject().set("objectId", mouth));
 
     if (extra) // If there is an extra to set
       newAvatar.set("extra", new extraObject().set("objectId", extra));
@@ -431,7 +438,7 @@ function getAllOnlineUsers (callback) {
           callback(usersArray);
         },
         function(error) {
-          alert('Failed to get users, with error code: ' + error.code);
+          alert('Failed to get users, with error: ' + error.description);
         }
   );
 }

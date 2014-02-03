@@ -6,6 +6,7 @@ function testLogIn(result)
     if (!result) { console.error("Failed to log in!"); }
 }
 
+<<<<<<< HEAD
 function testAvatarUpdate(result)
 {
     if (!result) { console.error("Failed to update avatar!"); }
@@ -16,6 +17,12 @@ function init_avatar_page()
     logIn(testLogIn,"Etay","1234");
     
     getCurrentUser(getCurrentAvatar);
+=======
+function init_page() 
+{    
+    logIn(testLogIn,"Etay","1234");
+    set_selection_contents('hair','#c2daff','default');
+>>>>>>> c3e8ef709bb517ec4b4586556ec47ca0ef294d4d
     
     document.getElementById("avatar-full-extra").src = "assets/images/buttons/prize-button.png";
     document.getElementById("avatar-full-mouth").src = "assets/images/buttons/mouth-button.png";
@@ -25,9 +32,17 @@ function init_avatar_page()
     document.getElementById("bg-img").src = "assets/images/buttons/floor-plant.png";
     
     //if (boy)
+<<<<<<< HEAD
     //document.getElementById("AvatarBody").src = "assets/images/fullAvatarImages/black.png";
     //else (-> girl)
     //document.getElementById("avatar-body").src = "layout/avatar-girl.png";     
+=======
+    document.getElementById("AvatarBody").src = "assets/images/fullAvatarImages/boy.png";
+    //else (-> girl)
+    //document.getElementById("avatar-body").src = "layout/avatar-girl.png";
+    
+    getCurrentUser(getCurrentAvatar);    
+>>>>>>> c3e8ef709bb517ec4b4586556ec47ca0ef294d4d
     
     set_selection_contents('AvatarHair','#c2daff','black');
     
@@ -36,6 +51,7 @@ function init_avatar_page()
 function getCurrentAvatar(result)
 {
     var user = result;
+<<<<<<< HEAD
     getUserAvatar(getAvatarElements, user.getAvatar(), 2);
 }
 
@@ -43,12 +59,22 @@ function getAvatarElements(userAvatar)
 {
 //    console.log(document.getElementById("AvatarBody").getAttribute("alt"));
     document.getElementById("AvatarBody").src = userAvatar.getHead();
+=======
+    getUserAvatar(getCurrentAvatar, user.getAvatar(), 1);
+}
+
+function getAvatarElements(avatar)
+{
+    var userAvatar = avatar;
+    document.getElementById("AvatarHair").src = userAvatar.getHead();
+>>>>>>> c3e8ef709bb517ec4b4586556ec47ca0ef294d4d
     document.getElementById("AvatarEyes").src = userAvatar.getEyes();
     document.getElementById("AvatarMouth").src = userAvatar.getMouth();
     document.getElementById("AvatarHair").src = userAvatar.getHair();
     document.getElementById("AvatarExtra").src = userAvatar.getExtra();
 }
 
+<<<<<<< HEAD
 function setCurrentAvatar(result)
 {
     var user = result;
@@ -65,6 +91,8 @@ function setAvatarElements(userAvatar)
 //    userAvatar.setExtra(document.getElementById("AvatarExtra").src);
 }
 
+=======
+>>>>>>> c3e8ef709bb517ec4b4586556ec47ca0ef294d4d
 
 function set_selection_contents(content_id, bg_color, contents_color)
 {
@@ -124,9 +152,24 @@ function view_elements_selection(elemList)
         }
         else
         {
+<<<<<<< HEAD
             if (path.indexOf("eye") != -1)          { elemId = "AvatarEyes";   }
             else if (path.indexOf("mouth") != -1)   { elemId = "AvatarMouth";  }
             else if (path.indexOf("extra") != -1)   { elemId = "AvatarExtra";  }
+=======
+            if (path.indexOf("eye") != -1)
+            {
+                elemId = "AvatarEyes";
+            }
+            else if (path.indexOf("mouth") != -1)
+            {
+                elemId = "AvatarMouth";
+            }
+            else if (path.indexOf("extra") != -1)
+            {
+                elemId = "AvatarExtra";
+            }
+>>>>>>> c3e8ef709bb517ec4b4586556ec47ca0ef294d4d
             
             elem.setAttribute("onClick", "change_image('"+ elemId +"', '" + path + "');");
             document.getElementById('selection-list').appendChild(elem);
@@ -149,8 +192,12 @@ function change_image(imgId, images_path)
 
 function save_avatar()
 {
+<<<<<<< HEAD
     console.log(document.getElementById("AvatarBody").getAttribute("alt"));
     getCurrentUser(setCurrentAvatar);
     //window.location = "myZone.html";
+=======
+    document.getElementById("AvatarBody").src = "assets/images/fullAvatarImages/girl.png";
+>>>>>>> c3e8ef709bb517ec4b4586556ec47ca0ef294d4d
 }
 

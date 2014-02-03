@@ -114,6 +114,7 @@
 # the user the function need is a user object as defined under /javascript/object/user.js
 # the function will update that user avatar with the new items
 # If the user still has no extra (achievement) you should send null.
+# If one of the values is "null" it won't change!
 # all the other items should be the ID's which you can get from the "getAllItems" method
 # The callback function signature should look like this -> function isUpdate (isUpdateSuccessful)
 
