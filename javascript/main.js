@@ -39,12 +39,17 @@ function getAvatarLayout(avatar) {
         var mouth  = userAvatar.getMouth();
         var hair   = userAvatar.getHair();
         var extra  = userAvatar.getExtra();
+        domElement = $('#avatar');
 
        $("#avatar").find("#avatar_head").attr( "src" , head);
        $("#avatar").find("#avatar_eyes").attr( "src" , eyes);
        $("#avatar").find("#avatar_mouth").attr( "src" , mouth);
        $("#avatar").find("#avatar_hair").attr( "src" , hair);
-       $("#avatar").find("#avatar_extra").attr( "src" , extra);
+       if(extra){
+           $(domElement).find("#avatar_extra").attr( "src" , extra);
+         }else{
+           $(domElement).find("#avatar_extra").css("display" , "none");
+         }
        
    };
 
@@ -69,17 +74,18 @@ function getAvatarLayout(avatar) {
 
 
 $( document ).ready(function() {
-   $( "#my_zone_image" ).click(function() {
- 
+   $( "#my_zone" ).click(function() {
+        $("#main_iframe").attr('src' , 'MyZone.html');
 });
 
-    $( "#video_image" ).click(function() {
+    $( "#video_page" ).click(function() {
+         
           $("#main_iframe").attr('src' , 'video-player.html');
          
 });
 
-    $( "#game_image" ).click(function() {
-                
+    $( "#game_page" ).click(function() {
+           $("#main_iframe").attr('src' , 'game_zone.html');
 });
     $( "#home" ).click(function() {
           $("#main_iframe").attr('src' , 'start_page.html');
