@@ -17,6 +17,7 @@ function testAvatarUpdate(result)
 {
     if (!result) { console.error("Failed to update avatar!"); }
     else { console.log("Avatar was updated!"); }
+    window.location = "myZone.html";
 }
 
 function init_avatar_page() 
@@ -147,6 +148,5 @@ function change_image(imgId, images_path, elemId)
 function save_avatar()
 {
     getCurrentUser(setCurrentAvatar);
-    window.location = "myZone.html";
 }
 

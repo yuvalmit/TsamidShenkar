@@ -11,7 +11,7 @@ var LOCAL_FULL_AVATAR_PATH = "assets/images/fullAvatarImages/";
 /**
 * Signup function for new users
 */
-function signUp (callback, username, password, email) {
+function signUp (callback, username, password, email, gender) {
 	var user = new Parse.User();
   var avatarObject = Parse.Object.extend("Avatars");
   var avatar = new avatarObject();
@@ -23,6 +23,7 @@ function signUp (callback, username, password, email) {
 
 	user.set("privileges", 1); // 1 Is for normal user 2 is for admin
   user.set("isOnline", true); // Setting the user as online
+  user.set("gender", gender);
   user.set("badges", new Array()); // Setting an empty array of badges for the new user
   user.set("favoriteFood", new Array()); // Setting an empty array of favorite food for the new user
 
@@ -36,7 +37,7 @@ function signUp (callback, username, password, email) {
           callback(true);
         },
         error: function(user, error) {
-          alert("Signup error: " + error.description);
+          console.log("Signup error: " + error.description);
         }
       });
     }
@@ -208,7 +209,7 @@ function logIn (callback, username, password) {
     	 return user;
   		},
   		function(error) {
-    		alert("LogIn error: " + error.description);
+    		console.log("LogIn error: " + error.description);
         callback(false);
   		}).then(
           function(user) {
@@ -277,7 +278,7 @@ function getCurrentUser (callback) {
             callback ( createUserFromParseUser(parseUser) );
           },
           function(error) {
-            alert("Error: " + error.description);
+            console.log("Error: " + error.description);
   });
 }
 
@@ -302,7 +303,7 @@ function getUserAvatar (callback, parseAvatar, option) {
               callback(createAvatarFromParseObject(parseAvatar, option));
             },
             function(error) {
-              alert("Error: " + error.description);
+              console.log("Error: " + error.description);
             }
     );
 }
@@ -327,7 +328,7 @@ function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
 
     if (eyes)
       newAvatar.set("eyes", new eyesObject().set("objectId", eyes));
-    
+
     if (mouth)
       newAvatar.set("mouth", new mouthObject().set("objectId", mouth));
 
@@ -336,7 +337,10 @@ function setUserAvatar (callback, user, head_body, hair, eyes, extra, mouth) {
 
     newAvatar.save().then(
       function (newAvatar) {
-        callback(true);
+        callback(true),
+      function (error) {
+          console.log("Error: " + error.description);
+        }
     });
 }
 
@@ -357,11 +361,10 @@ function createNewLesson (name, date, badge, youtube, google) {
 
   lesson.save().then(
     function(lesson) {
-       alert('New lesson created with objectId: ' + lesson.id);
+       console.log('New lesson created with objectId: ' + lesson.id);
       },
       function(error) {
-        console.log(error);
-        alert('Failed to create new lesson, with error: ' + error.description);
+        console.log('Failed to create new lesson, with error: ' + error.description);
       }
   );
 }
@@ -406,7 +409,7 @@ function getAllItems (callback, tableName, option) {
           callback(items);
         },
         function(error) {
-          alert('Failed to get badges, with error code: ' + error.code);
+          console.log('Failed to get badges, with error code: ' + error.code);
         }
   );
 }
@@ -438,7 +441,7 @@ function getAllOnlineUsers (callback) {
           callback(usersArray);
         },
         function(error) {
-          alert('Failed to get users, with error: ' + error.description);
+          console.log('Failed to get users, with error: ' + error.description);
         }
   );
 }

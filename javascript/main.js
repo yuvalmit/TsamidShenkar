@@ -69,8 +69,8 @@ function getAvatarLayout(avatar) {
 
 
 $( document ).ready(function() {
-   $( "#my_zone_image" ).click(function() {
- 
+   $( "#my_zone" ).click(function() {
+        $("#main_iframe").attr('src' , 'MyZone.html');
 });
 
     $( "#video_image" ).click(function() {
@@ -78,8 +78,8 @@ $( document ).ready(function() {
          
 });
 
-    $( "#game_image" ).click(function() {
-                
+    $( "#game_page" ).click(function() {
+           $("#main_iframe").attr('src' , 'game_zone.html');
 });
     $( "#home" ).click(function() {
           $("#main_iframe").attr('src' , 'start_page.html');
