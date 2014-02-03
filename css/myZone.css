@@ -1,6 +1,7 @@
 .myZoneWrapper{
     background-color: #fffac7;
     height: 500px;
+    position: relative;
 }
 .avatarWrapper{
     height: 80px;
