@@ -2,8 +2,7 @@ var youtubeId;
 
 $(document).ready(function(){
 
-  getTodayLesson(getYoutubeLink);
-  getAllOnlineUsers(setAvatars);
+
   //videoPageInit("JaAWdljhD5o");   
 });
 
@@ -62,7 +61,7 @@ function youtube_parser(url){
 }
 
 function onYouTubeIframeAPIReady() {
-      console.log("im ready");
+  
      // youtubeId = youtube_parser(youtubeLink);
       if(youtubeId == null)
         youtubeId = "EDVrTYW2l84";
@@ -80,7 +79,7 @@ function onYouTubeIframeAPIReady() {
 
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
-        event.target.playVideo();
+       //event.target.playVideo();
       }
 
       // 5. The API calls this function when the player's state changes.
@@ -92,4 +91,9 @@ function onYouTubeIframeAPIReady() {
       }
       function stopVideo() {
         player.stopVideo();
+      }
+
+      function initVideoPage() {
+          getTodayLesson(getYoutubeLink);
+          getAllOnlineUsers(setAvatars);
       }
