@@ -3,9 +3,9 @@
 // For example:
 
 Parse.Cloud.beforeSave("Avatars", function(request, response) {
-	//var AvatarExtra = Parse.Object.extend("AvatarExtra");
-	//var extra = new AvatarExtra();
-	//extra.set("objectId", "0zxeOkbThj");
+	var AvatarExtra = Parse.Object.extend("AvatarExtra");
+	var extra = new AvatarExtra();
+	extra.set("objectId", "IiBzTnG93X");
 
 	var AvatarExtra = Parse.Object.extend("AvatarEyes");
 	var eyes = new AvatarExtra();
@@ -25,7 +25,7 @@ Parse.Cloud.beforeSave("Avatars", function(request, response) {
 
 	// If there is no value in the eyes field it means there is no values in the other columns
 	if (!request.object.get("eyes")) {
-	  	//request.object.set("extra",null);
+	  	request.object.set("extra",extra);
 	  	request.object.set("eyes",eyes);
 	  	request.object.set("hair",hair);
 	  	request.object.set("head_body",headBody);
