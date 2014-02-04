@@ -277,6 +277,7 @@ function getCurrentUser (callback) {
             callback ( createUserFromParseUser(parseUser) );
           },
           function(error) {
+            getCurrentUser(callback);
             console.log("Error: " + error.description);
   });
 }
