@@ -4,7 +4,7 @@
 
     position: relative;
     width: 800px;
-    height: 523px;
+    height: 395px;
     border-color: #000000;
     border-style: solid;
     margin-left: auto;
@@ -109,10 +109,10 @@
 
 .achievementsWrapper  {
     width: 80%;
-    height: 230px;
+    height: 100px;
     position: absolute;
     left: 5%;
-    top: 56%;
+    top: 72%;
     border: 1px solid none;
     overflow: hidden;
     -webkit-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
@@ -124,10 +124,12 @@
 .achievementsWrapper .imagesContainer  {
 	width : 80%;
 	position : relative;
-	margin : 0 auto;
+	/*margin : 0 auto;*/
 	overflow : auto;
+    margin-top: -24px;
+    margin-left: 45px;
 	/* border : 1px solid blue; */
-	height: 83%;
+	/*height: 83%;*/
 }
 
 .achievementsWrapper .imagesContainer img{
@@ -143,7 +145,7 @@
 
 .avatarWrapper .title{
 	position : absolute;
-	top : 0px;
+	top : 9px;
 	margin-left: 8px;
 	width : 95%;
 	height : 130px;
@@ -167,42 +169,41 @@
 }
 .editBtn{
     z-index: 100;
-    bottom: 0px;
+    top: 0px;
     position: absolute;
 }
 .avatarWrapper .avatar .head{
-	width: 288px;
-	height: 411px;
-	left: 40px;
-	z-index: 0;
+    width: 288px;
+    height: 311px;
+    left: 12px;
+    z-index: 0;
 }
 
 .avatarWrapper .avatar .eyes{
-	width: 222px;
-	top: 14px;
-	left: 68px;
+    width: 212px;
+    top: -4px;
+    left: 46px
 }
 
 .avatarWrapper .avatar .hair{
-	width: 286px;
-	top: 0px;
-	left: 41px;
-	z-index: 1;
+    width: 286px;
+    top: -17px;
+    left: 13px;
+    z-index: 1;
 }
 
 
 .avatarWrapper .avatar .mouth{
-	top: -3px;
-	width: 309px;
-	left: 30px;
+    top: -23px;
+    width: 309px;
+    left: 3px;
 }
 
 .avatarWrapper .avatar .extra {
-	left: -29px;
-	width: 450px;
-	z-index: 2;
-	top: -19px;
-	display: none;
+    left: -53px;
+    width: 450px;
+    z-index: 2;
+    top: -38px;
 }
 
 .avatarWrapper .avatar img{
