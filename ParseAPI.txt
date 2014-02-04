@@ -1,8 +1,8 @@
 ###########################################################################################################################
 
---------------------------------------------------------
-| signUp (callback, username, password, email, gender) |
---------------------------------------------------------
+------------------------------------------------
+| signUp (callback, username, password, email) |
+------------------------------------------------
 
 # Signup function for new users.
 # In the call back function you will get true for successful login, false otherwise
@@ -10,9 +10,9 @@
 
 ###########################################################################################################################
 
--------------------------------------------------
+----------------------------------------
 | logIn (callback, username, password) |
--------------------------------------------------
+----------------------------------------
 
 # Log in function to parse, this will create a parse user over the current session.
 # In the callback function you will get a boolean value,

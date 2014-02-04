@@ -11,7 +11,7 @@ var LOCAL_FULL_AVATAR_PATH = "assets/images/fullAvatarImages/";
 /**
 * Signup function for new users
 */
-function signUp (callback, username, password, email, gender) {
+function signUp (callback, username, password, email) {
 	var user = new Parse.User();
   var avatarObject = Parse.Object.extend("Avatars");
   var avatar = new avatarObject();
@@ -23,7 +23,6 @@ function signUp (callback, username, password, email, gender) {
 
 	user.set("privileges", 1); // 1 Is for normal user 2 is for admin
   user.set("isOnline", true); // Setting the user as online
-  user.set("gender", gender); // Setting the user gender
   user.set("badges", new Array()); // Setting an empty array of badges for the new user
   user.set("favoriteFood", new Array()); // Setting an empty array of favorite food for the new user
 
@@ -278,6 +277,7 @@ function getCurrentUser (callback) {
             callback ( createUserFromParseUser(parseUser) );
           },
           function(error) {
+            getCurrentUser(callback);
             console.log("Error: " + error.description);
   });
 }
