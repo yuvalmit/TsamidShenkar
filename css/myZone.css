@@ -1,7 +1,18 @@
 .myZoneWrapper{
-    background-color: #fffac7;
-    height: 500px;
+
     position: relative;
+
+    position: relative;
+    width: 800px;
+    height: 523px;
+    border-color: #000000;
+    border-style: solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: #fffac7;
+    left: 0%;
 }
 .avatarWrapper{
     height: 80px;
@@ -18,18 +29,24 @@
     /*border : 1px solid red;*/
 }
 .avatarWrapper.row{
-    height: 494px;
+    left: 60%;
+    height: 96%;
+    top: 2%;
+    width: 40%;;
 }
 
+
+
 .favoritesWrapper {
-	width : 520px;
-	height : 600px;
-	overflow : auto;
-	position: absolute;
-	left : 20px;
-	top: 0px;
+    width: 63%;
+    height: 100%;
+    position: relative;
+    left: 0%;
+    top: -3%;
+    overflow: hidden;
 	/* border : 1px solid red; */
 }
+
 
 .favoritesWrapper .itemsContainer  {
 	width: 80%;
@@ -37,6 +54,7 @@
 	/* border: 1px solid blue; */
 	margin: 0 auto;
 	height: 110px;
+    right: 5%;
 }
 
 .favoritesWrapper .itemsContainer .title {
@@ -72,12 +90,12 @@
 
 .favoritesWrapper .prev {
 	position: absolute;
-	left: 11px;
+    left: 1%;
 }
 
 .favoritesWrapper .next {
 	position: absolute;
-	left: 467px;
+    right: 11%;
 
 }
 
@@ -93,8 +111,8 @@
     width: 80%;
     height: 230px;
     position: absolute;
-    left: 48px;
-    top: 318px;
+    left: 5%;
+    top: 56%;
     border: 1px solid none;
     overflow: hidden;
     -webkit-box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.75);

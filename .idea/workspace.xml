@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbce85b4-af53-499f-9bf0-ffc4de34c574" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyZone.html" afterPath="$PROJECT_DIR$/MyZone.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/myZone.css" afterPath="$PROJECT_DIR$/css/myZone.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TsamidShenkar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MyZone.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MyZone.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyZone.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="34" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.8913858" vertical-offset="0" max-vertical-offset="1394">
+            <state line="26" column="34" selection-start="1008" selection-end="1008" vertical-scroll-proportion="-3.2307692" vertical-offset="358" max-vertical-offset="1394">
               <folding />
             </state>
           </provider>
@@ -37,7 +39,25 @@
       <file leaf-file-name="edit-avatar.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/edit-avatar.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="10" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1836">
+            <state line="35" column="17" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1836">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video-player.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/video-player.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="78" selection-start="198" selection-end="198" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="493">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/javascript/video.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1182" max-vertical-offset="1768">
               <folding />
             </state>
           </provider>
@@ -46,7 +66,7 @@
       <file leaf-file-name="edit-avatar.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/edit-avatar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="6" selection-start="22" selection-end="22" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1037">
+            <state line="1" column="6" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1037">
               <folding />
             </state>
           </provider>
@@ -61,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myZone.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="myZone.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/myZone.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="23" selection-start="89" selection-end="89" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="3366">
+            <state line="92" column="13" selection-start="1809" selection-end="1809" vertical-scroll-proportion="0.33214286" vertical-offset="1378" max-vertical-offset="3672">
               <folding />
             </state>
           </provider>
@@ -96,8 +116,8 @@
         <option value="$PROJECT_DIR$/css/video-player.css" />
         <option value="$PROJECT_DIR$/video-player.html" />
         <option value="$PROJECT_DIR$/javascript/myZone.js" />
-        <option value="$PROJECT_DIR$/MyZone.html" />
         <option value="$PROJECT_DIR$/css/edit-avatar.css" />
+        <option value="$PROJECT_DIR$/MyZone.html" />
         <option value="$PROJECT_DIR$/css/myZone.css" />
       </list>
     </option>
@@ -134,6 +154,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -182,7 +203,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -191,8 +211,8 @@
     <property name="options.lastSelected" value="settings.github" />
     <property name="last_opened_file_path" value="$USER_HOME$/WebstormProjects/test" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -201,14 +221,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -217,6 +229,14 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -259,7 +279,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -295,11 +315,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/javascript/objects/lesson.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IdanTest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="4" selection-start="807" selection-end="959" vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="833" />
@@ -332,30 +347,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/video-player.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="653" max-vertical-offset="1173">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/video-player.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="57" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="714">
-          <folding />
-        </state>
+        <state line="45" column="0" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="653" max-vertical-offset="1173" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create-lesson/creatLesson.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="35" selection-start="1248" selection-end="1248" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1241">
-          <folding />
-        </state>
+        <state line="27" column="35" selection-start="1248" selection-end="1248" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1241" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create-lesson/js/create-lesson.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="38" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="2193">
-          <folding />
-        </state>
+        <state line="3" column="38" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="2193" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/myZone.js">
@@ -367,28 +369,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/edit-avatar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="6" selection-start="22" selection-end="22" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1037">
+        <state line="1" column="6" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/video.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1182" max-vertical-offset="1768">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/video-player.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="78" selection-start="198" selection-end="198" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="493">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/edit-avatar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="10" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1836">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/myZone.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="23" selection-start="89" selection-end="89" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="3366">
+        <state line="35" column="17" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1836">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyZone.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="34" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.8913858" vertical-offset="0" max-vertical-offset="1394">
+        <state line="26" column="34" selection-start="1008" selection-end="1008" vertical-scroll-proportion="-3.2307692" vertical-offset="358" max-vertical-offset="1394">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/myZone.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="13" selection-start="1809" selection-end="1809" vertical-scroll-proportion="0.33214286" vertical-offset="1378" max-vertical-offset="3672">
           <folding />
         </state>
       </provider>
