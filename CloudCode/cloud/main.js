@@ -7,20 +7,20 @@ Parse.Cloud.beforeSave("Avatars", function(request, response) {
 	var extra = new AvatarExtra();
 	extra.set("objectId", "IiBzTnG93X");
 
-	var AvatarExtra = Parse.Object.extend("AvatarEyes");
-	var eyes = new AvatarExtra();
+	var AvatarEyes = Parse.Object.extend("AvatarEyes");
+	var eyes = new AvatarEyes();
 	eyes.set("objectId", "XMoYxEhEcg");
 
-	var AvatarExtra = Parse.Object.extend("AvatarHair");
-	var hair = new AvatarExtra();
+	var AvatarHair = Parse.Object.extend("AvatarHair");
+	var hair = new AvatarHair();
 	hair.set("objectId", "Zy44JOjUNM");
 
-	var AvatarExtra = Parse.Object.extend("AvatarHeadBody");
-	var headBody = new AvatarExtra();
+	var AvatarHeadBody = Parse.Object.extend("AvatarHeadBody");
+	var headBody = new AvatarHeadBody();
 	headBody.set("objectId", "cGF0QaYTnY");
 
-	var AvatarExtra = Parse.Object.extend("AvatarMouth");
-	var mouth = new AvatarExtra();
+	var AvatarMouth = Parse.Object.extend("AvatarMouth");
+	var mouth = new AvatarMouth();
 	mouth.set("objectId", "3VilCRLHpS");
 
 	// If there is no value in the eyes field it means there is no values in the other columns
