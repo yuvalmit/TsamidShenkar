@@ -494,5 +494,5 @@ function createAvatarFromParseObject (parseAvatar, option) {
   return userAvatar;
 }
 
-//test sync
+
 
